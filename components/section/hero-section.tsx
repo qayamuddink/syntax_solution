@@ -63,7 +63,7 @@ export function HeroSection({ hero }: { hero: HeroConfig }) {
 
         {/* Right Column — System Architecture & Runtime Panel */}
         <div className="flex flex-col justify-center lg:col-span-5">
-          <div className="group relative overflow-hidden border border-border bg-surface/90 p-6 backdrop-blur-md shadow-[0_12px_40px_rgba(0,0,0,0.35)] transition-all duration-500 hover:border-accent/40 hover:shadow-[0_20px_60px_rgba(185,120,74,0.12)] md:p-8 rounded-sm">
+          <div className="group relative overflow-hidden border border-border bg-surface/90 p-6 backdrop-blur-md shadow-[0_12px_40px_rgba(0,0,0,0.35)] transition-all duration-500 hover:border-accent/40 hover:shadow-[0_20px_60px_rgba(185,120,74,0.12)] md:p-8 rounded-lg">
             {/* Top Panel Header */}
             <div className="flex items-center justify-between border-b border-border pb-4">
               <div className="flex items-center gap-2.5">
@@ -75,7 +75,7 @@ export function HeroSection({ hero }: { hero: HeroConfig }) {
               <div className="flex items-center gap-2">
                 <span className="size-2 rounded-full bg-success animate-pulse" />
                 <span className="font-mono text-[10px] font-medium tracking-[0.14em] text-success">
-                  {hero.telemetryStatus ?? "ACTIVE // VERIFIED"}
+                  {hero.telemetryStatus ?? "LIVE // VERIFIED"}
                 </span>
               </div>
             </div>
@@ -90,14 +90,21 @@ export function HeroSection({ hero }: { hero: HeroConfig }) {
                       row.variant === "accent"
                         ? "text-accent font-medium"
                         : row.variant === "success"
-                        ? "text-success font-medium"
+                        ? "text-success font-medium flex items-center gap-1.5"
                         : "text-foreground font-medium"
                     }
                   >
+                    {row.variant === "success" ? <span className="size-1.5 rounded-full bg-success" /> : null}
                     {row.value}
                   </span>
                 </div>
               ))}
+            </div>
+
+            {/* Bottom Card Annotation */}
+            <div className="mt-6 flex items-center justify-between border-t border-border pt-3 font-mono text-[9px] text-muted-foreground uppercase tracking-[0.14em]">
+              <span>ARCHITECTURE / OBSERVED</span>
+              <span className="text-accent font-semibold">v.01.24</span>
             </div>
           </div>
         </div>

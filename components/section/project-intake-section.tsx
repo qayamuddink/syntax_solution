@@ -33,7 +33,7 @@ export function ProjectIntakeSection({
               </p>
 
               {/* Capacity Telemetry Box */}
-              <div className="mt-10 border border-border bg-surface p-6 font-mono text-xs space-y-4 shadow-[0_12px_40px_rgba(0,0,0,0.35)] rounded-sm">
+              <div className="mt-10 border border-border bg-surface p-6 font-mono text-xs space-y-4 shadow-[0_12px_40px_rgba(0,0,0,0.35)] rounded-lg">
                 <div className="flex items-center justify-between border-b border-border/60 pb-3">
                   <span className="text-muted-foreground uppercase">ONBOARDING CAPACITY:</span>
                   <span className="font-semibold text-success flex items-center gap-1.5">
@@ -67,7 +67,7 @@ export function ProjectIntakeSection({
 
           {/* Right Panel — Form (7 cols) */}
           <div className="lg:col-span-7">
-            <form className="border border-border bg-surface p-6 backdrop-blur-sm shadow-[0_12px_40px_rgba(0,0,0,0.35)] rounded-sm md:p-8" onSubmit={(e) => e.preventDefault()}>
+            <form className="border border-border bg-surface p-6 backdrop-blur-sm shadow-[0_12px_40px_rgba(0,0,0,0.35)] rounded-lg md:p-8" onSubmit={(e) => e.preventDefault()}>
               <div className="space-y-6">
                 {/* Row 1: Name + Email */}
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -87,7 +87,7 @@ export function ProjectIntakeSection({
 
               {/* Submit Button */}
               <button
-                className="mt-8 flex min-h-12 w-full items-center justify-center bg-accent px-6 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-[#0B0C0E] transition-all duration-300 hover:bg-[#c98b5e] hover:shadow-[0_4px_20px_rgba(185,120,74,0.3)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent rounded-sm"
+                className="mt-8 flex min-h-12 w-full items-center justify-center bg-accent px-6 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-[#0B0C0E] transition-all duration-300 hover:bg-[#c98b5e] hover:shadow-[0_4px_20px_rgba(185,120,74,0.3)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent rounded-md"
                 type="submit"
               >
                 SEND PROJECT SPECIFICATION →

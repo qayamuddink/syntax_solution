@@ -18,7 +18,7 @@ export function PricingCard({
   return (
     <article
       className={cn(
-        "group flex flex-col justify-between border border-border bg-surface p-6 backdrop-blur-sm transition-all duration-500 hover:border-accent/40 hover:shadow-[0_20px_60px_rgba(0,0,0,0.35)] md:p-8 rounded-sm",
+        "group flex flex-col justify-between border border-border bg-surface p-6 backdrop-blur-sm transition-all duration-500 hover:border-accent/40 hover:shadow-[0_20px_60px_rgba(0,0,0,0.35)] md:p-8 rounded-lg",
         featured && "border-accent bg-surface-elevated shadow-xl hover:border-accent"
       )}
     >

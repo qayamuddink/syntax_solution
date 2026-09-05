@@ -20,10 +20,10 @@ export function Navigation({ items }: NavigationProps) {
   const closeMenu = useUiStore((state) => state.closeMobileMenu);
 
   return (
-    <header className="relative z-40 border-b border-border bg-background/95 backdrop-blur-xl">
-      <div className="mx-auto flex h-20 max-w-[1280px] items-center justify-between px-6 md:px-16">
+    <header className="sticky top-0 z-50 px-4 pt-3 pb-1">
+      <div className="mx-auto flex h-16 max-w-[1240px] items-center justify-between rounded-xl border border-border/80 bg-surface/85 px-6 backdrop-blur-md shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
         <Link href="#top" className="flex items-center gap-2.5 focus-visible:outline-2 focus-visible:outline-accent">
-          <span className="flex size-6 items-center justify-center border border-accent text-[11px] font-semibold text-accent font-mono">→</span>
+          <span className="flex size-6 items-center justify-center rounded-sm border border-accent text-[11px] font-semibold text-accent font-mono">→</span>
           <span className="font-mono text-xs font-semibold uppercase tracking-[0.14em] text-foreground">
             SyntaxLab <span className="text-accent">Solutions</span>
           </span>
@@ -39,7 +39,7 @@ export function Navigation({ items }: NavigationProps) {
           {/* Animated SVG Sun/Moon Theme Toggle */}
           <button
             aria-label={`Switch to ${mode === "dark" ? "light" : "dark"} theme`}
-            className="group relative flex size-9 items-center justify-center rounded-sm border border-border bg-surface text-muted-foreground transition-colors hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-accent"
+            className="group relative flex size-9 items-center justify-center rounded-md border border-border bg-surface text-muted-foreground transition-colors hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-accent"
             onClick={toggleMode}
             type="button"
           >
@@ -69,14 +69,14 @@ export function Navigation({ items }: NavigationProps) {
           {isOpen ? "CLOSE" : "MENU"}
         </button>
       </div>
-      <div className={cn("border-t border-border lg:hidden", !isOpen && "hidden")}>
-        <nav className="mx-auto flex max-w-[1280px] flex-col px-6 py-4" aria-label="Mobile navigation">
+      <div className={cn("mx-auto mt-2 max-w-[1240px] rounded-xl border border-border bg-surface p-4 shadow-lg lg:hidden", !isOpen && "hidden")}>
+        <nav className="flex flex-col" aria-label="Mobile navigation">
           {items.map((item) => (
-            <Link className="border-b border-border py-4 font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground last:border-b-0" href={item.href} key={item.id} onClick={closeMenu}>
+            <Link className="border-b border-border py-3 font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground last:border-b-0" href={item.href} key={item.id} onClick={closeMenu}>
               {item.label}
             </Link>
           ))}
-          <button className="flex items-center justify-between border-b border-border py-4 font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground" onClick={toggleMode} type="button">
+          <button className="flex items-center justify-between border-b border-border py-3 font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground" onClick={toggleMode} type="button">
             <span>THEME: {mode.toUpperCase()}</span>
             {mode === "dark" ? (
               <svg className="size-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -89,7 +89,7 @@ export function Navigation({ items }: NavigationProps) {
               </svg>
             )}
           </button>
-          <Link className="mt-4 inline-flex min-h-11 items-center justify-center bg-accent px-5 font-mono text-[10px] uppercase tracking-[0.14em] text-[#0B0C0E]" href="#contact" onClick={closeMenu}>START A PROJECT</Link>
+          <Link className="mt-3 inline-flex min-h-11 items-center justify-center rounded-md bg-accent px-5 font-mono text-[10px] uppercase tracking-[0.14em] text-[#0B0C0E]" href="#contact" onClick={closeMenu}>START A PROJECT</Link>
         </nav>
       </div>
     </header>

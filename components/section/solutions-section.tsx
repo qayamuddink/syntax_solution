@@ -50,7 +50,7 @@ export function SolutionsSection({
             </div>
 
             {/* Our Technology Stack Card */}
-            <div className="mt-12 border border-border bg-surface p-6 backdrop-blur-sm shadow-[0_12px_40px_rgba(0,0,0,0.35)] rounded-sm">
+            <div className="mt-12 border border-border bg-surface p-6 backdrop-blur-sm shadow-[0_12px_40px_rgba(0,0,0,0.35)] rounded-lg">
               <div className="flex items-center justify-between border-b border-border pb-3">
                 <div className="flex items-center gap-2">
                   <IconCode className="size-4 text-accent" />
@@ -78,21 +78,20 @@ export function SolutionsSection({
                 <article
                   key={solution.id}
                   onMouseEnter={() => setActiveIndex(idx)}
-                  className={`group border-b border-border py-6 transition-all duration-300 cursor-pointer px-2 rounded-sm ${
-                    activeIndex === idx ? "bg-white/[0.03] border-accent/40" : "hover:bg-white/[0.015]"
+                  className={`group border-b border-border py-6 transition-all duration-300 cursor-pointer px-3 rounded-lg ${
+                    activeIndex === idx ? "bg-white/[0.03] border-accent/40 shadow-sm" : "hover:bg-white/[0.015]"
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <span className="font-mono text-xs font-semibold text-accent">{solution.number}</span>
-                      <TechnicalLabel className="text-muted-foreground">{"// "}{solution.category}</TechnicalLabel>
+                    <div className="flex items-center gap-2 font-mono text-xs font-semibold">
+                      <span className="text-accent">{solution.number} /</span>
+                      <span className="text-foreground uppercase tracking-wider">{solution.title}</span>
                     </div>
                     <IconArrowRight className={`size-3.5 text-accent transition-all duration-300 ${
                       activeIndex === idx ? "translate-x-1 opacity-100" : "opacity-0 group-hover:opacity-100 group-hover:translate-x-1"
                     }`} />
                   </div>
-                  <h3 className="mt-2 text-lg font-bold text-foreground transition-colors duration-200 group-hover:text-accent">{solution.title}</h3>
-                  <p className="mt-2 text-xs leading-6 text-muted-foreground">{solution.description}</p>
+                  <p className="mt-3 text-xs leading-6 text-muted-foreground">{solution.description}</p>
                   <div className="mt-4">
                     <TechnicalLabel className="text-accent">{solution.spec}</TechnicalLabel>
                   </div>
@@ -105,7 +104,7 @@ export function SolutionsSection({
           <div className="lg:col-span-3 lg:pl-2">
             <div className="sticky top-28 space-y-6">
               {/* Visual Card Image Panel */}
-              <div className="group relative overflow-hidden border border-border bg-surface shadow-[0_12px_40px_rgba(0,0,0,0.35)] rounded-sm">
+              <div className="group relative overflow-hidden border border-border bg-surface shadow-[0_12px_40px_rgba(0,0,0,0.35)] rounded-lg">
                 <div className="relative aspect-[4/3] w-full overflow-hidden">
                   <Image
                     src={activeVisual.img}
@@ -115,7 +114,7 @@ export function SolutionsSection({
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent" />
-                  <div className="absolute top-3 left-3 bg-surface/90 px-2 py-1 border border-border font-mono text-[9px] text-accent tracking-wider rounded-sm">
+                  <div className="absolute top-3 left-3 bg-surface/90 px-2.5 py-1 border border-border font-mono text-[9px] text-accent tracking-wider rounded-md">
                     {activeVisual.tag}
                   </div>
                 </div>
@@ -131,7 +130,7 @@ export function SolutionsSection({
               </div>
 
               {/* System Performance Sidebar Widget */}
-              <div className="border border-border bg-surface p-5 backdrop-blur-sm rounded-sm">
+              <div className="border border-border bg-surface p-5 backdrop-blur-sm rounded-lg shadow-sm">
                 <div className="flex items-center justify-between border-b border-border pb-3">
                   <TechnicalLabel className="text-foreground">SYSTEM PERFORMANCE</TechnicalLabel>
                   <span className="font-mono text-[10px] font-semibold text-success flex items-center gap-1.5">

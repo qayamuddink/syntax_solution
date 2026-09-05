@@ -3,7 +3,7 @@ import { TechnicalLabel } from "@/components/ui/technical-label";
 
 export function FormField({ id, label, type, required, options, placeholder }: FormFieldConfig) {
   const className =
-    "mt-2 w-full rounded-sm border border-border bg-surface px-4 py-3 text-xs font-mono text-foreground outline-none transition-all duration-200 placeholder:text-muted-foreground/60 focus:border-accent focus:ring-1 focus:ring-accent/30";
+    "mt-2 w-full rounded-md border border-border bg-surface px-4 py-3 text-xs font-mono text-foreground outline-none transition-all duration-200 placeholder:text-muted-foreground/60 focus:border-accent focus:ring-1 focus:ring-accent/30";
 
   return (
     <label className="block" htmlFor={id}>
