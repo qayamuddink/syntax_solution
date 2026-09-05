@@ -12,7 +12,7 @@ export function Footer() {
         {/* Col 1 — Logo + Description + Latency (5 cols) */}
         <div className="flex flex-col justify-between md:col-span-5">
           <div>
-            <Link href="#top" className="flex items-center gap-2.5">
+            <Link href="/home" className="flex items-center gap-2.5">
               <span className="flex size-6 items-center justify-center border border-accent font-mono text-[11px] font-semibold text-accent">→</span>
               <span className="font-mono text-sm font-semibold uppercase tracking-[0.14em] text-foreground">
                 SyntaxLab <span className="text-accent">Solutions</span>

@@ -22,7 +22,7 @@ export function Navigation({ items }: NavigationProps) {
   return (
     <header className="sticky top-0 z-50 px-4 pt-3 pb-1">
       <div className="mx-auto flex h-16 max-w-[1240px] items-center justify-between rounded-xl border border-border/80 bg-surface/85 px-6 backdrop-blur-md shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
-        <Link href="#top" className="flex items-center gap-2.5 focus-visible:outline-2 focus-visible:outline-accent">
+        <Link href="/home" className="flex items-center gap-2.5 focus-visible:outline-2 focus-visible:outline-accent">
           <span className="flex size-6 items-center justify-center rounded-sm border border-accent text-[11px] font-semibold text-accent font-mono">→</span>
           <span className="font-mono text-xs font-semibold uppercase tracking-[0.14em] text-foreground">
             SyntaxLab <span className="text-accent">Solutions</span>
