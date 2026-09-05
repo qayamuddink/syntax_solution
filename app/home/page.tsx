@@ -1,3 +1,5 @@
 import Home from "../page";
 
-export default Home;
+export default function HomePage() {
+  return <Home targetId="top" />;
+}

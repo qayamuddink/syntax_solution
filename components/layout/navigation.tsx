@@ -63,7 +63,7 @@ export function Navigation({ items }: NavigationProps) {
             </motion.div>
           </button>
 
-          <Button href="#contact" label="START A PROJECT" />
+          <Button href="/contact" label="START A PROJECT" />
         </div>
         <button aria-expanded={isOpen} aria-label="Toggle navigation menu" className="font-mono text-[10px] uppercase tracking-[0.14em] text-foreground lg:hidden" onClick={toggleMenu} type="button">
           {isOpen ? "CLOSE" : "MENU"}
@@ -89,7 +89,7 @@ export function Navigation({ items }: NavigationProps) {
               </svg>
             )}
           </button>
-          <Link className="mt-3 inline-flex min-h-11 items-center justify-center rounded-md bg-accent px-5 font-mono text-[10px] uppercase tracking-[0.14em] text-[#0B0C0E]" href="#contact" onClick={closeMenu}>START A PROJECT</Link>
+          <Link className="mt-3 inline-flex min-h-11 items-center justify-center rounded-md bg-accent px-5 font-mono text-[10px] uppercase tracking-[0.14em] text-[#0B0C0E]" href="/contact" onClick={closeMenu}>START A PROJECT</Link>
         </nav>
       </div>
     </header>

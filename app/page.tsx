@@ -7,11 +7,13 @@ import { HeroSection } from "@/components/section/hero-section";
 import { ProjectIntakeSection } from "@/components/section/project-intake-section";
 import { ProjectsSection, FeaturedWorkSection } from "@/components/section/work-section";
 import { SolutionsSection } from "@/components/section/solutions-section";
+import { SectionScroller } from "@/components/animation/section-scroller";
 import { siteConfig } from "@/data/site-config";
 
-export default function Home() {
+export default function Home({ targetId = "top" }: { targetId?: string }) {
   return (
     <>
+      <SectionScroller targetId={targetId} />
       <Navigation items={siteConfig.navigation} />
       <main>
         <HeroSection hero={siteConfig.hero} />
@@ -29,4 +31,3 @@ export default function Home() {
     </>
   );
 }
-

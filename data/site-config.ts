@@ -8,11 +8,11 @@ export const siteConfig: SiteConfig = {
   },
   theme: themeTokens,
   navigation: [
-    { id: "work", label: "WORK", href: "#work" },
-    { id: "solutions", label: "SOLUTIONS", href: "#solutions" },
-    { id: "process", label: "PROCESS", href: "#process" },
-    { id: "about", label: "ABOUT", href: "#about" },
-    { id: "contact", label: "CONTACT", href: "#contact" },
+    { id: "work", label: "WORK", href: "/work" },
+    { id: "solutions", label: "SOLUTIONS", href: "/solutions" },
+    { id: "process", label: "PROCESS", href: "/process" },
+    { id: "about", label: "ABOUT", href: "/about" },
+    { id: "contact", label: "CONTACT", href: "/contact" },
   ],
   hero: {
     eyebrow: "// SOFTWARE ENGINEERING & ARCHITECTURE",
@@ -22,8 +22,8 @@ export const siteConfig: SiteConfig = {
     description:
       "SyntaxLab Solutions designs and builds high-performance websites, digital products, and custom software systems for independent businesses, specialized practices, and growing brands.",
     actions: [
-      { label: "START A PROJECT", href: "#contact", variant: "primary" },
-      { label: "EXPLORE SOLUTIONS", href: "#solutions", variant: "secondary" },
+      { label: "START A PROJECT", href: "/contact", variant: "primary" },
+      { label: "EXPLORE SOLUTIONS", href: "/solutions", variant: "secondary" },
     ],
     metrics: [
       { id: "lcp", value: "<0.8s", label: "LCP BENCHMARK" },
@@ -355,7 +355,7 @@ export const siteConfig: SiteConfig = {
         { text: "Turnkey Contact Dispatch & CRM hook", included: true },
         { text: "Headless Inventory Sync", included: false },
       ],
-      cta: { label: "SELECT STARTER SPEC", href: "#contact", variant: "secondary" },
+      cta: { label: "SELECT STARTER SPEC", href: "/contact", variant: "secondary" },
     },
     {
       id: "growth",
@@ -372,7 +372,7 @@ export const siteConfig: SiteConfig = {
         { text: "Multi-language Localization (EN / IT / DE)", included: true },
         { text: "60 Days High-Assurance Post-Launch SLA", included: true },
       ],
-      cta: { label: "SELECT GROWTH SPEC", href: "#contact", variant: "primary" },
+      cta: { label: "SELECT GROWTH SPEC", href: "/contact", variant: "primary" },
       featured: true,
     },
     {
@@ -389,7 +389,7 @@ export const siteConfig: SiteConfig = {
         { text: "Real-Time WebSockets Telemetry", included: true },
         { text: "Dedicated 24/7 Priority Emergency Access", included: true },
       ],
-      cta: { label: "CUSTOM ARCHITECTURE SPEC", href: "#contact", variant: "secondary" },
+      cta: { label: "CUSTOM ARCHITECTURE SPEC", href: "/contact", variant: "secondary" },
     },
   ],
   intake: {
@@ -417,12 +417,12 @@ export const siteConfig: SiteConfig = {
         id: "index",
         label: "PLATFORM INDEX",
         links: [
-          { id: "process-pipeline", label: "Process Pipeline", href: "#process" },
-          { id: "core-solutions", label: "Core Solutions", href: "#solutions" },
-          { id: "engineering-index", label: "Engineering Index", href: "#work" },
-          { id: "featured-work", label: "Featured Work", href: "#featured-work" },
-          { id: "studio-manifesto", label: "Studio Manifesto", href: "#manifesto" },
-          { id: "engagement-tiers", label: "Engagement Tiers", href: "#pricing" },
+          { id: "process-pipeline", label: "Process Pipeline", href: "/process" },
+          { id: "core-solutions", label: "Core Solutions", href: "/solutions" },
+          { id: "engineering-index", label: "Engineering Index", href: "/work" },
+          { id: "featured-work", label: "Featured Work", href: "/featured-work" },
+          { id: "studio-manifesto", label: "Studio Manifesto", href: "/manifesto" },
+          { id: "engagement-tiers", label: "Engagement Tiers", href: "/pricing" },
         ],
       },
     ],

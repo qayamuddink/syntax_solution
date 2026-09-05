@@ -42,7 +42,7 @@ export function SolutionsSection({
                 Custom, fast, and responsive digital systems configured to solve real operational bottlenecks for local businesses, boutiques, and specialized practices.
               </p>
               <div className="mt-6">
-                <Link href="#contact" className="inline-flex items-center gap-2 font-mono text-xs font-semibold text-accent transition-opacity hover:opacity-80">
+                <Link href="/contact" className="inline-flex items-center gap-2 font-mono text-xs font-semibold text-accent transition-opacity hover:opacity-80">
                   <span>DISCUSS BESPOKE SPECIFICATIONS</span>
                   <IconArrowRight className="size-3.5" />
                 </Link>

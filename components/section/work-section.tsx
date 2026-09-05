@@ -76,7 +76,7 @@ export function FeaturedWorkSection({ projects }: { projects: FeaturedProject[] 
                 <p className="mt-3 text-xs leading-6 text-muted-foreground">{primary.description}</p>
                 <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-border/60 pt-4 font-mono text-[11px]">
                   <span className="text-muted-foreground">{primary.stackText}</span>
-                  <Link href="#contact" className="font-semibold text-accent hover:underline">
+                  <Link href="/contact" className="font-semibold text-accent hover:underline">
                     {primary.actionText ?? "VIEW ARCHITECTURE →"}
                   </Link>
                 </div>
@@ -99,7 +99,7 @@ export function FeaturedWorkSection({ projects }: { projects: FeaturedProject[] 
                 <p className="mt-3 text-xs leading-6 text-muted-foreground">{secondary.description}</p>
                 <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-border/60 pt-4 font-mono text-[11px]">
                   <span className="text-muted-foreground">{secondary.stackText}</span>
-                  <Link href="#contact" className="font-semibold text-accent hover:underline">
+                  <Link href="/contact" className="font-semibold text-accent hover:underline">
                     {secondary.actionText ?? "EXPLORE CASE →"}
                   </Link>
                 </div>
@@ -122,7 +122,7 @@ export function FeaturedWorkSection({ projects }: { projects: FeaturedProject[] 
                 <p className="mt-3 text-xs leading-6 text-muted-foreground">{project.description}</p>
                 <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-border/60 pt-4 font-mono text-[11px]">
                   <span className="text-muted-foreground">{project.stackText}</span>
-                  <Link href="#contact" className="font-semibold text-accent hover:underline">
+                  <Link href="/contact" className="font-semibold text-accent hover:underline">
                     {project.actionText ?? "VIEW CASE →"}
                   </Link>
                 </div>
