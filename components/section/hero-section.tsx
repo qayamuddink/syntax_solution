@@ -1,3 +1,6 @@
+"use client";
+
+import { motion, type Variants } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { Metric } from "@/components/ui/metric";
 import { TechnicalLabel } from "@/components/ui/technical-label";
@@ -5,6 +8,15 @@ import { HeroShader } from "@/components/animation/hero-shader";
 import { HeroOrbVisual } from "@/components/animation/hero-orb";
 import { IconSystem } from "@/components/ui/icons";
 import type { HeroConfig } from "@/lib/types";
+
+const fadeInVariants: Variants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: (delay: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, delay },
+  }),
+};
 
 export function HeroSection({ hero }: { hero: HeroConfig }) {
   return (
@@ -30,40 +42,77 @@ export function HeroSection({ hero }: { hero: HeroConfig }) {
         {/* Left Column */}
         <div className="flex flex-col justify-between lg:col-span-7 lg:pr-6">
           <div className="max-w-2xl">
-            <TechnicalLabel className="text-accent font-mono text-[11px] tracking-[0.14em]">
-              {hero.eyebrow ?? "// SOFTWARE ENGINEERING & ARCHITECTURE"}
-            </TechnicalLabel>
-            
-            <h1 className="mt-8 max-w-3xl text-[clamp(2.75rem,5.8vw,5.2rem)] font-medium leading-[0.95] tracking-[-0.055em] text-foreground">
+            <motion.div
+              custom={0.1}
+              initial="hidden"
+              animate="visible"
+              variants={fadeInVariants}
+            >
+              <TechnicalLabel className="text-accent font-mono text-[11px] tracking-[0.14em]">
+                {hero.eyebrow ?? "// SOFTWARE ENGINEERING & ARCHITECTURE"}
+              </TechnicalLabel>
+            </motion.div>
+
+            <motion.h1
+              custom={0.2}
+              initial="hidden"
+              animate="visible"
+              variants={fadeInVariants}
+              className="mt-8 max-w-3xl text-[clamp(2.75rem,5.8vw,5.2rem)] font-medium leading-[0.95] tracking-[-0.055em] text-foreground"
+            >
               {hero.titlePrefix ?? "YOUR BUSINESS."}
               <br />
               <span className="text-accent">{hero.titleAccent ?? "BUILT FOR THE WEB."}</span>
-            </h1>
-            
-            <p className="mt-8 max-w-xl text-base leading-7 text-muted-foreground md:text-[17px]">
+            </motion.h1>
+
+            <motion.p
+              custom={0.3}
+              initial="hidden"
+              animate="visible"
+              variants={fadeInVariants}
+              className="mt-8 max-w-xl text-base leading-7 text-muted-foreground md:text-[17px]"
+            >
               {hero.description}
-            </p>
-            
-            <div className="mt-9 flex flex-wrap gap-3">
+            </motion.p>
+
+            <motion.div
+              custom={0.4}
+              initial="hidden"
+              animate="visible"
+              variants={fadeInVariants}
+              className="mt-9 flex flex-wrap gap-3"
+            >
               {hero.actions.map((action) => (
                 <Button href={action.href} key={action.label} label={action.label} variant={action.variant} />
               ))}
-            </div>
+            </motion.div>
           </div>
 
           {/* Bottom Metrics with Vertical Dividers */}
-          <div className="mt-16 grid max-w-xl grid-cols-3 divide-x divide-border border-t border-border pt-8 lg:mt-12">
+          <motion.div
+            custom={0.5}
+            initial="hidden"
+            animate="visible"
+            variants={fadeInVariants}
+            className="mt-16 grid max-w-xl grid-cols-3 divide-x divide-border border-t border-border pt-8 lg:mt-12"
+          >
             {hero.metrics.map((metric) => (
               <div key={metric.id} className="first:pl-0 px-4 last:pr-0">
                 <Metric {...metric} />
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
 
         {/* Right Column — System Architecture & Runtime Panel */}
         <div className="flex flex-col justify-center lg:col-span-5">
-          <div className="group relative overflow-hidden border border-border bg-surface/90 p-6 backdrop-blur-md shadow-[0_12px_40px_rgba(0,0,0,0.35)] transition-all duration-500 hover:border-accent/40 hover:shadow-[0_20px_60px_rgba(185,120,74,0.12)] md:p-8 rounded-lg">
+          <motion.div
+            custom={0.4}
+            initial="hidden"
+            animate="visible"
+            variants={fadeInVariants}
+            className="group relative overflow-hidden border border-border bg-surface/90 p-6 backdrop-blur-md shadow-[0_12px_40px_rgba(0,0,0,0.35)] transition-all duration-500 hover:border-accent/40 hover:shadow-[0_20px_60px_rgba(185,120,74,0.12)] md:p-8 rounded-lg"
+          >
             {/* Top Panel Header */}
             <div className="flex items-center justify-between border-b border-border pb-4">
               <div className="flex items-center gap-2.5">
@@ -106,7 +155,7 @@ export function HeroSection({ hero }: { hero: HeroConfig }) {
               <span>ARCHITECTURE / OBSERVED</span>
               <span className="text-accent font-semibold">v.01.24</span>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
