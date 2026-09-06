@@ -18,8 +18,8 @@ export function PricingCard({
   return (
     <article
       className={cn(
-        "group flex flex-col justify-between border border-border bg-surface p-6 backdrop-blur-sm transition-all duration-500 hover:border-accent/40 hover:shadow-[0_20px_60px_rgba(0,0,0,0.35)] md:p-8 rounded-lg",
-        featured && "border-accent bg-surface-elevated shadow-xl hover:border-accent"
+        "group flex flex-col justify-between border border-border/80 bg-surface p-6 backdrop-blur-sm transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-accent/60 hover:shadow-[0_20px_50px_rgba(196,114,68,0.12)] md:p-8 rounded-xl",
+        featured && "border-accent bg-surface-elevated/90 shadow-[0_16px_40px_rgba(196,114,68,0.16)] hover:border-accent"
       )}
     >
       <div>
@@ -30,11 +30,11 @@ export function PricingCard({
           {tierTag}
         </TechnicalLabel>
 
-        <h3 className="mt-4 text-2xl font-bold tracking-tight text-foreground">{name}</h3>
-        <p className="mt-2 text-xs leading-6 text-muted-foreground">{subtitle}</p>
+        <h3 className="mt-4 text-xl md:text-2xl font-bold tracking-tight text-foreground">{name}</h3>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground font-normal">{subtitle}</p>
 
         <div className="mt-6 flex items-baseline gap-2 border-y border-border/60 py-4">
-          <span className={cn("font-mono text-3xl font-bold", featured ? "text-accent" : "text-foreground")}>
+          <span className={cn("font-mono text-2xl md:text-3xl font-bold tracking-tight", featured ? "text-accent" : "text-foreground")}>
             {price}
           </span>
           <span className="font-mono text-xs text-muted-foreground">{pricePeriod}</span>
@@ -46,11 +46,11 @@ export function PricingCard({
               {feature.included ? (
                 <IconCheck className="size-3.5 text-success shrink-0 mt-0.5" />
               ) : (
-                <span className="size-3.5 flex items-center justify-center font-bold text-muted-foreground/40 shrink-0 mt-0.5">
+                <span className="size-3.5 flex items-center justify-center font-bold text-muted-foreground/70 shrink-0 mt-0.5">
                   !
                 </span>
               )}
-              <span className={feature.included ? "text-foreground" : "text-muted-foreground/50 line-through"}>
+              <span className={feature.included ? "text-foreground" : "text-muted-foreground/80 line-through"}>
                 {feature.text}
               </span>
             </li>

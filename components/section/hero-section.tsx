@@ -2,99 +2,154 @@
 
 import { motion, type Variants } from "motion/react";
 import { Button } from "@/components/ui/button";
+import { Container } from "@/components/ui/container";
+import { Divider } from "@/components/ui/divider";
 import { Metric } from "@/components/ui/metric";
 import { TechnicalLabel } from "@/components/ui/technical-label";
 import { HeroShader } from "@/components/animation/hero-shader";
 import { HeroOrbVisual } from "@/components/animation/hero-orb";
-import { IconSystem } from "@/components/ui/icons";
+import {
+  IconSystem,
+  IconTarget,
+  IconDispatch,
+  IconLatency,
+  IconNode,
+  IconMemory,
+  IconRender,
+  IconDaemon,
+} from "@/components/ui/icons";
 import type { HeroConfig } from "@/lib/types";
 
-const fadeInVariants: Variants = {
-  hidden: { opacity: 0, y: 16 },
-  visible: (delay: number) => ({
+const heroEyebrowVariants: Variants = {
+  hidden: { opacity: 0, y: 6 },
+  visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, delay },
-  }),
+    transition: { duration: 0.35, delay: 0.05, ease: [0.25, 0.1, 0.25, 1.0] },
+  },
+};
+
+const heroHeadlineVariants: Variants = {
+  hidden: { opacity: 0, y: 12 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, delay: 0.13, ease: [0.25, 0.1, 0.25, 1.0] },
+  },
+};
+
+const heroParagraphVariants: Variants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, delay: 0.2, ease: [0.25, 0.1, 0.25, 1.0] },
+  },
+};
+
+const heroCtaVariants: Variants = {
+  hidden: { opacity: 0, y: 8 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, delay: 0.27, ease: [0.25, 0.1, 0.25, 1.0] },
+  },
+};
+
+const heroMetricsVariants: Variants = {
+  hidden: { opacity: 0, y: 6 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, delay: 0.34, ease: [0.25, 0.1, 0.25, 1.0] },
+  },
 };
 
 export function HeroSection({ hero }: { hero: HeroConfig }) {
-  return (
-    <section className="relative border-b border-border bg-background overflow-hidden" id="top">
-      {/* Layer 1: Architectural grid & canvas background */}
-      <HeroShader className="absolute inset-0 pointer-events-none z-0 opacity-60" />
+  const telemetryIcons = [
+    IconTarget,
+    IconDispatch,
+    IconLatency,
+    IconNode,
+    IconMemory,
+    IconRender,
+    IconDaemon,
+  ];
 
-      {/* Layer 2: 3D Spherical/Orb Computational Topology visual */}
-      <HeroOrbVisual className="absolute right-0 top-1/2 -translate-y-1/2 h-[550px] w-[550px] pointer-events-none z-0 opacity-40 lg:opacity-75" />
+  return (
+    <>
+      <section className="relative bg-background overflow-hidden" id="top">
+      {/* Layer 1: Architectural atmospheric grid & copper light background */}
+      <HeroShader className="absolute inset-0 pointer-events-none z-0 opacity-70" />
+
+      {/* Layer 2: 3D Spherical/Orbital Architectural Topology visual behind telemetry card */}
+      <HeroOrbVisual className="absolute right-[-40px] top-1/2 -translate-y-1/2 h-[640px] w-[640px] pointer-events-none z-0 opacity-50 lg:opacity-85" />
 
       {/* Technical Interface Side Markers */}
-      <div className="pointer-events-none absolute left-6 top-10 hidden font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground/50 lg:block">
+      <div className="pointer-events-none absolute left-6 top-8 hidden font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground/80 lg:block">
         <div className="flex items-center gap-2">
           <span className="size-1.5 rounded-full bg-accent" />
           <span>ITERATE // MEASURE // BUILD</span>
         </div>
       </div>
-      <div className="pointer-events-none absolute right-6 top-10 hidden font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground/50 lg:block">
+      <div className="pointer-events-none absolute right-6 top-8 hidden font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground/80 lg:block">
         <span>SYS_REF: STX_2025.2</span>
       </div>
 
-      <div className="relative z-10 mx-auto grid min-h-[665.5px] max-w-[1280px] grid-cols-1 gap-12 px-6 pb-24 pt-16 md:px-16 lg:grid-cols-12">
-        {/* Left Column */}
+      <div className="relative z-10 mx-auto grid min-h-[670px] max-w-[1280px] grid-cols-1 gap-12 px-6 pb-24 pt-14 md:px-16 lg:grid-cols-12">
+        {/* Left Column — Editorial Hero Content */}
         <div className="flex flex-col justify-between lg:col-span-7 lg:pr-6">
           <div className="max-w-2xl">
             <motion.div
-              custom={0.1}
               initial="hidden"
               animate="visible"
-              variants={fadeInVariants}
+              variants={heroEyebrowVariants}
             >
-              <TechnicalLabel className="text-accent font-mono text-[11px] tracking-[0.14em]">
-                {hero.eyebrow ?? "// SOFTWARE ENGINEERING & ARCHITECTURE"}
+              <TechnicalLabel className="text-accent font-mono text-[11px] md:text-xs font-medium tracking-[0.14em]">
+                {hero.eyebrow ?? "// WEB DESIGN & SOFTWARE DEVELOPMENT"}
               </TechnicalLabel>
             </motion.div>
 
             <motion.h1
-              custom={0.2}
               initial="hidden"
               animate="visible"
-              variants={fadeInVariants}
-              className="mt-8 max-w-3xl text-[clamp(2.75rem,5.8vw,5.2rem)] font-medium leading-[0.95] tracking-[-0.055em] text-foreground"
+              variants={heroHeadlineVariants}
+              className="mt-7 max-w-3xl text-[2.65rem] sm:text-5xl md:text-6xl lg:text-[4.5rem] font-extrabold leading-[0.98] tracking-[-0.04em] text-foreground"
             >
-              {hero.titlePrefix ?? "YOUR BUSINESS."}
+              YOUR BUSINESS.
               <br />
-              <span className="text-accent">{hero.titleAccent ?? "BUILT FOR THE WEB."}</span>
+              <span className="text-accent">BUILT FOR THE</span>
+              <br />
+              <span className="text-accent">MODERN WEB.</span>
             </motion.h1>
 
             <motion.p
-              custom={0.3}
               initial="hidden"
               animate="visible"
-              variants={fadeInVariants}
-              className="mt-8 max-w-xl text-base leading-7 text-muted-foreground md:text-[17px]"
+              variants={heroParagraphVariants}
+              className="mt-7 max-w-xl text-[15px] md:text-[17px] leading-relaxed text-muted-foreground font-normal"
             >
               {hero.description}
             </motion.p>
 
             <motion.div
-              custom={0.4}
               initial="hidden"
               animate="visible"
-              variants={fadeInVariants}
-              className="mt-9 flex flex-wrap gap-3"
+              variants={heroCtaVariants}
             >
-              {hero.actions.map((action) => (
-                <Button href={action.href} key={action.label} label={action.label} variant={action.variant} />
-              ))}
+              <div className="mt-8 flex flex-wrap items-center gap-4">
+                <Button href="/contact" label="START A PROJECT" variant="primary" />
+                <Button href="/solutions" label="EXPLORE SOLUTIONS" variant="secondary" />
+              </div>
             </motion.div>
           </div>
 
-          {/* Bottom Metrics with Vertical Dividers */}
+          {/* Bottom Metrics with Vertical Line Dividers */}
           <motion.div
-            custom={0.5}
             initial="hidden"
             animate="visible"
-            variants={fadeInVariants}
-            className="mt-16 grid max-w-xl grid-cols-3 divide-x divide-border border-t border-border pt-8 lg:mt-12"
+            variants={heroMetricsVariants}
+            className="mt-14 grid max-w-xl grid-cols-3 divide-x divide-border border-t border-border pt-7 lg:mt-10"
           >
             {hero.metrics.map((metric) => (
               <div key={metric.id} className="first:pl-0 px-4 last:pr-0">
@@ -104,68 +159,79 @@ export function HeroSection({ hero }: { hero: HeroConfig }) {
           </motion.div>
         </div>
 
-        {/* Right Column — System Architecture & Runtime Panel */}
+        {/* Right Column — System Architecture & Runtime Telemetry Panel */}
         <div className="flex flex-col justify-center lg:col-span-5">
           <motion.div
-            custom={0.4}
             initial="hidden"
             animate="visible"
-            variants={fadeInVariants}
-            className="group relative overflow-hidden border border-border bg-surface/90 p-6 backdrop-blur-md shadow-[0_12px_40px_rgba(0,0,0,0.35)] transition-all duration-500 hover:border-accent/40 hover:shadow-[0_20px_60px_rgba(185,120,74,0.12)] md:p-8 rounded-lg"
+            variants={heroMetricsVariants}
+            className="border-copper-glow group relative overflow-hidden rounded-xl border border-border/90 bg-surface-elevated/90 p-6 backdrop-blur-md shadow-[0_16px_50px_rgba(0,0,0,0.25)] transition-all duration-300 hover:border-accent/40 md:p-7"
           >
-            {/* Top Panel Header */}
-            <div className="flex items-center justify-between border-b border-border pb-4">
+            {/* Panel Top Header */}
+            <div className="flex items-center justify-between border-b border-border/80 pb-4">
               <div className="flex items-center gap-2.5">
                 <IconSystem className="size-4 text-accent" />
-                <TechnicalLabel className="font-mono text-[11px] tracking-[0.14em] text-foreground">
+                <TechnicalLabel className="font-mono text-[11px] font-semibold tracking-[0.14em] text-foreground">
                   {hero.telemetryTitle ?? "SYSTEM ARCHITECTURE & RUNTIME"}
                 </TechnicalLabel>
               </div>
               <div className="flex items-center gap-2">
-                <span className="size-2 rounded-full bg-success animate-pulse" />
-                <span className="font-mono text-[10px] font-medium tracking-[0.14em] text-success">
-                  {hero.telemetryStatus ?? "LIVE // VERIFIED"}
+                <motion.span
+                  animate={{ opacity: [1, 0.4, 1] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  className="size-2 rounded-full bg-success inline-block"
+                />
+                <span className="font-mono text-[10px] font-semibold tracking-[0.14em] text-success">
+                  {hero.telemetryStatus ?? "ACTIVE // VERIFIED"}
                 </span>
               </div>
             </div>
 
             {/* Spec / Telemetry Rows */}
             <div className="mt-4 divide-y divide-border/60">
-              {hero.telemetryRows?.map((row, idx) => (
-                <div key={idx} className="flex items-center justify-between py-3 font-mono text-[11px] tracking-[0.08em] transition-colors duration-200 hover:bg-white/[0.02] px-1 rounded-sm">
-                  <span className="text-muted-foreground uppercase">{row.label}</span>
-                  <span
-                    className={
-                      row.variant === "accent"
-                        ? "text-accent font-medium"
-                        : row.variant === "success"
-                        ? "text-success font-medium flex items-center gap-1.5"
-                        : "text-foreground font-medium"
-                    }
+              {hero.telemetryRows?.map((row, idx) => {
+                const RowIcon = telemetryIcons[idx % telemetryIcons.length] ?? IconSystem;
+                return (
+                  <div
+                    key={idx}
+                    className="flex items-center justify-between py-2.5 font-mono text-[11px] tracking-[0.06em] transition-colors duration-150 hover:bg-white/[0.02] px-1 rounded-sm"
                   >
-                    {row.variant === "success" ? <span className="size-1.5 rounded-full bg-success" /> : null}
-                    {row.value}
-                  </span>
-                </div>
-              ))}
+                    <div className="flex items-center gap-2.5 text-muted-foreground">
+                      <RowIcon className="size-3.5 text-muted-foreground shrink-0" />
+                      <span className="uppercase text-[10px]">{row.label}</span>
+                    </div>
+                    <span
+                      className={
+                        row.variant === "accent"
+                          ? "text-accent font-semibold"
+                          : row.variant === "success"
+                          ? "text-success font-semibold flex items-center gap-1.5"
+                          : "text-foreground font-medium"
+                      }
+                    >
+                      {row.variant === "success" ? <span className="size-1.5 rounded-full bg-success inline-block" /> : null}
+                      {row.value}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
 
             {/* Bottom Card Annotation */}
-            <div className="mt-6 flex items-center justify-between border-t border-border pt-3 font-mono text-[9px] text-muted-foreground uppercase tracking-[0.14em]">
+            <div className="mt-5 flex items-center justify-between border-t border-border/80 pt-3 font-mono text-[10px] text-muted-foreground uppercase tracking-[0.14em]">
               <span>ARCHITECTURE / OBSERVED</span>
-              <span className="text-accent font-semibold">v.01.24</span>
+              <span className="text-accent font-bold">V.01.24</span>
             </div>
           </motion.div>
         </div>
       </div>
-
-      {/* Scroll to Explore Indicator */}
-      <div className="absolute bottom-4 left-6 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground/70 md:left-16">
-        <span className="h-6 w-px bg-accent/60 animate-pulse" />
-        <span>SCROLL TO EXPLORE</span>
-      </div>
     </section>
+    <Container className="px-6 md:px-16">
+      <Divider />
+    </Container>
+    </>
   );
 }
+
 
 

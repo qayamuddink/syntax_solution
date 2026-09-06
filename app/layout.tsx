@@ -14,21 +14,33 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://syntaxlabsolutions.com"),
   title: "SyntaxLab Solutions",
-  description: "Software, systems, and engineering built for the web.",
+  description: "Web design, software development, and digital solutions for local and growing businesses.",
+  alternates: {
+    canonical: "./",
+  },
   openGraph: {
     title: "SyntaxLab Solutions",
-    description: "Software, systems, and engineering built for the web.",
+    description: "Web design, software development, and digital solutions for local and growing businesses.",
+    url: "https://syntaxlabsolutions.com",
+    siteName: "SyntaxLab Solutions",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SyntaxLab Solutions",
+    description: "Web design, software development, and digital solutions for local and growing businesses.",
   },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );
 }
+

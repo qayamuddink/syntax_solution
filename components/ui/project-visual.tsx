@@ -9,7 +9,7 @@ interface ProjectVisualProps {
 
 export function ProjectVisual({ image, alt, className }: ProjectVisualProps) {
   return (
-    <div className={cn("group relative min-h-[220px] overflow-hidden border border-border bg-surface shadow-sm transition-colors duration-300 hover:border-accent/50", className)}>
+    <div className={cn("group relative min-h-[220px] overflow-hidden rounded-lg border border-border bg-surface shadow-sm transition-all duration-300 hover:border-accent/50", className)}>
       <Image
         alt={alt}
         className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
@@ -21,4 +21,5 @@ export function ProjectVisual({ image, alt, className }: ProjectVisualProps) {
     </div>
   );
 }
+
 

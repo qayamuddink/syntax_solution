@@ -1,18 +1,19 @@
 import { SectionReveal, StaggerGroup } from "@/components/animation/motion-primitives";
 import { Container } from "@/components/ui/container";
+import { Divider } from "@/components/ui/divider";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { TechnicalLabel } from "@/components/ui/technical-label";
 import type { FrictionStep } from "@/lib/types";
 
 export function BusinessFrictionSection({ steps }: { steps: FrictionStep[] }) {
   return (
-    <section className="border-b border-border bg-background" id="friction">
+    <section className="bg-background" id="friction">
       <Container className="px-6 py-20 md:px-16">
         <SectionReveal>
           <SectionHeading
             eyebrow="// HOW WE BUILD"
-            title="From Business Challenge to Running Interface"
-            description="A dependable, step-by-step engineering process crafted to deliver high-performance digital tools with complete reliability."
+            title="From Business Idea to Live Website"
+            description="A clear, practical process designed to take your business from an initial idea to a reliable digital presence."
           />
         </SectionReveal>
         
@@ -27,8 +28,8 @@ export function BusinessFrictionSection({ steps }: { steps: FrictionStep[] }) {
                       <span className="font-mono text-[10px] tracking-[0.12em] text-muted-foreground">{step.estimate}</span>
                     ) : null}
                   </div>
-                  <h3 className="mt-8 text-xl font-bold uppercase tracking-tight text-foreground">{step.title}</h3>
-                  <p className="mt-4 text-xs leading-6 text-muted-foreground">{step.description}</p>
+                  <h3 className="mt-8 text-lg md:text-xl font-semibold uppercase tracking-tight text-foreground">{step.title}</h3>
+                  <p className="mt-3 text-sm md:text-[15px] leading-relaxed text-muted-foreground font-normal">{step.description}</p>
                 </div>
                 
                 {step.deliverable ? (
@@ -42,6 +43,9 @@ export function BusinessFrictionSection({ steps }: { steps: FrictionStep[] }) {
             ))}
           </div>
         </StaggerGroup>
+      </Container>
+      <Container className="px-6 md:px-16">
+        <Divider />
       </Container>
     </section>
   );

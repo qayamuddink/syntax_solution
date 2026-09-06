@@ -61,21 +61,29 @@ export function HeroShader({ className }: HeroShaderProps) {
     const draw = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // Subtle ambient copper glow in upper right area
-      const glowGrad = ctx.createRadialGradient(
-        width * 0.75,
-        height * 0.35,
-        20,
-        width * 0.75,
-        height * 0.35,
-        width * 0.55
-      );
-      glowGrad.addColorStop(0, "rgba(185, 120, 74, 0.07)");
-      glowGrad.addColorStop(0.6, "rgba(185, 120, 74, 0.02)");
-      glowGrad.addColorStop(1, "rgba(0, 0, 0, 0)");
+      if (!width || !height || width <= 0 || height <= 0) return;
 
-      ctx.fillStyle = glowGrad;
-      ctx.fillRect(0, 0, width, height);
+      const r0 = 20;
+      const r1 = Math.max(r0 + 10, width * 0.55);
+
+      if (Number.isFinite(r0) && Number.isFinite(r1)) {
+        // Subtle ambient copper glow in upper right area
+        const glowGrad = ctx.createRadialGradient(
+          width * 0.75,
+          height * 0.35,
+          r0,
+          width * 0.75,
+          height * 0.35,
+          r1
+        );
+        glowGrad.addColorStop(0, "rgba(196, 114, 68, 0.07)");
+        glowGrad.addColorStop(0.6, "rgba(196, 114, 68, 0.02)");
+        glowGrad.addColorStop(1, "rgba(0, 0, 0, 0)");
+
+        ctx.fillStyle = glowGrad;
+        ctx.fillRect(0, 0, width, height);
+      }
+
 
       // Faint architectural grid lines
       const gridSize = 48;

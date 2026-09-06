@@ -1,25 +1,27 @@
 @import "tailwindcss";
 
 :root {
-	--background: #0b0c0e;
-	--surface: #111316;
-	--surface-elevated: #15171a;
+	--background: #08090a;
+	--surface: #0d0f12;
+	--surface-elevated: #13161a;
 	--foreground: #f4f0e8;
-	--muted-foreground: #9a9b98;
-	--border: #222629;
-	--accent: #b9784a;
-	--success: #7c9b82;
+	--muted-foreground: #a1a3a8;
+	--border: #2e333b;
+	--accent: #c47244;
+	--accent-glow: rgba(196, 114, 68, 0.25);
+	--success: #22c55e;
 }
 
 [data-theme="light"] {
-	--background: #f3f0e8;
-	--surface: #faf8f5;
+	--background: #f4f1ea;
+	--surface: #faf7f2;
 	--surface-elevated: #ffffff;
-	--foreground: #171817;
-	--muted-foreground: #686965;
-	--border: #d6d0c4;
-	--accent: #a9663d;
-	--success: #55775d;
+	--foreground: #141516;
+	--muted-foreground: #4b4e54;
+	--border: #cfc8bb;
+	--accent: #b86438;
+	--accent-glow: rgba(184, 100, 56, 0.2);
+	--success: #16a34a;
 }
 
 @theme inline {
@@ -47,9 +49,27 @@ body {
 	background: var(--background);
 	color: var(--foreground);
 	font-family: var(--font-geist-sans), sans-serif;
+	overflow-x: hidden;
 }
 
 ::selection {
 	background: var(--accent);
-	color: var(--background);
+	color: #08090a;
 }
+
+/* Structural Border Glow Utility */
+.border-copper-glow {
+	position: relative;
+}
+
+.border-copper-glow::before {
+	content: "";
+	position: absolute;
+	top: -1px;
+	left: 20%;
+	right: 20%;
+	height: 1px;
+	background: linear-gradient(90deg, transparent, rgba(196, 114, 68, 0.4), transparent);
+	pointer-events: none;
+}
+

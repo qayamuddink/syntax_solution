@@ -38,6 +38,86 @@ export function IconSystem(props: IconProps) {
   );
 }
 
+export function IconTarget(props: IconProps) {
+  return (
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <circle cx="12" cy="12" r="8" />
+      <circle cx="12" cy="12" r="3" />
+      <line x1="12" y1="2" x2="12" y2="4" />
+      <line x1="12" y1="20" x2="12" y2="22" />
+      <line x1="2" y1="12" x2="4" y2="12" />
+      <line x1="20" y1="12" x2="22" y2="12" />
+    </svg>
+  );
+}
+
+export function IconDispatch(props: IconProps) {
+  return (
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
+      <line x1="14" y1="4" x2="10" y2="20" />
+    </svg>
+  );
+}
+
+export function IconLatency(props: IconProps) {
+  return (
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 12l4-4" />
+      <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+    </svg>
+  );
+}
+
+export function IconNode(props: IconProps) {
+  return (
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <rect x="3" y="3" width="7" height="7" rx="1" />
+      <rect x="14" y="3" width="7" height="7" rx="1" />
+      <rect x="14" y="14" width="7" height="7" rx="1" />
+      <rect x="3" y="14" width="7" height="7" rx="1" />
+    </svg>
+  );
+}
+
+export function IconMemory(props: IconProps) {
+  return (
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <rect x="4" y="4" width="16" height="16" rx="2" />
+      <rect x="9" y="9" width="6" height="6" />
+      <line x1="9" y1="1" x2="9" y2="4" />
+      <line x1="15" y1="1" x2="15" y2="4" />
+      <line x1="9" y1="20" x2="9" y2="23" />
+      <line x1="15" y1="20" x2="15" y2="23" />
+      <line x1="20" y1="9" x2="23" y2="9" />
+      <line x1="20" y1="15" x2="23" y2="15" />
+      <line x1="1" y1="9" x2="4" y2="9" />
+      <line x1="1" y1="15" x2="4" y2="15" />
+    </svg>
+  );
+}
+
+export function IconRender(props: IconProps) {
+  return (
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <polygon points="12 2 2 7 12 12 22 7 12 2" />
+      <polyline points="2 12 12 17 22 12" />
+      <polyline points="2 17 12 22 22 17" />
+    </svg>
+  );
+}
+
+export function IconDaemon(props: IconProps) {
+  return (
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <rect x="3" y="4" width="18" height="16" rx="2" />
+      <polyline points="7 8 11 12 7 16" />
+      <line x1="13" y1="16" x2="17" y2="16" />
+    </svg>
+  );
+}
+
 export function IconNetwork(props: IconProps) {
   return (
     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -120,3 +200,18 @@ export function IconMoon(props: IconProps) {
     </svg>
   );
 }
+
+export function IconSignalBars({ heights = [40, 70, 50, 90, 65, 100, 80, 45, 95, 60], className }: { heights?: number[]; className?: string }) {
+  return (
+    <div className={`flex items-end gap-[2.5px] h-4 ${className ?? ""}`}>
+      {heights.map((h, idx) => (
+        <span
+          key={idx}
+          className="w-[2px] rounded-full bg-success opacity-85 transition-all duration-300"
+          style={{ height: `${h}%` }}
+        />
+      ))}
+    </div>
+  );
+}
+

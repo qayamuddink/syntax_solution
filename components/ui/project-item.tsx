@@ -26,7 +26,7 @@ export function ProjectItem({
           </div>
           <IconArrowRight className="size-3.5 text-accent opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100 lg:hidden" />
         </div>
-        <h3 className="mt-2 text-xl font-bold text-foreground transition-colors duration-200 group-hover:text-accent">{title}</h3>
+        <h3 className="mt-2 text-lg md:text-xl font-semibold leading-snug text-foreground transition-colors duration-200 group-hover:text-accent">{title}</h3>
         {location || refId ? (
           <p className="mt-1 font-mono text-[11px] text-muted-foreground">
             {location} {refId ? `// REF: ${refId}` : ""}
@@ -43,7 +43,7 @@ export function ProjectItem({
 
       {/* Col 2: Digital Architecture & Core Problem (4 cols) */}
       <div className="lg:col-span-4">
-        <p className="text-xs leading-6 text-muted-foreground">{description}</p>
+        <p className="text-sm md:text-[15px] leading-relaxed text-muted-foreground font-normal">{description}</p>
       </div>
 
       {/* Col 3: Stack Topology (2 cols) */}
