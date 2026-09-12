@@ -104,7 +104,7 @@ export function HeroSection({ hero }: { hero: HeroConfig }) {
               initial="hidden"
               animate="visible"
               variants={heroHeadlineVariants}
-              className="mt-3.5 max-w-3xl text-[2.25rem] sm:text-4xl md:text-5xl lg:text-[3.75rem] font-extrabold leading-[1.0] tracking-[-0.035em] text-foreground"
+              className="mt-3.5 max-w-3xl text-[2.25rem] sm:text-4xl md:text-5xl lg:text-[3.75rem] font-bold leading-[1.02] tracking-[-0.03em] text-foreground"
             >
               YOUR BUSINESS.
               <br />

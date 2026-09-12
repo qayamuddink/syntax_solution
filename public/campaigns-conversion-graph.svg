@@ -1,0 +1,113 @@
+<svg width="220" height="180" viewBox="0 0 220 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="area" x1="51" y1="128" x2="169" y2="52" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D95A32" stop-opacity=".03"/>
+      <stop offset="1" stop-color="#F06A3B" stop-opacity=".28"/>
+    </linearGradient>
+
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+  </defs>
+
+  <!-- Soft ground -->
+  <ellipse
+    cx="112"
+    cy="142"
+    rx="57"
+    ry="8"
+    fill="#111318"
+    opacity=".10"
+    filter="url(#shadow)"
+  />
+
+  <!-- Chart panel -->
+  <rect
+    x="42"
+    y="44"
+    width="136"
+    height="88"
+    rx="8"
+    fill="#F7F6F2"
+    stroke="#D8D5CD"
+  />
+
+  <!-- Grid -->
+  <path d="M55 61H165M55 81H165M55 101H165M55 121H165"
+    stroke="#D8D5CD"
+    stroke-width="1"
+  />
+
+  <!-- Area -->
+  <path
+    d="M55 119
+       L74 111
+       L93 104
+       L112 94
+       L130 78
+       L147 65
+       L165 53
+       L165 121
+       L55 121Z"
+    fill="url(#area)"
+  />
+
+  <!-- Conversion line -->
+  <path
+    d="M55 119
+       L74 111
+       L93 104
+       L112 94
+       L130 78
+       L147 65
+       L165 53"
+    stroke="#D75B35"
+    stroke-width="3"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- Data points -->
+  <circle cx="74" cy="111" r="3" fill="#F7F6F2" stroke="#D75B35" stroke-width="2"/>
+  <circle cx="93" cy="104" r="3" fill="#F7F6F2" stroke="#D75B35" stroke-width="2"/>
+  <circle cx="112" cy="94" r="3" fill="#F7F6F2" stroke="#D75B35" stroke-width="2"/>
+  <circle cx="130" cy="78" r="3" fill="#F7F6F2" stroke="#D75B35" stroke-width="2"/>
+  <circle cx="147" cy="65" r="3" fill="#F7F6F2" stroke="#D75B35" stroke-width="2"/>
+
+  <!-- End point -->
+  <circle cx="165" cy="53" r="5" fill="#D75B35"/>
+  <circle cx="165" cy="53" r="9" stroke="#D75B35" stroke-opacity=".16"/>
+
+  <!-- Floating conversion badge -->
+  <g transform="translate(55 29)">
+    <rect
+      width="45"
+      height="20"
+      rx="5"
+      fill="#16191E"
+    />
+
+    <circle cx="9" cy="10" r="3" fill="#3BC878"/>
+
+    <text
+      x="16"
+      y="13"
+      font-family="monospace"
+      font-size="7"
+      fill="#FFFFFF"
+    >
+      +42.8%
+    </text>
+  </g>
+
+  <!-- Small axis label -->
+  <text
+    x="139"
+    y="128"
+    font-family="monospace"
+    font-size="6"
+    fill="#777C84"
+  >
+    CONVERSION
+  </text>
+</svg>

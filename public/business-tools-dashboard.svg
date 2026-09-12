@@ -1,0 +1,128 @@
+<svg width="220" height="180" viewBox="0 0 220 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="monitor" x1="62" y1="48" x2="162" y2="130" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22262D"/>
+      <stop offset="1" stop-color="#080A0D"/>
+    </linearGradient>
+
+    <linearGradient id="stand" x1="109" y1="125" x2="109" y2="145" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D7D9DD"/>
+      <stop offset="1" stop-color="#9EA3AB"/>
+    </linearGradient>
+
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+  </defs>
+
+  <!-- Shadow -->
+  <ellipse
+    cx="110"
+    cy="149"
+    rx="65"
+    ry="10"
+    fill="#0A0C10"
+    opacity=".16"
+    filter="url(#shadow)"
+  />
+
+  <!-- Monitor -->
+  <rect
+    x="56"
+    y="39"
+    width="108"
+    height="89"
+    rx="8"
+    fill="#16191E"
+    stroke="#444952"
+    stroke-width="2"
+  />
+
+  <rect
+    x="63"
+    y="47"
+    width="94"
+    height="72"
+    rx="4"
+    fill="url(#monitor)"
+  />
+
+  <!-- Browser dots -->
+  <circle cx="70" cy="54" r="2.5" fill="#F06A3B"/>
+  <circle cx="78" cy="54" r="2.5" fill="#D8A54B"/>
+  <circle cx="86" cy="54" r="2.5" fill="#3BC879"/>
+
+  <!-- Header -->
+  <rect x="94" y="51" width="42" height="5" rx="2.5" fill="#363A42"/>
+  <rect x="140" y="51" width="12" height="5" rx="2.5" fill="#123B27"/>
+
+  <!-- Sidebar -->
+  <rect x="69" y="64" width="19" height="47" rx="3" fill="#111419"/>
+  <rect x="73" y="70" width="10" height="4" rx="2" fill="#D75B35"/>
+  <rect x="73" y="79" width="11" height="3" rx="1.5" fill="#555A63"/>
+  <rect x="73" y="86" width="8" height="3" rx="1.5" fill="#555A63"/>
+  <rect x="73" y="93" width="12" height="3" rx="1.5" fill="#555A63"/>
+
+  <!-- Main chart panel -->
+  <rect
+    x="94"
+    y="64"
+    width="55"
+    height="47"
+    rx="4"
+    fill="#20242A"
+    stroke="#30343B"
+  />
+
+  <!-- Chart grid -->
+  <path d="M100 101H143M100 91H143M100 81H143" stroke="#3A3E46" stroke-width="1"/>
+  <path d="M107 70V104M118 70V104M129 70V104" stroke="#30343B" stroke-width="1"/>
+
+  <!-- Bars -->
+  <rect x="103" y="91" width="7" height="13" rx="1.5" fill="#CF522C"/>
+  <rect x="114" y="82" width="7" height="22" rx="1.5" fill="#F06A3B"/>
+  <rect x="125" y="75" width="7" height="29" rx="1.5" fill="#D5D8DD"/>
+  <rect x="136" y="86" width="7" height="18" rx="1.5" fill="#3BC878"/>
+
+  <!-- Trend line -->
+  <path
+    d="M101 94L111 89L121 93L132 77L143 82"
+    stroke="#FFFFFF"
+    stroke-opacity=".65"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- Monitor base -->
+  <path
+    d="M99 128H121L127 143H93L99 128Z"
+    fill="url(#stand)"
+  />
+
+  <path
+    d="M82 143H138"
+    stroke="#8F959E"
+    stroke-width="4"
+    stroke-linecap="round"
+  />
+
+  <!-- Floating data pulse -->
+  <circle cx="170" cy="66" r="4" fill="#3BC878"/>
+  <circle cx="170" cy="66" r="9" stroke="#3BC878" stroke-opacity=".15"/>
+
+  <!-- Small floating metric -->
+  <rect
+    x="157"
+    y="92"
+    width="34"
+    height="18"
+    rx="5"
+    fill="#F7F6F2"
+    stroke="#D8D5CD"
+  />
+
+  <circle cx="165" cy="101" r="2.5" fill="#F06A3B"/>
+  <rect x="171" y="98" width="13" height="3" rx="1.5" fill="#343840"/>
+  <rect x="171" y="104" width="9" height="2" rx="1" fill="#9A9EA5"/>
+</svg>

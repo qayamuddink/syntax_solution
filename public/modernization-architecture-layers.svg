@@ -1,0 +1,117 @@
+<svg width="220" height="180" viewBox="0 0 220 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="layerTop" x1="75" y1="54" x2="146" y2="80" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F06A3B"/>
+      <stop offset="1" stop-color="#C94E2A"/>
+    </linearGradient>
+
+    <linearGradient id="layerMid" x1="68" y1="76" x2="151" y2="103" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E7E9EC"/>
+      <stop offset="1" stop-color="#B4BAC3"/>
+    </linearGradient>
+
+    <linearGradient id="layerBottom" x1="61" y1="99" x2="158" y2="126" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#252A31"/>
+      <stop offset="1" stop-color="#0D1014"/>
+    </linearGradient>
+
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+  </defs>
+
+  <!-- Ground shadow -->
+  <ellipse
+    cx="109"
+    cy="139"
+    rx="61"
+    ry="10"
+    fill="#0B0D11"
+    opacity=".15"
+    filter="url(#shadow)"
+  />
+
+  <!-- Bottom architecture layer -->
+  <path
+    d="M59 105L108 80L159 105L108 132L59 105Z"
+    fill="url(#layerBottom)"
+    stroke="#343941"
+    stroke-width="1.5"
+  />
+
+  <!-- Middle layer -->
+  <path
+    d="M66 87L108 65L152 87L108 110L66 87Z"
+    fill="url(#layerMid)"
+    stroke="#A6ACB5"
+    stroke-width="1.5"
+  />
+
+  <!-- Top layer -->
+  <path
+    d="M74 68L108 50L144 68L108 87L74 68Z"
+    fill="url(#layerTop)"
+    stroke="#C94E2A"
+    stroke-width="1.5"
+  />
+
+  <!-- Layer separation -->
+  <path
+    d="M74 68L108 87L144 68"
+    stroke="#FFFFFF"
+    stroke-opacity=".35"
+    stroke-width="1"
+  />
+
+  <path
+    d="M66 87L108 110L152 87"
+    stroke="#FFFFFF"
+    stroke-opacity=".35"
+    stroke-width="1"
+  />
+
+  <!-- Architecture nodes -->
+  <circle cx="108" cy="68" r="4" fill="#FFFFFF"/>
+  <circle cx="108" cy="68" r="7" stroke="#FFFFFF" stroke-opacity=".25"/>
+
+  <circle cx="93" cy="96" r="3" fill="#F06A3B"/>
+  <circle cx="123" cy="96" r="3" fill="#3BC878"/>
+
+  <!-- Connection lines -->
+  <path
+    d="M108 75V83M96 94L108 87L120 94"
+    stroke="#59606A"
+    stroke-width="1.5"
+    stroke-dasharray="3 3"
+  />
+
+  <!-- Small migration indicator -->
+  <g transform="translate(157 52)">
+    <rect
+      width="31"
+      height="31"
+      rx="7"
+      fill="#F7F6F2"
+      stroke="#D8D5CD"
+    />
+
+    <path
+      d="M9 16H22M17 11L22 16L17 21"
+      stroke="#D75B35"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </g>
+
+  <!-- tiny version marker -->
+  <text
+    x="65"
+    y="143"
+    font-family="monospace"
+    font-size="7"
+    fill="#777C84"
+  >
+    V2 → MODERN STACK
+  </text>
+</svg>

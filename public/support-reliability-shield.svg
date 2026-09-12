@@ -1,0 +1,128 @@
+<svg width="220" height="180" viewBox="0 0 220 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="shield" x1="79" y1="46" x2="143" y2="132" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#252A31"/>
+      <stop offset=".55" stop-color="#111419"/>
+      <stop offset="1" stop-color="#080A0D"/>
+    </linearGradient>
+
+    <linearGradient id="pulse" x1="82" y1="86" x2="138" y2="86" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F06A3B"/>
+      <stop offset=".5" stop-color="#3BC878"/>
+      <stop offset="1" stop-color="#F06A3B"/>
+    </linearGradient>
+
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+  </defs>
+
+  <!-- Shadow -->
+  <ellipse
+    cx="111"
+    cy="144"
+    rx="53"
+    ry="9"
+    fill="#0A0C10"
+    opacity=".18"
+    filter="url(#shadow)"
+  />
+
+  <!-- Outer shield -->
+  <path
+    d="M110 39
+       L151 54
+       V87
+       C151 111 134 128 110 139
+       C86 128 69 111 69 87
+       V54L110 39Z"
+    fill="url(#shield)"
+    stroke="#454A52"
+    stroke-width="2"
+  />
+
+  <!-- Shield inner border -->
+  <path
+    d="M110 48
+       L142 60
+       V86
+       C142 105 129 118 110 128
+       C91 118 78 105 78 86
+       V60L110 48Z"
+    stroke="#D75B35"
+    stroke-opacity=".42"
+    stroke-width="1.5"
+  />
+
+  <!-- Circuit lines -->
+  <path
+    d="M110 62V75M110 101V116
+       M92 78H82M128 78H138
+       M91 98H82M129 98H138"
+    stroke="#525862"
+    stroke-width="1.5"
+    stroke-linecap="round"
+  />
+
+  <!-- Circuit nodes -->
+  <circle cx="82" cy="78" r="3" fill="#F06A3B"/>
+  <circle cx="138" cy="78" r="3" fill="#3BC878"/>
+  <circle cx="82" cy="98" r="3" fill="#3BC878"/>
+  <circle cx="138" cy="98" r="3" fill="#F06A3B"/>
+
+  <!-- Heartbeat / reliability waveform -->
+  <path
+    d="M83 88H94L99 80L105 96L111 73L118 93L123 84H137"
+    stroke="url(#pulse)"
+    stroke-width="3"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- Center status -->
+  <circle
+    cx="110"
+    cy="109"
+    r="7"
+    fill="#143724"
+    stroke="#3BC878"
+    stroke-opacity=".5"
+  />
+
+  <circle cx="110" cy="109" r="3" fill="#3BC878"/>
+
+  <!-- Floating SLA badge -->
+  <g transform="translate(146 42)">
+    <rect
+      width="43"
+      height="22"
+      rx="6"
+      fill="#F7F6F2"
+      stroke="#D8D5CD"
+    />
+
+    <circle cx="9" cy="11" r="3" fill="#3BC878"/>
+
+    <text
+      x="16"
+      y="14"
+      font-family="monospace"
+      font-size="7"
+      font-weight="700"
+      fill="#343840"
+    >
+      99.9%
+    </text>
+  </g>
+
+  <!-- Bottom status -->
+  <rect
+    x="79"
+    y="143"
+    width="62"
+    height="4"
+    rx="2"
+    fill="#D75B35"
+    opacity=".35"
+  />
+</svg>
