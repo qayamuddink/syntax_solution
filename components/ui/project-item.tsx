@@ -16,20 +16,20 @@ export function ProjectItem({
   telemetryLabel,
 }: Project) {
   return (
-    <article className="group grid grid-cols-1 gap-6 border-b border-border py-6 transition-colors duration-300 hover:bg-white/[0.015] hover:px-2 last:border-b-0 rounded-sm lg:grid-cols-12 lg:items-start lg:gap-4">
+    <article className="group grid grid-cols-1 gap-5 border-b border-border py-4.5 md:py-5 transition-colors duration-300 hover:bg-white/[0.015] hover:px-2 last:border-b-0 rounded-sm lg:grid-cols-12 lg:items-start lg:gap-4">
       {/* Col 1: System / Client (4 cols) */}
       <div className="lg:col-span-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="font-mono text-xs font-semibold text-accent">{number}</span>
-            <TechnicalLabel className="text-muted-foreground">{"// "}{category}</TechnicalLabel>
+            <TechnicalLabel className="text-muted-foreground">{category}</TechnicalLabel>
           </div>
           <IconArrowRight className="size-3.5 text-accent opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100 lg:hidden" />
         </div>
         <h3 className="mt-2 text-lg md:text-xl font-semibold leading-snug text-foreground transition-colors duration-200 group-hover:text-accent">{title}</h3>
         {location || refId ? (
           <p className="mt-1 font-mono text-[11px] text-muted-foreground">
-            {location} {refId ? `// REF: ${refId}` : ""}
+            {location} {refId ? `• REF: ${refId}` : ""}
           </p>
         ) : null}
         {badge ? (

@@ -5,9 +5,10 @@ interface ProjectVisualProps {
   image: string;
   alt: string;
   className?: string;
+  priority?: boolean;
 }
 
-export function ProjectVisual({ image, alt, className }: ProjectVisualProps) {
+export function ProjectVisual({ image, alt, className, priority }: ProjectVisualProps) {
   return (
     <div className={cn("group relative min-h-[220px] overflow-hidden rounded-lg border border-border bg-surface shadow-sm transition-all duration-300 hover:border-accent/50", className)}>
       <Image
@@ -17,6 +18,7 @@ export function ProjectVisual({ image, alt, className }: ProjectVisualProps) {
         quality={90}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
         src={image}
+        priority={priority}
       />
     </div>
   );

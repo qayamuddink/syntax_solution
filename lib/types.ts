@@ -146,6 +146,7 @@ export interface ProcessStep {
   tag?: string;
   title: string;
   description: string;
+  deliverable?: string;
 }
 
 export interface PricingFeature {

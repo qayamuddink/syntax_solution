@@ -8,7 +8,7 @@ export function SolutionItem({ number, category, title, description, spec }: Sol
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <span className="font-mono text-xs font-semibold text-accent">{number}</span>
-          <TechnicalLabel className="text-muted-foreground">{"// "}{category}</TechnicalLabel>
+          <TechnicalLabel className="text-muted-foreground">{category}</TechnicalLabel>
         </div>
         <IconArrowRight className="size-3.5 text-accent opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100" />
       </div>

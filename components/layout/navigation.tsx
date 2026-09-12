@@ -18,7 +18,7 @@ export function Navigation({ items }: NavigationProps) {
   const closeMenu = useUiStore((state) => state.closeMobileMenu);
 
   return (
-    <header className="sticky top-0 z-50 px-4 pt-4 pb-2">
+    <header className="relative z-50 px-4 pt-4 pb-2">
       <div className="mx-auto flex h-14 max-w-[1240px] items-center justify-between rounded-xl border border-border/80 bg-surface/85 px-5 backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-all duration-300">
         {/* Brand Logo with [ - ] Mark */}
         <Link href="/home" className="flex items-center gap-3 group focus-visible:outline-2 focus-visible:outline-accent">

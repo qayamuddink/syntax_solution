@@ -11,7 +11,7 @@ export function BusinessFrictionSection({ steps }: { steps: FrictionStep[] }) {
       <Container className="px-6 py-20 md:px-16">
         <SectionReveal>
           <SectionHeading
-            eyebrow="// HOW WE BUILD"
+            eyebrow="HOW WE BUILD"
             title="From Business Idea to Live Website"
             description="A clear, practical process designed to take your business from an initial idea to a reliable digital presence."
           />

@@ -85,20 +85,10 @@ export function HeroSection({ hero }: { hero: HeroConfig }) {
       {/* Layer 2: 3D Spherical/Orbital Architectural Topology visual behind telemetry card */}
       <HeroOrbVisual className="absolute right-[-40px] top-1/2 -translate-y-1/2 h-[640px] w-[640px] pointer-events-none z-0 opacity-50 lg:opacity-85" />
 
-      {/* Technical Interface Side Markers */}
-      <div className="pointer-events-none absolute left-6 top-8 hidden font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground/80 lg:block">
-        <div className="flex items-center gap-2">
-          <span className="size-1.5 rounded-full bg-accent" />
-          <span>ITERATE // MEASURE // BUILD</span>
-        </div>
-      </div>
-      <div className="pointer-events-none absolute right-6 top-8 hidden font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground/80 lg:block">
-        <span>SYS_REF: STX_2025.2</span>
-      </div>
 
-      <div className="relative z-10 mx-auto grid min-h-[670px] max-w-[1280px] grid-cols-1 gap-12 px-6 pb-24 pt-14 md:px-16 lg:grid-cols-12">
+      <div className="relative z-10 mx-auto grid max-w-[1280px] grid-cols-1 gap-8 px-6 pb-8 pt-4 md:px-16 md:pb-10 md:pt-6 lg:grid-cols-12 lg:gap-10">
         {/* Left Column — Editorial Hero Content */}
-        <div className="flex flex-col justify-between lg:col-span-7 lg:pr-6">
+        <div className="flex flex-col justify-between lg:col-span-7 lg:pr-4">
           <div className="max-w-2xl">
             <motion.div
               initial="hidden"
@@ -106,7 +96,7 @@ export function HeroSection({ hero }: { hero: HeroConfig }) {
               variants={heroEyebrowVariants}
             >
               <TechnicalLabel className="text-accent font-mono text-[11px] md:text-xs font-medium tracking-[0.14em]">
-                {hero.eyebrow ?? "// WEB DESIGN & SOFTWARE DEVELOPMENT"}
+                {hero.eyebrow ?? "WEB DESIGN & SOFTWARE DEVELOPMENT"}
               </TechnicalLabel>
             </motion.div>
 
@@ -114,7 +104,7 @@ export function HeroSection({ hero }: { hero: HeroConfig }) {
               initial="hidden"
               animate="visible"
               variants={heroHeadlineVariants}
-              className="mt-7 max-w-3xl text-[2.65rem] sm:text-5xl md:text-6xl lg:text-[4.5rem] font-extrabold leading-[0.98] tracking-[-0.04em] text-foreground"
+              className="mt-3.5 max-w-3xl text-[2.25rem] sm:text-4xl md:text-5xl lg:text-[3.75rem] font-extrabold leading-[1.0] tracking-[-0.035em] text-foreground"
             >
               YOUR BUSINESS.
               <br />
@@ -127,7 +117,7 @@ export function HeroSection({ hero }: { hero: HeroConfig }) {
               initial="hidden"
               animate="visible"
               variants={heroParagraphVariants}
-              className="mt-7 max-w-xl text-[15px] md:text-[17px] leading-relaxed text-muted-foreground font-normal"
+              className="mt-3 max-w-xl text-[14px] md:text-[15px] leading-relaxed text-muted-foreground font-normal"
             >
               {hero.description}
             </motion.p>
@@ -137,7 +127,7 @@ export function HeroSection({ hero }: { hero: HeroConfig }) {
               animate="visible"
               variants={heroCtaVariants}
             >
-              <div className="mt-8 flex flex-wrap items-center gap-4">
+              <div className="mt-5 flex flex-wrap items-center gap-3.5">
                 <Button href="/contact" label="START A PROJECT" variant="primary" />
                 <Button href="/solutions" label="EXPLORE SOLUTIONS" variant="secondary" />
               </div>
@@ -149,7 +139,7 @@ export function HeroSection({ hero }: { hero: HeroConfig }) {
             initial="hidden"
             animate="visible"
             variants={heroMetricsVariants}
-            className="mt-14 grid max-w-xl grid-cols-3 divide-x divide-border border-t border-border pt-7 lg:mt-10"
+            className="mt-6 grid max-w-xl grid-cols-3 divide-x divide-border border-t border-border pt-4 lg:mt-7"
           >
             {hero.metrics.map((metric) => (
               <div key={metric.id} className="first:pl-0 px-4 last:pr-0">
@@ -165,10 +155,10 @@ export function HeroSection({ hero }: { hero: HeroConfig }) {
             initial="hidden"
             animate="visible"
             variants={heroMetricsVariants}
-            className="border-copper-glow group relative overflow-hidden rounded-xl border border-border/90 bg-surface-elevated/90 p-6 backdrop-blur-md shadow-[0_16px_50px_rgba(0,0,0,0.25)] transition-all duration-300 hover:border-accent/40 md:p-7"
+            className="border-copper-glow group relative overflow-hidden rounded-xl border border-border/90 bg-surface-elevated/90 p-4 backdrop-blur-md shadow-[0_16px_50px_rgba(0,0,0,0.25)] transition-all duration-300 hover:border-accent/40 md:p-5"
           >
             {/* Panel Top Header */}
-            <div className="flex items-center justify-between border-b border-border/80 pb-4">
+            <div className="flex items-center justify-between border-b border-border/80 pb-2.5">
               <div className="flex items-center gap-2.5">
                 <IconSystem className="size-4 text-accent" />
                 <TechnicalLabel className="font-mono text-[11px] font-semibold tracking-[0.14em] text-foreground">
@@ -182,23 +172,23 @@ export function HeroSection({ hero }: { hero: HeroConfig }) {
                   className="size-2 rounded-full bg-success inline-block"
                 />
                 <span className="font-mono text-[10px] font-semibold tracking-[0.14em] text-success">
-                  {hero.telemetryStatus ?? "ACTIVE // VERIFIED"}
+                  {hero.telemetryStatus ?? "ACTIVE • VERIFIED"}
                 </span>
               </div>
             </div>
 
             {/* Spec / Telemetry Rows */}
-            <div className="mt-4 divide-y divide-border/60">
+            <div className="mt-2.5 divide-y divide-border/60">
               {hero.telemetryRows?.map((row, idx) => {
                 const RowIcon = telemetryIcons[idx % telemetryIcons.length] ?? IconSystem;
                 return (
                   <div
                     key={idx}
-                    className="flex items-center justify-between py-2.5 font-mono text-[11px] tracking-[0.06em] transition-colors duration-150 hover:bg-white/[0.02] px-1 rounded-sm"
+                    className="flex items-center justify-between py-1.5 font-mono text-[10.5px] tracking-[0.06em] transition-colors duration-150 hover:bg-white/[0.02] px-1 rounded-sm"
                   >
-                    <div className="flex items-center gap-2.5 text-muted-foreground">
-                      <RowIcon className="size-3.5 text-muted-foreground shrink-0" />
-                      <span className="uppercase text-[10px]">{row.label}</span>
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                      <RowIcon className="size-3 text-muted-foreground shrink-0" />
+                      <span className="uppercase text-[9.5px]">{row.label}</span>
                     </div>
                     <span
                       className={
@@ -218,7 +208,7 @@ export function HeroSection({ hero }: { hero: HeroConfig }) {
             </div>
 
             {/* Bottom Card Annotation */}
-            <div className="mt-5 flex items-center justify-between border-t border-border/80 pt-3 font-mono text-[10px] text-muted-foreground uppercase tracking-[0.14em]">
+            <div className="mt-3 flex items-center justify-between border-t border-border/80 pt-2 font-mono text-[9.5px] text-muted-foreground uppercase tracking-[0.14em]">
               <span>ARCHITECTURE / OBSERVED</span>
               <span className="text-accent font-bold">V.01.24</span>
             </div>

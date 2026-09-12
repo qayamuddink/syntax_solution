@@ -12,7 +12,13 @@ export function SectionScroller({ targetId }: { targetId?: string }) {
     const scrollToElement = () => {
       const el = document.getElementById(targetId);
       if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
+        const navOffset = window.innerWidth >= 768 ? 32 : 24;
+        const elementPosition = el.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.scrollY - navOffset;
+        window.scrollTo({
+          top: Math.max(0, offsetPosition),
+          behavior: "smooth",
+        });
       }
     };
 
