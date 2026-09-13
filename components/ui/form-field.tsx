@@ -10,12 +10,6 @@ export function FormField({ id, label, type, required, options, placeholder, def
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (defaultValue) {
-      setSelectedValue(defaultValue);
-    }
-  }, [defaultValue]);
-
-  useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsOpen(false);
@@ -26,7 +20,7 @@ export function FormField({ id, label, type, required, options, placeholder, def
   }, []);
 
   const inputClassName =
-    "mt-2 w-full rounded-md border border-border bg-surface px-4 py-3 text-xs font-mono text-foreground outline-none transition-all duration-150 ease-out placeholder:text-muted-foreground/80 focus:border-accent focus:ring-1 focus:ring-accent/30";
+    "type-body-sm mt-2 w-full rounded-md border border-border bg-surface px-4 py-3 text-foreground outline-none transition-all duration-150 ease-out placeholder:text-muted-foreground/80 focus:border-accent focus:ring-1 focus:ring-accent/30";
 
   return (
     <div className="block">
@@ -57,7 +51,7 @@ export function FormField({ id, label, type, required, options, placeholder, def
               if (e.key === "Escape") setIsOpen(false);
               if (e.key === "ArrowDown" && !isOpen) setIsOpen(true);
             }}
-            className={`w-full flex items-center justify-between rounded-md border bg-surface px-4 py-3 text-xs font-mono transition-all duration-150 ease-out outline-none focus-visible:border-accent focus-visible:ring-1 focus-visible:ring-accent/30 ${
+            className={`type-body-sm w-full flex items-center justify-between rounded-md border bg-surface px-4 py-3 transition-all duration-150 ease-out outline-none focus-visible:border-accent focus-visible:ring-1 focus-visible:ring-accent/30 ${
               isOpen
                 ? "border-accent ring-1 ring-accent/30 text-foreground"
                 : "border-border text-foreground hover:border-accent/50"
@@ -78,7 +72,7 @@ export function FormField({ id, label, type, required, options, placeholder, def
 
           {isOpen && options && (
             <div className="absolute left-0 right-0 top-full z-50 mt-1.5 overflow-hidden rounded-xl border border-border bg-surface-elevated p-1.5 shadow-[0_16px_40px_rgba(0,0,0,0.25)] backdrop-blur-md animate-in fade-in slide-in-from-top-1 duration-150">
-              <div className="max-h-56 overflow-y-auto space-y-0.5 font-mono text-xs">
+              <div className="type-body-sm max-h-56 overflow-y-auto space-y-0.5">
                 {options.map((option) => {
                   const isSelected = selectedValue === option;
                   return (
@@ -121,5 +115,3 @@ export function FormField({ id, label, type, required, options, placeholder, def
     </div>
   );
 }
-
-

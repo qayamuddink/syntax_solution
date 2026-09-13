@@ -15,12 +15,12 @@ export function Footer() {
           <div>
             <Link href="/home" className="flex items-center gap-2.5">
               <span className="flex size-6 items-center justify-center border border-accent font-mono text-[11px] font-semibold text-accent">→</span>
-              <span className="font-mono text-sm font-semibold uppercase tracking-[0.14em] text-foreground">
+              <span className="type-nav text-foreground">
                 SyntaxLab <span className="text-accent">Solutions</span>
               </span>
             </Link>
 
-            <p className="mt-6 max-w-sm text-xs leading-6 text-muted-foreground">
+            <p className="type-body-sm mt-6 max-w-sm text-muted-foreground">
               Web design and software development for local and growing businesses.
             </p>
           </div>
@@ -36,7 +36,7 @@ export function Footer() {
           <div className="mt-6 flex flex-col items-start gap-3">
             {footer.groups[0]?.links.map((link) => (
               <Link
-                className="font-mono text-xs font-medium text-muted-foreground transition-colors duration-150 hover:text-accent"
+                className="type-body-sm font-medium text-muted-foreground transition-colors duration-150 hover:text-accent"
                 href={link.href}
                 key={link.id}
               >
@@ -49,20 +49,20 @@ export function Footer() {
         {/* Col 3 — Contact (4 cols) */}
         <div className="md:col-span-4">
           <TechnicalLabel className="text-foreground">CONTACT</TechnicalLabel>
-          <p className="mt-4 font-mono text-xs font-semibold text-muted-foreground">EMAIL:</p>
+          <p className="mt-4 type-technical text-muted-foreground">EMAIL:</p>
           <a
             href={`mailto:${footer.email}`}
-            className="mt-1 inline-block font-mono text-xs font-semibold text-accent transition-opacity duration-150 hover:opacity-80 hover:underline"
+            className="type-body-sm mt-1 inline-block font-semibold text-accent transition-opacity duration-150 hover:opacity-80 hover:underline"
           >
             {footer.email}
           </a>
 
-          <div className="mt-5 space-y-1 font-mono text-xs text-muted-foreground">
-            <p className="font-semibold text-foreground">PHONE / WHATSAPP:</p>
+          <div className="type-body-sm mt-5 space-y-1 text-muted-foreground">
+            <p className="type-technical text-foreground">PHONE / WHATSAPP:</p>
             <p className="text-accent">+91 XXXXX XXXXX</p>
           </div>
 
-          <div className="mt-5 space-y-1 font-mono text-xs font-muted-foreground">
+          <div className="type-body-sm mt-5 space-y-1 text-muted-foreground">
             {footer.addresses.map((addr, idx) => (
               <p key={idx}>{addr}</p>
             ))}
@@ -83,4 +83,3 @@ export function Footer() {
     </footer>
   );
 }
-

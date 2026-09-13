@@ -9,9 +9,9 @@ export const siteConfig: SiteConfig = {
   theme: themeTokens,
   navigation: [
     { id: "home", label: "HOME", href: "/home" },
-    { id: "work", label: "WORK", href: "/work" },
-    { id: "solutions", label: "SOLUTIONS", href: "/solutions" },
     { id: "process", label: "PROCESS", href: "/process" },
+    { id: "solutions", label: "SOLUTIONS", href: "/solutions" },
+    { id: "work", label: "WORK", href: "/work" },
     { id: "about", label: "ABOUT", href: "/about" },
     { id: "contact", label: "CONTACT", href: "/contact" },
   ],

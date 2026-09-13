@@ -13,10 +13,10 @@ export function StudioManifestoSection({ manifesto }: { manifesto: StudioManifes
             {/* Left Metadata Column (4 cols) */}
             <div className="flex flex-col justify-between border-b border-border/80 pb-6 lg:col-span-4 lg:border-b-0 lg:border-r lg:pb-0 lg:pr-8">
               <div>
-                <TechnicalLabel className="text-accent font-mono text-[11px] tracking-[0.14em]">
+                <TechnicalLabel className="text-accent">
                   {manifesto.eyebrow ?? "OUR APPROACH"}
                 </TechnicalLabel>
-                <h2 className="mt-2.5 font-mono text-lg md:text-xl font-bold uppercase tracking-[0.12em] text-foreground">
+                <h2 className="type-card-title mt-2.5 text-foreground">
                   {manifesto.title ?? "BUILT FOR YOUR BUSINESS"}
                 </h2>
 
@@ -26,19 +26,19 @@ export function StudioManifestoSection({ manifesto }: { manifesto: StudioManifes
               <div className="mt-8 space-y-1.5 font-mono text-[11px] tracking-[0.08em] text-muted-foreground">
                 <p>{manifesto.ref}</p>
                 <p>{manifesto.rev}</p>
-                <p className="mt-4 italic text-foreground font-mono text-xs">{manifesto.tagline}</p>
+                <p className="type-body-sm mt-4 italic text-foreground">{manifesto.tagline}</p>
               </div>
             </div>
 
             {/* Right Editorial Quote Column (8 cols) */}
             <div className="flex flex-col justify-center lg:col-span-8 lg:pl-2">
-              <blockquote className="text-xl font-semibold leading-[1.25] tracking-tight text-foreground md:text-2xl lg:text-[2.1rem]">
+              <blockquote className="text-xl font-semibold leading-[1.25] tracking-normal text-foreground md:text-2xl lg:text-[2.1rem]">
                 {manifesto.quotePrefix ?? "“Most businesses don't need more complicated software. They need the "}
                 <span className="text-accent">{manifesto.quoteAccent ?? "right digital solution."}</span>
                 {manifesto.quoteSuffix ?? "”"}
               </blockquote>
 
-              <p className="mt-4 max-w-2xl text-[14px] md:text-[15px] leading-relaxed text-muted-foreground font-normal">
+              <p className="type-body mt-4 max-w-2xl text-muted-foreground">
                 {manifesto.paragraph}
               </p>
             </div>
@@ -51,5 +51,4 @@ export function StudioManifestoSection({ manifesto }: { manifesto: StudioManifes
     </section>
   );
 }
-
 

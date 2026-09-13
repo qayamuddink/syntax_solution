@@ -14,6 +14,8 @@ import { SectionReveal, ImageReveal } from "@/components/animation/motion-primit
 import type { FeaturedProject, Project } from "@/lib/types";
 
 export function ProjectsSection({ projects }: { projects: Project[] }) {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   return (
     <section className="bg-background" id="work">
       <Container className="px-6 py-14 md:py-16 md:px-16">
@@ -21,21 +23,30 @@ export function ProjectsSection({ projects }: { projects: Project[] }) {
           {/* Header */}
           <div className="flex flex-col justify-between gap-3 border-b border-border pb-6 md:flex-row md:items-end">
             <div>
-              <TechnicalLabel className="text-accent font-mono text-[11px] tracking-[0.14em]">PORTFOLIO SHOWCASE</TechnicalLabel>
-              <h2 className="mt-3 text-3xl font-bold leading-[1.08] tracking-tight text-foreground md:text-4xl lg:text-[2.65rem]">Projects Index</h2>
-              <p className="mt-2.5 max-w-xl text-[15px] leading-relaxed text-muted-foreground font-normal">
+              <TechnicalLabel className="text-accent">PORTFOLIO SHOWCASE</TechnicalLabel>
+              <h2 className="type-section-title-compact mt-3 text-foreground">Projects Index</h2>
+              <p className="type-body mt-2.5 max-w-xl text-muted-foreground">
                 Technical overviews, interactive system architectures, and operational telemetry of custom production systems.
               </p>
             </div>
-            <TechnicalLabel className="text-muted-foreground font-mono text-[10px]">
+            <TechnicalLabel className="text-muted-foreground">
               04 PRODUCTION BUILDS • 100% SPEC PASS
             </TechnicalLabel>
           </div>
 
           {/* Interactive Project Showcase Grid: 2-column on desktop (>=1280px), 1-column on tablet and mobile */}
-          <div className="mt-8 grid grid-cols-1 xl:grid-cols-2 gap-6 lg:gap-7 xl:gap-8">
-            {projects.map((project) => (
-              <ProjectItem key={project.id} {...project} />
+          <div
+            className="mt-8 grid grid-cols-1 xl:grid-cols-2 gap-6 lg:gap-7 xl:gap-8"
+            onMouseLeave={() => setHoveredIndex(null)}
+          >
+            {projects.map((project, idx) => (
+              <ProjectItem
+                key={project.id}
+                index={idx}
+                hoveredIndex={hoveredIndex}
+                onHover={setHoveredIndex}
+                {...project}
+              />
             ))}
           </div>
         </SectionReveal>
@@ -78,13 +89,13 @@ export function FeaturedWorkSection({ projects }: { projects: FeaturedProject[] 
           {/* Header */}
           <div className="flex flex-col justify-between gap-3 border-b border-border pb-6 lg:flex-row lg:items-end">
             <div>
-              <TechnicalLabel className="text-accent font-mono text-[11px] tracking-[0.14em]">SELECTED WORK</TechnicalLabel>
-              <h2 className="mt-3 text-3xl font-bold leading-[1.08] tracking-tight text-foreground md:text-4xl lg:text-[2.65rem]">Featured Work</h2>
-              <p className="mt-2.5 max-w-xl text-[15px] leading-relaxed text-muted-foreground font-normal">
+              <TechnicalLabel className="text-accent">SELECTED WORK</TechnicalLabel>
+              <h2 className="type-section-title-compact mt-3 text-foreground">Featured Work</h2>
+              <p className="type-body mt-2.5 max-w-xl text-muted-foreground">
                 Visual walkthroughs, interaction models, and architectural narratives of selected web platforms.
               </p>
             </div>
-            <TechnicalLabel className="text-muted-foreground font-mono text-[10px] shrink-0">STUDIO SHOWCASE • PRODUCTION BUILDS</TechnicalLabel>
+            <TechnicalLabel className="shrink-0 text-muted-foreground">STUDIO SHOWCASE • PRODUCTION BUILDS</TechnicalLabel>
           </div>
         </SectionReveal>
 
@@ -105,11 +116,11 @@ export function FeaturedWorkSection({ projects }: { projects: FeaturedProject[] 
                     <span className="font-semibold text-success">{primary.telemetryValue}</span>
                   ) : null}
                 </div>
-                <h3 className="mt-2 text-lg md:text-xl font-bold tracking-tight text-foreground transition-colors duration-200 group-hover:text-accent">{primary.title}</h3>
-                <p className="mt-1.5 text-xs md:text-sm leading-relaxed text-muted-foreground font-normal">{primary.description}</p>
+                <h3 className="type-card-title mt-2 text-foreground transition-colors duration-200 group-hover:text-accent">{primary.title}</h3>
+                <p className="type-body-sm mt-1.5 text-muted-foreground">{primary.description}</p>
                 <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-border/60 pt-3.5 font-mono text-[11px]">
                   <span className="text-muted-foreground text-[10px]">{primary.stackText ? primary.stackText.replace(/\/\/\s*/g, "• ") : ""}</span>
-                  <Link href="/contact" className="inline-flex items-center gap-1.5 font-mono text-[11px] font-semibold text-accent transition-all duration-200 group-hover:translate-x-1">
+                  <Link href="/contact" className="type-button inline-flex items-center gap-1.5 text-accent transition-all duration-200 group-hover:translate-x-1">
                     <span>{primary.actionText ?? "VIEW CASE STUDY →"}</span>
                     <IconArrowRight className="size-3.5" />
                   </Link>
@@ -134,11 +145,11 @@ export function FeaturedWorkSection({ projects }: { projects: FeaturedProject[] 
                     <span className="font-semibold text-success">{secondary.telemetryValue}</span>
                   ) : null}
                 </div>
-                <h3 className="mt-2 text-lg font-bold tracking-tight text-foreground transition-colors duration-200 group-hover:text-accent">{secondary.title}</h3>
-                <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{secondary.description}</p>
+                <h3 className="type-card-title mt-2 text-foreground transition-colors duration-200 group-hover:text-accent">{secondary.title}</h3>
+                <p className="type-body-sm mt-1.5 text-muted-foreground">{secondary.description}</p>
                 <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-border/60 pt-3.5 font-mono text-[11px]">
                   <span className="text-muted-foreground text-[10px]">{secondary.stackText ? secondary.stackText.replace(/\/\/\s*/g, "• ") : ""}</span>
-                  <Link href="/contact" className="inline-flex items-center gap-1.5 font-mono text-[11px] font-semibold text-accent transition-all duration-200 group-hover:translate-x-1">
+                  <Link href="/contact" className="type-button inline-flex items-center gap-1.5 text-accent transition-all duration-200 group-hover:translate-x-1">
                     <span>{secondary.actionText ?? "VIEW CASE STUDY →"}</span>
                     <IconArrowRight className="size-3.5" />
                   </Link>
@@ -163,11 +174,11 @@ export function FeaturedWorkSection({ projects }: { projects: FeaturedProject[] 
                     <span className="font-semibold text-success">{project.telemetryValue}</span>
                   ) : null}
                 </div>
-                <h3 className="mt-2 text-lg font-bold tracking-tight text-foreground transition-colors duration-200 group-hover:text-accent">{project.title}</h3>
-                <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{project.description}</p>
+                <h3 className="type-card-title mt-2 text-foreground transition-colors duration-200 group-hover:text-accent">{project.title}</h3>
+                <p className="type-body-sm mt-1.5 text-muted-foreground">{project.description}</p>
                 <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-border/60 pt-3.5 font-mono text-[11px]">
                   <span className="text-muted-foreground text-[10px]">{project.stackText ? project.stackText.replace(/\/\/\s*/g, "• ") : ""}</span>
-                  <Link href="/contact" className="inline-flex items-center gap-1.5 font-mono text-[11px] font-semibold text-accent transition-all duration-200 group-hover:translate-x-1">
+                  <Link href="/contact" className="type-button inline-flex items-center gap-1.5 text-accent transition-all duration-200 group-hover:translate-x-1">
                     <span>{project.actionText ?? "VIEW CASE STUDY →"}</span>
                     <IconArrowRight className="size-3.5" />
                   </Link>
@@ -183,5 +194,4 @@ export function FeaturedWorkSection({ projects }: { projects: FeaturedProject[] 
     </section>
   );
 }
-
 

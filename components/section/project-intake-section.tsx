@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Divider } from "@/components/ui/divider";
@@ -11,6 +11,30 @@ import { IconSecurity, IconCheck } from "@/components/ui/icons";
 import { SectionReveal } from "@/components/animation/motion-primitives";
 import type { FormFieldConfig } from "@/lib/types";
 
+function getSelectedServiceFromUrl() {
+  if (typeof window === "undefined") {
+    return undefined;
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const tier = params.get("tier") || params.get("interest");
+  const lower = tier?.toLowerCase();
+
+  if (lower?.includes("starter")) {
+    return "Starter Tier (Essential Digital Presence)";
+  }
+
+  if (lower?.includes("growth")) {
+    return "Growth Tier (Conversion & Growth System)";
+  }
+
+  if (lower?.includes("custom")) {
+    return "Custom Tier (Custom Digital System)";
+  }
+
+  return undefined;
+}
+
 export function ProjectIntakeSection({
   fields,
 }: {
@@ -18,24 +42,7 @@ export function ProjectIntakeSection({
   telemetry?: unknown;
 }) {
   const [submitted, setSubmitted] = useState(false);
-  const [selectedService, setSelectedService] = useState<string | undefined>(undefined);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const params = new URLSearchParams(window.location.search);
-      const tier = params.get("tier") || params.get("interest");
-      if (tier) {
-        const lower = tier.toLowerCase();
-        if (lower.includes("starter")) {
-          setSelectedService("Starter Tier (Essential Digital Presence)");
-        } else if (lower.includes("growth")) {
-          setSelectedService("Growth Tier (Conversion & Growth System)");
-        } else if (lower.includes("custom")) {
-          setSelectedService("Custom Tier (Custom Digital System)");
-        }
-      }
-    }
-  }, []);
+  const [selectedService] = useState<string | undefined>(getSelectedServiceFromUrl);
 
   const nameField = fields.find((f) => f.id === "name");
   const bizNameField = fields.find((f) => f.id === "businessName" || f.id === "organization");
@@ -60,18 +67,18 @@ export function ProjectIntakeSection({
               {/* Left Panel — 5 cols */}
               <div className="flex flex-col justify-between lg:col-span-5">
                 <div>
-                  <TechnicalLabel className="text-accent font-mono text-[11px] tracking-[0.14em]">START A CONVERSATION</TechnicalLabel>
-                  <h2 className="mt-3 text-3xl font-bold leading-[1.08] tracking-tight text-foreground md:text-4xl lg:text-[2.65rem]">Start a Project</h2>
-                  <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground font-normal">
+                  <TechnicalLabel className="text-accent">START A CONVERSATION</TechnicalLabel>
+                  <h2 className="type-section-title-compact mt-3 text-foreground">Start a Project</h2>
+                  <p className="type-body mt-3 text-muted-foreground">
                     Tell us about your project requirements. We&apos;ll review your scope and provide a clear technical roadmap within 24 hours.
                   </p>
 
                   {/* What Happens Next Reassuring Box */}
-                  <Card variant="default" padding="md" className="mt-6 font-mono text-xs space-y-3">
+                  <Card variant="default" padding="md" className="mt-6 space-y-3">
                     <TechnicalLabel className="text-accent font-semibold block border-b border-border/60 pb-2.5">
                       WHAT HAPPENS NEXT
                     </TechnicalLabel>
-                    <div className="space-y-2 pt-1 text-[11px]">
+                    <div className="type-body-sm space-y-2 pt-1">
                       <div className="flex items-start gap-2.5">
                         <span className="font-bold text-accent">01</span>
                         <span className="text-foreground font-medium">We review your specifications.</span>
@@ -92,7 +99,7 @@ export function ProjectIntakeSection({
                   </Card>
                 </div>
 
-                <p className="mt-6 font-mono text-[10px] text-muted-foreground flex items-center gap-1.5">
+                <p className="type-body-sm mt-6 flex items-center gap-1.5 text-muted-foreground">
                   <IconSecurity className="size-3.5 text-accent shrink-0" />
                   <span>* Direct engineering consultation. We respect your business privacy.</span>
                 </p>
@@ -105,11 +112,11 @@ export function ProjectIntakeSection({
                     <div className="inline-flex size-12 items-center justify-center rounded-full bg-accent/10 border border-accent/40 text-accent">
                       <IconCheck className="size-6 text-accent" />
                     </div>
-                    <TechnicalLabel className="text-accent block font-mono text-xs tracking-wider">
+                    <TechnicalLabel className="block text-accent">
                       ENQUIRY RECEIVED
                     </TechnicalLabel>
-                    <h3 className="text-2xl font-bold text-foreground">Thank You!</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed max-w-md mx-auto">
+                    <h3 className="text-2xl font-bold tracking-normal text-foreground">Thank You!</h3>
+                    <p className="type-body-sm mx-auto max-w-md text-muted-foreground">
                       We have received your project details. Our team will review your requirements and get back to you within 24 hours with a recommended approach.
                     </p>
                     <div className="pt-4">
@@ -150,7 +157,7 @@ export function ProjectIntakeSection({
                       className="mt-6 w-full"
                     />
 
-                    <p className="mt-3 text-center font-mono text-[11px] text-muted-foreground">
+                    <p className="type-body-sm mt-3 text-center text-muted-foreground">
                       Your information stays private. We&apos;ll review your enquiry and get back to you.
                     </p>
                   </Card>
@@ -166,5 +173,3 @@ export function ProjectIntakeSection({
     </>
   );
 }
-
-

@@ -12,13 +12,12 @@ export function SolutionItem({ number, category, title, description, spec }: Sol
         </div>
         <IconArrowRight className="size-3.5 text-accent opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100" />
       </div>
-      <h3 className="mt-2 text-lg font-bold text-foreground transition-colors duration-200 group-hover:text-accent">{title}</h3>
-      <p className="mt-2 text-xs leading-6 text-muted-foreground">{description}</p>
+      <h3 className="type-card-title mt-2 text-foreground transition-colors duration-200 group-hover:text-accent">{title}</h3>
+      <p className="type-body-sm mt-2 text-muted-foreground">{description}</p>
       <div className="mt-4">
         <TechnicalLabel className="text-accent">{spec}</TechnicalLabel>
       </div>
     </article>
   );
 }
-
 

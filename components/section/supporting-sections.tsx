@@ -17,10 +17,10 @@ export function BusinessesSection({ benchmark }: { benchmark: BenchmarkConfig })
             <div className="flex flex-col justify-between lg:col-span-5">
               <div>
                 <TechnicalLabel className="text-accent">{benchmark.eyebrow}</TechnicalLabel>
-                <h2 className="mt-3 text-3xl font-bold leading-[1.08] tracking-tight text-foreground md:text-4xl lg:text-[2.65rem]">
+                <h2 className="type-section-title-compact mt-3 text-foreground">
                   {benchmark.title}
                 </h2>
-                <p className="mt-3.5 text-[15px] leading-relaxed text-muted-foreground font-normal">
+                <p className="type-body mt-3.5 text-muted-foreground">
                   {benchmark.description}
                 </p>
               </div>
@@ -35,11 +35,11 @@ export function BusinessesSection({ benchmark }: { benchmark: BenchmarkConfig })
                   >
                     <div className="flex items-center gap-2.5">
                       <span className="font-mono text-xs font-semibold text-accent">{adv.number}</span>
-                      <h3 className="text-sm md:text-base font-semibold text-foreground transition-colors duration-200 group-hover:text-accent">
+                      <h3 className="type-card-title text-foreground transition-colors duration-200 group-hover:text-accent">
                         {adv.title}
                       </h3>
                     </div>
-                    <p className="mt-1.5 text-xs md:text-[13px] leading-relaxed text-muted-foreground font-normal">{adv.description}</p>
+                    <p className="type-body-sm mt-1.5 text-muted-foreground">{adv.description}</p>
                   </Card>
                 ))}
               </div>
@@ -132,10 +132,10 @@ export function ProcessSection({ steps }: { steps: ProcessStepData[] }) {
                 </span>
               </div>
               <div className="mt-3 flex flex-col md:flex-row md:items-baseline gap-3 md:gap-8">
-                <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl lg:text-[2.65rem] shrink-0">
+                <h2 className="type-section-title-compact shrink-0 text-foreground">
                   From idea to impact.
                 </h2>
-                <p className="max-w-md text-sm md:text-[14px] leading-relaxed text-muted-foreground font-normal">
+                <p className="type-body-sm max-w-md text-muted-foreground">
                   A focused, transparent process designed to turn your goals into working digital solutions.
                 </p>
               </div>
@@ -153,7 +153,7 @@ export function ProcessSection({ steps }: { steps: ProcessStepData[] }) {
                 const Icon = stepIcons[idx] ?? IconCode;
                 return (
                   <div key={step.id} className="relative flex">
-                    <article className="group flex flex-col justify-between w-full rounded-2xl border border-border/80 bg-card p-6 shadow-xs transition-all duration-200 hover:border-accent/40">
+                    <article className="group flex flex-col justify-between w-full rounded-2xl border border-border/80 bg-surface/85 p-6 shadow-[0_2px_10px_rgba(0,0,0,0.03)] transition-all duration-200 hover:-translate-y-1 hover:border-accent/60 hover:bg-surface-elevated/95 hover:shadow-[0_12px_32px_rgba(196,114,68,0.12)]">
                       <div>
                         {/* Top: Icon Box & Step Number */}
                         <div className="flex items-center justify-between">
@@ -164,10 +164,10 @@ export function ProcessSection({ steps }: { steps: ProcessStepData[] }) {
                         </div>
 
                         {/* Title & Description */}
-                        <h3 className="mt-5 text-base md:text-lg font-bold text-foreground group-hover:text-accent transition-colors duration-200">
+                        <h3 className="type-card-title mt-5 text-foreground group-hover:text-accent transition-colors duration-200">
                           {step.title}
                         </h3>
-                        <p className="mt-2 text-xs md:text-[13px] leading-relaxed text-muted-foreground font-normal">
+                        <p className="type-body-sm mt-2 text-muted-foreground">
                           {step.description}
                         </p>
                       </div>
@@ -223,15 +223,15 @@ export function EngagementSection({ plans }: { plans: PricingPlan[] }) {
         <SectionReveal>
           <div className="border-b border-border pb-6 flex flex-col justify-between gap-3 md:flex-row md:items-end">
             <div>
-              <TechnicalLabel className="text-accent font-mono text-[11px] tracking-[0.14em]">ENGAGEMENT TIERS</TechnicalLabel>
-              <h2 className="mt-3 text-3xl font-bold leading-[1.08] tracking-tight text-foreground md:text-4xl lg:text-[2.65rem]">
+              <TechnicalLabel className="text-accent">ENGAGEMENT TIERS</TechnicalLabel>
+              <h2 className="type-section-title-compact mt-3 text-foreground">
                 Structured Engagement Tiers
               </h2>
-              <p className="mt-2.5 max-w-xl text-[15px] leading-relaxed text-muted-foreground font-normal">
+              <p className="type-body mt-2.5 max-w-xl text-muted-foreground">
                 Fixed scopes, clearly defined deliverables, and full code ownership with direct engineer access.
               </p>
             </div>
-            <TechnicalLabel className="text-muted-foreground font-mono text-[10px]">
+            <TechnicalLabel className="text-muted-foreground">
               100% OWNERSHIP • FIXED TIMELINES
             </TechnicalLabel>
           </div>
@@ -249,5 +249,4 @@ export function EngagementSection({ plans }: { plans: PricingPlan[] }) {
     </section>
   );
 }
-
 

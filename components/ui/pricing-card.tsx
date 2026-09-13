@@ -36,8 +36,8 @@ export function PricingCard({
           )}
         </div>
 
-        <h3 className="mt-4 text-xl md:text-2xl font-bold tracking-tight text-foreground">{name}</h3>
-        <p className="mt-2 text-xs md:text-[13.5px] leading-relaxed text-muted-foreground font-normal">{subtitle}</p>
+        <h3 className="mt-4 text-xl font-bold tracking-normal text-foreground md:text-2xl">{name}</h3>
+        <p className="type-body-sm mt-2 text-muted-foreground">{subtitle}</p>
 
         {/* Section divider */}
         <div className="my-5 border-t border-border/60 pt-4 font-mono text-[9.5px] uppercase tracking-[0.14em] text-accent font-semibold flex items-center gap-1.5">
@@ -45,13 +45,13 @@ export function PricingCard({
           <span>INCLUDED CAPABILITIES</span>
         </div>
 
-        <ul className="space-y-3 font-mono text-xs">
+        <ul className="type-body-sm space-y-3">
           {features.map((feature, idx) => (
             <li key={idx} className="flex items-start gap-2.5">
               <span className="flex size-4 shrink-0 items-center justify-center rounded-full bg-accent/20 text-accent mt-0.5">
                 <IconCheck className="size-2.5" />
               </span>
-              <span className="text-foreground/90 leading-relaxed font-medium">
+              <span className="font-medium text-foreground/90">
                 {feature.text}
               </span>
             </li>
@@ -65,5 +65,4 @@ export function PricingCard({
     </Card>
   );
 }
-
 

@@ -49,7 +49,14 @@ body {
 	background: var(--background);
 	color: var(--foreground);
 	font-family: var(--font-schibsted-grotesk), sans-serif;
+	font-size: 1rem;
+	font-weight: 400;
+	letter-spacing: 0;
+	line-height: 1.6;
 	overflow-x: hidden;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
@@ -75,7 +82,116 @@ body {
 
 /* Natural breathing offset for in-page anchors */
 section[id] {
-	scroll-margin-top: 2rem;
+	scroll-margin-top: 5rem;
+}
+
+.type-hero {
+	font-family: var(--font-schibsted-grotesk), sans-serif;
+	font-size: clamp(2.45rem, 1.8rem + 2.75vw, 3.75rem);
+	font-weight: 700;
+	letter-spacing: 0;
+	line-height: 1.04;
+}
+
+.type-section-title {
+	font-family: var(--font-schibsted-grotesk), sans-serif;
+	font-size: clamp(2rem, 1.45rem + 1.7vw, 3.25rem);
+	font-weight: 700;
+	letter-spacing: 0;
+	line-height: 1.08;
+}
+
+.type-section-title-compact {
+	font-family: var(--font-schibsted-grotesk), sans-serif;
+	font-size: clamp(1.9rem, 1.45rem + 1.35vw, 2.65rem);
+	font-weight: 700;
+	letter-spacing: 0;
+	line-height: 1.1;
+}
+
+.type-card-title {
+	font-family: var(--font-schibsted-grotesk), sans-serif;
+	font-size: clamp(1rem, 0.94rem + 0.25vw, 1.125rem);
+	font-weight: 650;
+	letter-spacing: 0;
+	line-height: 1.22;
+}
+
+.type-body {
+	font-family: var(--font-schibsted-grotesk), sans-serif;
+	font-size: clamp(0.9375rem, 0.9rem + 0.18vw, 1rem);
+	font-weight: 400;
+	letter-spacing: 0;
+	line-height: 1.68;
+}
+
+.type-body-sm {
+	font-family: var(--font-schibsted-grotesk), sans-serif;
+	font-size: clamp(0.8125rem, 0.78rem + 0.15vw, 0.9rem);
+	font-weight: 400;
+	letter-spacing: 0;
+	line-height: 1.62;
+}
+
+.type-body-xs {
+	font-family: var(--font-schibsted-grotesk), sans-serif;
+	font-size: 0.6875rem;
+	font-weight: 400;
+	letter-spacing: 0;
+	line-height: 1.55;
+}
+
+.type-nav {
+	font-family: var(--font-schibsted-grotesk), sans-serif;
+	font-size: 0.75rem;
+	font-weight: 650;
+	letter-spacing: 0;
+	line-height: 1;
+	text-transform: uppercase;
+}
+
+.type-button {
+	font-family: var(--font-schibsted-grotesk), sans-serif;
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0;
+	line-height: 1;
+	text-transform: uppercase;
+}
+
+.type-button-sm {
+	font-family: var(--font-schibsted-grotesk), sans-serif;
+	font-size: 0.6875rem;
+	font-weight: 700;
+	letter-spacing: 0;
+	line-height: 1;
+	text-transform: uppercase;
+}
+
+.type-technical {
+	font-family: var(--font-geist-mono), monospace;
+	font-size: 0.6875rem;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	line-height: 1.35;
+	text-transform: uppercase;
+}
+
+.type-technical-xs {
+	font-family: var(--font-geist-mono), monospace;
+	font-size: 0.5625rem;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	line-height: 1.35;
+	text-transform: uppercase;
+}
+
+.type-metric {
+	font-family: var(--font-schibsted-grotesk), sans-serif;
+	font-size: clamp(1.6rem, 1.35rem + 0.9vw, 2rem);
+	font-weight: 700;
+	letter-spacing: 0;
+	line-height: 1;
 }
 
 @media (min-width: 768px) {
@@ -84,3 +200,90 @@ section[id] {
 	}
 }
 
+/* Controlled SyntaxLab Aurora 2.0 Multi-Layer Atmosphere */
+.aurora-layer-primary {
+	background-image:
+		radial-gradient(ellipse 80% 60% at 30% 20%, rgba(196, 114, 68, 0.26) 0%, rgba(196, 114, 68, 0.08) 45%, transparent 70%),
+		radial-gradient(ellipse 70% 50% at 75% 75%, rgba(214, 134, 82, 0.20) 0%, rgba(175, 95, 50, 0.06) 50%, transparent 75%);
+	background-size: 200% 200%;
+	will-change: background-position;
+	animation: syntaxlab-aurora-1 56s linear infinite;
+}
+
+.aurora-layer-secondary {
+	background-image:
+		radial-gradient(ellipse 75% 55% at 70% 25%, rgba(220, 138, 85, 0.22) 0%, rgba(196, 114, 68, 0.06) 40%, transparent 70%),
+		radial-gradient(ellipse 65% 50% at 25% 80%, rgba(180, 100, 52, 0.16) 0%, transparent 65%);
+	background-size: 200% 200%;
+	will-change: background-position;
+	animation: syntaxlab-aurora-2 72s linear infinite;
+}
+
+.aurora-layer-ambient {
+	background-image:
+		radial-gradient(ellipse 90% 70% at 55% 45%, rgba(196, 114, 68, 0.16) 0%, rgba(214, 134, 82, 0.05) 50%, transparent 80%);
+	background-size: 180% 180%;
+	will-change: background-position;
+	animation: syntaxlab-aurora-3 48s linear infinite;
+}
+
+[data-theme="light"] .aurora-layer-primary {
+	background-image:
+		radial-gradient(ellipse 80% 60% at 30% 20%, rgba(184, 100, 56, 0.14) 0%, rgba(210, 150, 110, 0.06) 45%, transparent 70%),
+		radial-gradient(ellipse 70% 50% at 75% 75%, rgba(200, 130, 80, 0.10) 0%, rgba(225, 210, 195, 0.25) 50%, transparent 75%);
+}
+
+[data-theme="light"] .aurora-layer-secondary {
+	background-image:
+		radial-gradient(ellipse 75% 55% at 70% 25%, rgba(214, 140, 92, 0.12) 0%, rgba(230, 218, 205, 0.2) 45%, transparent 70%),
+		radial-gradient(ellipse 65% 50% at 25% 80%, rgba(184, 100, 56, 0.08) 0%, transparent 65%);
+}
+
+[data-theme="light"] .aurora-layer-ambient {
+	background-image:
+		radial-gradient(ellipse 90% 70% at 55% 45%, rgba(196, 114, 68, 0.08) 0%, rgba(220, 205, 190, 0.18) 50%, transparent 80%);
+}
+
+@keyframes syntaxlab-aurora-1 {
+	0% {
+		background-position: 0% 0%;
+	}
+	50% {
+		background-position: 100% 100%;
+	}
+	100% {
+		background-position: 0% 0%;
+	}
+}
+
+@keyframes syntaxlab-aurora-2 {
+	0% {
+		background-position: 100% 0%;
+	}
+	50% {
+		background-position: 0% 100%;
+	}
+	100% {
+		background-position: 100% 0%;
+	}
+}
+
+@keyframes syntaxlab-aurora-3 {
+	0% {
+		background-position: 50% 100%;
+	}
+	50% {
+		background-position: 50% 0%;
+	}
+	100% {
+		background-position: 50% 100%;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.aurora-layer-primary,
+	.aurora-layer-secondary,
+	.aurora-layer-ambient {
+		animation: none !important;
+	}
+}

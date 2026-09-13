@@ -12,7 +12,7 @@ export function SectionScroller({ targetId }: { targetId?: string }) {
     const scrollToElement = () => {
       const el = document.getElementById(targetId);
       if (el) {
-        const navOffset = window.innerWidth >= 768 ? 32 : 24;
+        const navOffset = window.innerWidth >= 768 ? 72 : 64;
         const elementPosition = el.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.scrollY - navOffset;
         window.scrollTo({

@@ -10,5 +10,5 @@ export function ThemeProvider({ children }: PropsWithChildren) {
     document.documentElement.dataset.theme = mode;
   }, [mode]);
 
-  return children;
+  return <>{children}</>;
 }

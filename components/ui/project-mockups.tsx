@@ -145,7 +145,7 @@ export function NordicEditorialMockup({ className = "", isHovered = false }: Moc
       >
         <div className="min-w-0">
           <div className="text-[7.5px] tracking-[0.14em] text-accent uppercase font-bold truncate">EDITORIAL PORTFOLIO</div>
-          <div className="text-[11px] font-bold text-white mt-0.5 tracking-tight truncate">COPENHAGEN RESIDENCE</div>
+          <div className="text-[11px] font-bold text-white mt-0.5 tracking-normal truncate">COPENHAGEN RESIDENCE</div>
           <div className="text-[8px] text-white/60 mt-0.5 truncate">AVIF / WEBP • ZERO LAYOUT SHIFT</div>
         </div>
         <div className="size-8 shrink-0 rounded border border-accent/40 bg-accent/15 flex items-center justify-center text-accent text-[10px] font-bold">

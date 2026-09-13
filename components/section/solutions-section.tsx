@@ -170,20 +170,20 @@ export function SolutionsSection({
             <div className="w-full xl:w-[290px] 2xl:w-[310px] shrink-0 flex flex-col justify-between lg:max-xl:grid lg:max-xl:grid-cols-12 lg:max-xl:gap-8 lg:max-xl:items-start">
               <div className="lg:max-xl:col-span-7">
                 {/* Eyebrow with copper bar */}
-                <div className="flex items-center gap-2 font-mono text-[11px] font-semibold text-accent tracking-[0.14em]">
+                <div className="type-technical flex items-center gap-2 text-accent">
                   <span className="w-3.5 h-[1.5px] bg-accent inline-block" />
                   <span>WHAT WE BUILD</span>
                 </div>
 
                 {/* 3-line Display Headline */}
-                <h2 className="mt-3 text-2xl sm:text-3xl lg:text-[2.25rem] xl:text-[2.35rem] font-bold leading-[1.08] tracking-tight text-foreground">
+                <h2 className="type-section-title-compact mt-3 text-foreground">
                   Digital Solutions<br className="hidden sm:inline lg:hidden xl:inline" />{" "}
                   for Growing<br className="hidden sm:inline lg:hidden xl:inline" />{" "}
                   Businesses
                 </h2>
 
                 {/* Supporting Description */}
-                <p className="mt-2.5 sm:mt-3 text-[13.5px] leading-relaxed text-muted-foreground font-normal max-w-xl xl:max-w-none">
+                <p className="type-body-sm mt-2.5 max-w-xl text-muted-foreground sm:mt-3 xl:max-w-none">
                   Engineered web systems and custom software designed for commercial clarity, high conversion, and operational autonomy.
                 </p>
 
@@ -252,14 +252,14 @@ export function SolutionsSection({
                           <div className="size-6 rounded border border-accent/40 bg-accent/15 flex items-center justify-center text-accent">
                             <IconMonitor className="size-3.5" />
                           </div>
-                          <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground font-semibold">
+                          <span className="type-technical text-muted-foreground">
                             01 — BUSINESS WEBSITES
                           </span>
                         </div>
 
                         {/* Title */}
                         <h3
-                          className={`mt-2 text-base sm:text-lg font-bold tracking-tight transition-colors duration-200 ${
+                          className={`type-card-title mt-2 transition-colors duration-200 ${
                             activeIndex === 0 ? "text-accent" : "text-foreground group-hover:text-accent"
                           }`}
                         >
@@ -267,7 +267,7 @@ export function SolutionsSection({
                         </h3>
 
                         {/* Description */}
-                        <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground font-normal">
+                        <p className="type-body-sm mt-1.5 text-muted-foreground">
                           {card1.description}
                         </p>
 
@@ -293,7 +293,7 @@ export function SolutionsSection({
                       <div className="flex size-6 shrink-0 items-center justify-center rounded-full border border-border/80 text-foreground transition-all duration-200 group-hover:border-accent group-hover:text-accent group-hover:translate-x-0.5">
                         <IconArrowRight className="size-3" />
                       </div>
-                      <span className="font-mono text-[9px] text-muted-foreground tracking-wider uppercase">
+                      <span className="type-technical-xs text-muted-foreground">
                         DESIGN • DEVELOP • GROW
                       </span>
                     </div>
@@ -320,21 +320,21 @@ export function SolutionsSection({
                           <div className="size-6 rounded border border-accent/40 bg-accent/15 flex items-center justify-center text-accent">
                             <IconShoppingCart className="size-3.5" />
                           </div>
-                          <span className="font-mono text-[9.5px] uppercase tracking-[0.12em] text-muted-foreground font-semibold">
+                          <span className="type-technical-xs text-muted-foreground">
                             02 — E-COMMERCE
                           </span>
                         </div>
                       </div>
 
                       <h3
-                        className={`mt-2 text-sm sm:text-[15px] font-bold tracking-tight transition-colors duration-200 ${
+                        className={`mt-2 text-sm font-bold tracking-normal transition-colors duration-200 sm:text-[15px] ${
                           activeIndex === 1 ? "text-accent" : "text-foreground group-hover:text-accent"
                         }`}
                       >
                         {card2.title}
                       </h3>
 
-                      <p className="mt-1 text-xs leading-relaxed text-muted-foreground font-normal">
+                      <p className="type-body-sm mt-1 text-muted-foreground">
                         {card2.description}
                       </p>
                     </div>
@@ -371,21 +371,21 @@ export function SolutionsSection({
                           <div className="size-6 rounded border border-accent/40 bg-accent/15 flex items-center justify-center text-accent">
                             <IconLayoutDashboard className="size-3.5" />
                           </div>
-                          <span className="font-mono text-[9.5px] uppercase tracking-[0.12em] text-muted-foreground font-semibold">
+                          <span className="type-technical-xs text-muted-foreground">
                             03 — BUSINESS TOOLS
                           </span>
                         </div>
                       </div>
 
                       <h3
-                        className={`mt-2 text-sm sm:text-[15px] font-bold tracking-tight transition-colors duration-200 ${
+                        className={`mt-2 text-sm font-bold tracking-normal transition-colors duration-200 sm:text-[15px] ${
                           activeIndex === 2 ? "text-accent" : "text-foreground group-hover:text-accent"
                         }`}
                       >
                         {card3.title}
                       </h3>
 
-                      <p className="mt-1 text-xs leading-relaxed text-muted-foreground font-normal">
+                      <p className="type-body-sm mt-1 text-muted-foreground">
                         {card3.description}
                       </p>
                     </div>
@@ -424,18 +424,18 @@ export function SolutionsSection({
                         <div className="size-5 rounded border border-accent/40 bg-accent/15 flex items-center justify-center text-accent">
                           <IconCrosshair className="size-3" />
                         </div>
-                        <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground font-semibold">
+                        <span className="type-technical-xs text-muted-foreground">
                           04 — CAMPAIGNS
                         </span>
                       </div>
                       <h3
-                        className={`mt-2 text-xs sm:text-[13.5px] font-bold tracking-tight transition-colors duration-200 ${
+                        className={`mt-2 text-xs font-bold tracking-normal transition-colors duration-200 sm:text-[13.5px] ${
                           activeIndex === 3 ? "text-accent" : "text-foreground group-hover:text-accent"
                         }`}
                       >
                         {card4.title}
                       </h3>
-                      <p className="mt-1 text-[11px] leading-relaxed text-muted-foreground font-normal line-clamp-2">
+                      <p className="type-body-xs mt-1 text-muted-foreground line-clamp-2">
                         {card4.description}
                       </p>
                     </div>
@@ -471,18 +471,18 @@ export function SolutionsSection({
                         <div className="size-5 rounded border border-accent/40 bg-accent/15 flex items-center justify-center text-accent">
                           <IconLayers className="size-3" />
                         </div>
-                        <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground font-semibold">
+                        <span className="type-technical-xs text-muted-foreground">
                           05 — MODERNIZATION
                         </span>
                       </div>
                       <h3
-                        className={`mt-2 text-xs sm:text-[13.5px] font-bold tracking-tight transition-colors duration-200 ${
+                        className={`mt-2 text-xs font-bold tracking-normal transition-colors duration-200 sm:text-[13.5px] ${
                           activeIndex === 4 ? "text-accent" : "text-foreground group-hover:text-accent"
                         }`}
                       >
                         {card5.title}
                       </h3>
-                      <p className="mt-1 text-[11px] leading-relaxed text-muted-foreground font-normal line-clamp-2">
+                      <p className="type-body-xs mt-1 text-muted-foreground line-clamp-2">
                         {card5.description}
                       </p>
                     </div>
@@ -518,18 +518,18 @@ export function SolutionsSection({
                         <div className="size-5 rounded border border-accent/40 bg-accent/15 flex items-center justify-center text-accent">
                           <IconShieldCheck className="size-3" />
                         </div>
-                        <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground font-semibold">
+                        <span className="type-technical-xs text-muted-foreground">
                           06 — SUPPORT & SLA
                         </span>
                       </div>
                       <h3
-                        className={`mt-2 text-xs sm:text-[13.5px] font-bold tracking-tight transition-colors duration-200 ${
+                        className={`mt-2 text-xs font-bold tracking-normal transition-colors duration-200 sm:text-[13.5px] ${
                           activeIndex === 5 ? "text-accent" : "text-foreground group-hover:text-accent"
                         }`}
                       >
                         {card6.title}
                       </h3>
-                      <p className="mt-1 text-[11px] leading-relaxed text-muted-foreground font-normal line-clamp-2">
+                      <p className="type-body-xs mt-1 text-muted-foreground line-clamp-2">
                         {card6.description}
                       </p>
                     </div>
@@ -589,7 +589,7 @@ export function SolutionsSection({
                       </div>
 
                       {/* Selected Service Title */}
-                      <h4 className="mt-3.5 text-base sm:text-lg font-bold tracking-tight text-white leading-snug">
+                      <h4 className="type-card-title mt-3.5 text-white">
                         {overviewMeta.category}
                       </h4>
 
@@ -599,7 +599,7 @@ export function SolutionsSection({
                       </div>
 
                       {/* Deliverables Checklist */}
-                      <ul className="mt-3.5 space-y-2 font-mono text-xs">
+                      <ul className="type-body-sm mt-3.5 space-y-2">
                         {overviewMeta.benefits.map((benefit, bIdx) => (
                           <li key={bIdx} className="flex items-center gap-2 text-white/90">
                             <span className="flex size-3.5 shrink-0 items-center justify-center rounded-full bg-accent text-[#08090a]">
@@ -643,12 +643,12 @@ export function SolutionsSection({
               </div>
 
               {/* SYNTAXLAB COMMITMENT CARD */}
-              <div className="md:max-xl:col-span-4 rounded-xl border border-border/80 bg-surface/80 p-4 sm:p-5 font-mono text-xs shadow-xs flex flex-col justify-center">
-                <div className="flex items-center gap-1.5 text-[9px] font-bold text-accent uppercase tracking-wider">
+              <div className="md:max-xl:col-span-4 rounded-xl border border-border/80 bg-surface/80 p-4 sm:p-5 shadow-xs flex flex-col justify-center">
+                <div className="type-technical-xs flex items-center gap-1.5 text-accent">
                   <span className="size-1.5 rounded-full bg-accent inline-block" />
                   <span>SYNTAXLAB COMMITMENT</span>
                 </div>
-                <p className="mt-1.5 text-[11px] leading-relaxed text-muted-foreground font-normal">
+                <p className="type-body-xs mt-1.5 text-muted-foreground">
                   Every system is engineered from clean code — eliminating recurring license dependencies and plugin vulnerabilities.
                 </p>
               </div>
@@ -663,4 +663,3 @@ export function SolutionsSection({
   </section>
 );
 }
-

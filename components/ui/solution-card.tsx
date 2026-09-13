@@ -79,6 +79,7 @@ export function SolutionCard({
       <AnimatePresence>
         {isHovered && (
           <motion.span
+            key={`solution-hover-${index}`}
             className="absolute -inset-1.5 z-0 block rounded-2xl bg-accent/8 dark:bg-accent/12 pointer-events-none"
             layoutId="solutionCardHover"
             initial={{ opacity: 0 }}
@@ -100,8 +101,8 @@ export function SolutionCard({
           "relative z-10 h-full w-full overflow-hidden rounded-xl border transition-all duration-200 ease-out flex flex-col justify-between",
           paddingClassName,
           isSelected
-            ? "border-accent bg-surface-elevated/95 shadow-[0_4px_24px_rgba(196,114,68,0.14)]"
-            : "border-border/80 bg-surface/85 hover:border-accent/50 hover:bg-surface shadow-[0_2px_10px_rgba(0,0,0,0.03)]"
+            ? "border-accent bg-surface-elevated/95 shadow-[0_6px_28px_rgba(196,114,68,0.16)] -translate-y-0.5"
+            : "border-border/80 bg-surface/85 hover:border-accent/60 hover:bg-surface-elevated/95 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(196,114,68,0.12)] shadow-[0_2px_10px_rgba(0,0,0,0.03)]"
         )}
       >
         {/* 3. Pointer-Tracking Radial Spotlight (Follows mouse smoothly) */}
