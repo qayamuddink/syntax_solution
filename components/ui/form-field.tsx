@@ -4,10 +4,16 @@ import { useState, useRef, useEffect } from "react";
 import type { FormFieldConfig } from "@/lib/types";
 import { TechnicalLabel } from "@/components/ui/technical-label";
 
-export function FormField({ id, label, type, required, options, placeholder }: FormFieldConfig) {
-  const [selectedValue, setSelectedValue] = useState("");
+export function FormField({ id, label, type, required, options, placeholder, defaultValue = "" }: FormFieldConfig) {
+  const [selectedValue, setSelectedValue] = useState(defaultValue);
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (defaultValue) {
+      setSelectedValue(defaultValue);
+    }
+  }, [defaultValue]);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {

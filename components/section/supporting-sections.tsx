@@ -223,12 +223,12 @@ export function EngagementSection({ plans }: { plans: PricingPlan[] }) {
         <SectionReveal>
           <div className="border-b border-border pb-6 flex flex-col justify-between gap-3 md:flex-row md:items-end">
             <div>
-              <TechnicalLabel className="text-accent font-mono text-[11px] tracking-[0.14em]">PRICING & ENGAGEMENT</TechnicalLabel>
+              <TechnicalLabel className="text-accent font-mono text-[11px] tracking-[0.14em]">ENGAGEMENT TIERS</TechnicalLabel>
               <h2 className="mt-3 text-3xl font-bold leading-[1.08] tracking-tight text-foreground md:text-4xl lg:text-[2.65rem]">
-                Pricing & Investment
+                Structured Engagement Tiers
               </h2>
               <p className="mt-2.5 max-w-xl text-[15px] leading-relaxed text-muted-foreground font-normal">
-                Fixed scopes, transparent deliverables, and full code ownership with zero recurring platform fees.
+                Fixed scopes, clearly defined deliverables, and full code ownership with direct engineer access.
               </p>
             </div>
             <TechnicalLabel className="text-muted-foreground font-mono text-[10px]">

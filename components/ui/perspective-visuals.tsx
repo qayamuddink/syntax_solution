@@ -11,7 +11,7 @@ interface VisualProps {
 /**
  * 01: Masterfully Engineered Laptop & Browser Interface Visual (Business Websites)
  * Features a high-resolution isometric laptop chassis, dark web application canvas,
- * interactive gliding cursor, animated metric bars, live SSL & telemetry beacons,
+ * realistic keyboard recess, live SSL & telemetry beacons,
  * specular reflection beam, and dynamic ambient depth glow.
  */
 export function LaptopBrowserVisual({ className = "", isHovered = false }: VisualProps) {
@@ -27,535 +27,478 @@ export function LaptopBrowserVisual({ className = "", isHovered = false }: Visua
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="w-full h-auto drop-shadow-[0_16px_36px_rgba(0,0,0,0.18)] dark:drop-shadow-[0_20px_48px_rgba(0,0,0,0.65)]"
-        initial={{ opacity: 0, y: 12 }}
+        initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       >
         <defs>
-          {/* Screen glass */}
-          <linearGradient id="screenFrame" x1="380" y1="55" x2="380" y2="360" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#20242A" />
+          {/* Display outer bezel gradient */}
+          <linearGradient id="lpBezel" x1="380" y1="52" x2="380" y2="348" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#282C34" />
+            <stop offset="0.5" stopColor="#16181D" />
+            <stop offset="1" stopColor="#0A0C0F" />
+          </linearGradient>
+
+          {/* Screen surface background */}
+          <linearGradient id="lpScreenSurface" x1="180" y1="90" x2="580" y2="330" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#12151B" />
             <stop offset="1" stopColor="#080A0D" />
           </linearGradient>
 
-          <linearGradient id="screenSurface" x1="180" y1="100" x2="580" y2="320" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#15181D" />
-            <stop offset="1" stopColor="#080A0D" />
+          {/* Aluminum unibody chassis */}
+          <linearGradient id="lpBody" x1="120" y1="345" x2="640" y2="430" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#F9F9F8" />
+            <stop offset="0.4" stopColor="#DCDDE2" />
+            <stop offset="1" stopColor="#AEB2B9" />
           </linearGradient>
 
-          {/* Laptop body */}
-          <linearGradient id="body" x1="120" y1="345" x2="640" y2="430" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#F8F8F6" />
-            <stop offset="0.5" stopColor="#D9DADF" />
-            <stop offset="1" stopColor="#AEB1B7" />
+          {/* Keyboard well */}
+          <linearGradient id="lpKeyboardWell" x1="170" y1="355" x2="590" y2="410" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#1C1F25" />
+            <stop offset="1" stopColor="#0C0E12" />
           </linearGradient>
 
-          <linearGradient id="keyboard" x1="170" y1="350" x2="590" y2="405" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#1B1E23" />
-            <stop offset="1" stopColor="#090B0E" />
+          {/* Chiclet key gradient */}
+          <linearGradient id="lpKey" x1="0" y1="0" x2="0" y2="1">
+            <stop stopColor="#353942" />
+            <stop offset="1" stopColor="#22252C" />
           </linearGradient>
 
-          {/* Accent */}
-          <linearGradient id="orange" x1="0" y1="0" x2="1" y2="1">
-            <stop stopColor="#F06A3B" />
-            <stop offset="1" stopColor="#C94F28" />
+          {/* Accent copper */}
+          <linearGradient id="lpOrange" x1="0" y1="0" x2="1" y2="1">
+            <stop stopColor="#F27040" />
+            <stop offset="1" stopColor="#C84D26" />
           </linearGradient>
 
-          {/* Screen glow */}
-          <filter id="screenGlow" x="-40%" y="-40%" width="180%" height="180%">
-            <feGaussianBlur stdDeviation="18" />
+          {/* Screen glow filter */}
+          <filter id="lpScreenGlow" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="16" />
           </filter>
 
-          {/* Laptop shadow */}
-          <filter id="shadow" x="-30%" y="-50%" width="160%" height="220%">
-            <feGaussianBlur stdDeviation="18" />
+          {/* Shadow filter */}
+          <filter id="lpShadow" x="-30%" y="-50%" width="160%" height="220%">
+            <feGaussianBlur stdDeviation="16" />
           </filter>
 
-          {/* Small soft shadow */}
-          <filter id="softShadow" x="-40%" y="-40%" width="180%" height="180%">
-            <feGaussianBlur stdDeviation="8" />
-          </filter>
-
-          <clipPath id="screenClip">
-            <rect x="177" y="96" width="406" height="242" rx="5" />
+          {/* Screen clipping mask */}
+          <clipPath id="lpScreenClip">
+            <rect x="174" y="92" width="412" height="248" rx="6" />
           </clipPath>
         </defs>
 
-        {/* Ground shadow (Micro-breathes with float and reacts on hover) */}
+        {/* Ground shadow underneath laptop */}
         <motion.ellipse
           cx="380"
-          cy="448"
-          rx="245"
-          ry="25"
-          fill="#000000"
-          filter="url(#shadow)"
-          initial={{ opacity: 0.18, scaleX: 1, scaleY: 1 }}
+          cy="446"
+          rx="240"
+          ry="24"
+          fill="#05070A"
+          filter="url(#lpShadow)"
+          initial={{ opacity: 0.18 }}
           animate={shouldReduceMotion ? {} : {
             scaleX: effectiveHovered ? 0.93 : [1, 0.96, 1],
             scaleY: effectiveHovered ? 0.85 : [1, 0.92, 1],
             opacity: effectiveHovered ? 0.12 : [0.18, 0.14, 0.18],
           }}
-          transition={effectiveHovered ? { duration: 0.5, ease: "easeOut" } : { duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          style={{ transformOrigin: "380px 448px" }}
+          transition={effectiveHovered ? { duration: 0.45, ease: "easeOut" } : { duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          style={{ transformOrigin: "380px 446px" }}
         />
 
-        {/* Ambient screen glow (Subtly breathes with float cycle, intensifies on hover) */}
+        {/* Ambient screen copper glow behind display */}
         <motion.ellipse
           cx="380"
-          cy="240"
-          rx="205"
-          ry="145"
+          cy="235"
+          rx="195"
+          ry="135"
           fill="#D85A32"
-          filter="url(#screenGlow)"
-          initial={{ opacity: 0.10 }}
+          filter="url(#lpScreenGlow)"
+          initial={{ opacity: 0.08 }}
           animate={shouldReduceMotion ? {} : {
-            opacity: effectiveHovered ? 0.22 : [0.08, 0.14, 0.08],
+            opacity: effectiveHovered ? 0.20 : [0.07, 0.13, 0.07],
             scale: effectiveHovered ? 1.04 : [1, 1.02, 1],
           }}
-          transition={effectiveHovered ? { duration: 0.5 } : { duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          style={{ transformOrigin: "380px 240px" }}
+          transition={effectiveHovered ? { duration: 0.45 } : { duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          style={{ transformOrigin: "380px 235px" }}
         />
 
-        {/* Subtle construction guides */}
-        <path
-          d="M112 185V325"
-          stroke="#D65B34"
-          strokeOpacity="0.18"
-          strokeDasharray="4 8"
-        />
-        <path
-          d="M648 185V325"
-          stroke="#D65B34"
-          strokeOpacity="0.18"
-          strokeDasharray="4 8"
-        />
+        {/* Subtle decorative technical grid guides */}
+        <path d="M108 185V330" stroke="#D65B34" strokeOpacity="0.16" strokeDasharray="4 8" />
+        <path d="M652 185V330" stroke="#D65B34" strokeOpacity="0.16" strokeDasharray="4 8" />
 
-        {/* MAIN LAPTOP HARDWARE & SCREEN (Continuous 6s Floating Motion + Hover Elevation) */}
+        {/* MAIN LAPTOP UNIBODY & DISPLAY LID */}
         <motion.g
           animate={shouldReduceMotion ? {} : {
-            y: effectiveHovered ? -6 : [0, -4, 0],
-            scale: effectiveHovered ? 1.03 : 1,
+            y: effectiveHovered ? -5 : [0, -3.5, 0],
+            scale: effectiveHovered ? 1.02 : 1,
           }}
-          transition={effectiveHovered ? { duration: 0.5, ease: [0.22, 1, 0.36, 1] } : { duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          transition={effectiveHovered ? { duration: 0.45, ease: [0.22, 1, 0.36, 1] } : { duration: 6, repeat: Infinity, ease: "easeInOut" }}
           style={{ transformOrigin: "380px 250px" }}
         >
-          {/* ========================= */}
-          {/* DISPLAY                   */}
-          {/* ========================= */}
+          {/* ======================================================== */}
+          {/* DISPLAY LID                                              */}
+          {/* ======================================================== */}
 
-          {/* Outer display */}
+          {/* Outer aluminum display casing with top rounded corners */}
           <path
-            d="M169 75 C171 65 180 58 191 58 H569 C580 58 589 65 591 75 L618 343 H142 L169 75Z"
-            fill="url(#screenFrame)"
-            stroke="#3B3E43"
-            strokeWidth="3"
+            d="M168 70 C170 59 179 52 191 52 H569 C581 52 590 59 592 70 L620 344 H140 L168 70Z"
+            fill="url(#lpBezel)"
+            stroke="#40444D"
+            strokeWidth="2.5"
           />
 
-          {/* Display highlight */}
+          {/* Display glass reflection highlight along top edge */}
           <path
-            d="M191 64H569C576 64 581 69 582 76L609 335H151L178 76C179 69 184 64 191 64Z"
+            d="M191 58H569C576 58 582 63 583 70L611 336H149L177 70C178 63 184 58 191 58Z"
             stroke="#FFFFFF"
-            strokeOpacity="0.10"
+            strokeOpacity="0.12"
           />
 
-          {/* Inner screen */}
+          {/* Camera notch / optical bead */}
+          <rect x="368" y="58" width="24" height="6" rx="3" fill="#0A0C0E" />
+          <circle cx="380" cy="61" r="1.75" fill="#1C2638" />
+          <circle cx="380" cy="61" r="0.75" fill="#4780EE" opacity="0.8" />
+
+          {/* Inner Display Canvas */}
           <rect
-            x="177"
-            y="96"
-            width="406"
-            height="242"
-            rx="5"
-            fill="url(#screenSurface)"
+            x="174"
+            y="92"
+            width="412"
+            height="248"
+            rx="6"
+            fill="url(#lpScreenSurface)"
           />
 
-          {/* Screen UI */}
-          <g clipPath="url(#screenClip)">
-            {/* Browser top bar */}
-            <rect x="177" y="96" width="406" height="31" fill="#101216" />
+          {/* ======================================================== */}
+          {/* SCREEN UI — SYNTAXLAB DIGITAL PLATFORM                  */}
+          {/* ======================================================== */}
+          <g clipPath="url(#lpScreenClip)">
+            {/* Top Browser Bar */}
+            <rect x="174" y="92" width="412" height="32" fill="#0E1015" />
 
-            {/* Traffic lights */}
-            <circle cx="191" cy="111" r="4" fill="#F06448" />
-            <circle cx="204" cy="111" r="4" fill="#E6B84B" />
-            <circle cx="217" cy="111" r="4" fill="#4DBA73" />
+            {/* macOS traffic light controls */}
+            <circle cx="190" cy="108" r="4.5" fill="#F06448" stroke="#D24B32" strokeWidth="0.75" />
+            <circle cx="204" cy="108" r="4.5" fill="#E6B84B" stroke="#C89D34" strokeWidth="0.75" />
+            <circle cx="218" cy="108" r="4.5" fill="#4DBA73" stroke="#3DA360" strokeWidth="0.75" />
 
-            {/* URL */}
+            {/* URL bar pill */}
             <rect
-              x="239"
-              y="103"
-              width="190"
-              height="15"
-              rx="7.5"
-              fill="#20242A"
-              stroke="#343840"
+              x="242"
+              y="99"
+              width="196"
+              height="18"
+              rx="9"
+              fill="#1C2027"
+              stroke="#2E333C"
+            />
+            {/* Padlock icon in URL */}
+            <path
+              d="M255 106V105C255 103.9 255.9 103 257 103C258.1 103 259 103.9 259 105V106M253.5 106H260.5V111H253.5V106Z"
+              stroke="#43D285"
+              strokeWidth="1"
             />
             <text
-              x="253"
-              y="114"
+              x="266"
+              y="111.5"
               fontFamily="monospace"
-              fontSize="7"
-              fill="#A9ADB4"
+              fontSize="7.5"
+              fontWeight="600"
+              fill="#B0B5BE"
             >
               https://syntaxlab.dev/core
             </text>
 
-            {/* Status with gentle pulsating LIVE dot */}
-            <rect
-              x="458"
-              y="103"
-              width="53"
-              height="15"
-              rx="7"
-              fill="#123522"
-            />
+            {/* Live latency badge in browser header */}
+            <rect x="456" y="99" width="62" height="18" rx="9" fill="#0F2D1C" stroke="#1A5333" />
             <motion.circle
-              cx="469"
-              cy="110.5"
+              cx="468"
+              cy="108"
               r="3"
-              fill="#35C878"
+              fill="#37D680"
               animate={shouldReduceMotion ? {} : {
-                scale: [1, 1.25, 1],
-                opacity: [0.85, 1, 0.85],
+                scale: [1, 1.3, 1],
+                opacity: [0.8, 1, 0.8],
               }}
               transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-              style={{ transformOrigin: "469px 110.5px" }}
+              style={{ transformOrigin: "468px 108px" }}
             />
             <text
               x="477"
-              y="114"
+              y="111.5"
               fontFamily="monospace"
-              fontSize="7"
-              fill="#51D98D"
+              fontSize="7.5"
+              fontWeight="700"
+              fill="#43E58C"
             >
-              LIVE
+              0.4s • SSL
             </text>
 
-            {/* Main nav */}
-            <rect x="177" y="127" width="406" height="30" fill="#0D0F13" />
-            <rect x="191" y="137" width="56" height="7" rx="2" fill="#F4F4F1" />
-            <rect x="255" y="138" width="38" height="5" rx="2" fill="#565B64" />
-            <rect x="303" y="138" width="45" height="5" rx="2" fill="#565B64" />
+            {/* Application Navigation Header */}
+            <rect x="174" y="124" width="412" height="28" fill="#090B0E" />
+            {/* SyntaxLab Monomark */}
+            <rect x="190" y="132" width="12" height="12" rx="3" fill="#F27040" />
+            <text x="192.5" y="141" fontFamily="monospace" fontSize="8" fontWeight="800" fill="#FFFFFF">SL</text>
+            <rect x="210" y="135" width="44" height="6" rx="2" fill="#FFFFFF" />
+            <rect x="264" y="136" width="36" height="5" rx="2" fill="#505560" />
+            <rect x="308" y="136" width="42" height="5" rx="2" fill="#505560" />
 
-            <rect x="505" y="134" width="55" height="13" rx="6.5" fill="#123522" />
-            <circle cx="516" cy="140.5" r="3" fill="#31C878" />
-            <text
-              x="524"
-              y="143"
-              fontFamily="monospace"
-              fontSize="6"
-              fill="#45D98A"
-            >
-              VERIFIED
+            {/* Production verified tag */}
+            <rect x="502" y="131" width="68" height="14" rx="7" fill="#113622" />
+            <circle cx="512" cy="138" r="2.5" fill="#32D57D" />
+            <text x="520" y="141" fontFamily="monospace" fontSize="6.5" fontWeight="700" fill="#46E88E">
+              LIVE PROD
             </text>
 
-            {/* Hero heading */}
-            <rect x="191" y="171" width="145" height="10" rx="3" fill="#F3F3F0" />
-            <rect x="191" y="187" width="110" height="8" rx="3" fill="#F3F3F0" />
+            {/* Main Application Area (Split Hero & Telemetry Graph) */}
+            {/* Left Hero Column */}
+            <rect x="190" y="166" width="148" height="11" rx="3" fill="#FFFFFF" />
+            <rect x="190" y="182" width="118" height="8" rx="2" fill="#A4AAB5" />
+            <rect x="190" y="194" width="94" height="6" rx="2" fill="#606672" />
 
-            {/* Orange highlight CTA button */}
+            {/* Orange CTA Button */}
             <motion.g
               animate={{
-                scale: effectiveHovered ? [1, 1.04, 1] : 1,
-                opacity: effectiveHovered ? 1 : 0.95,
+                scale: effectiveHovered ? [1, 1.03, 1] : 1,
               }}
               transition={{
                 duration: 1.8,
                 repeat: effectiveHovered && !shouldReduceMotion ? Infinity : 0,
                 ease: "easeInOut",
               }}
-              style={{ transformOrigin: "229px 217px" }}
+              style={{ transformOrigin: "235px 222px" }}
             >
-              <rect x="191" y="207" width="76" height="20" rx="4" fill="url(#orange)" />
+              <rect x="190" y="210" width="90" height="22" rx="5" fill="url(#lpOrange)" />
               <text
-                x="202"
-                y="220"
+                x="201"
+                y="224"
                 fontFamily="monospace"
                 fontSize="8"
-                fontWeight="700"
+                fontWeight="800"
                 fill="#FFFFFF"
               >
                 EXPLORE →
               </text>
             </motion.g>
 
-            {/* Dashboard panel */}
+            {/* Right Telemetry Dashboard Panel */}
             <rect
-              x="354"
-              y="167"
-              width="210"
-              height="118"
-              rx="7"
-              fill="#1B1E24"
-              stroke="#30343A"
+              x="346"
+              y="162"
+              width="224"
+              height="124"
+              rx="8"
+              fill="#181B21"
+              stroke="#2D323A"
             />
-            {/* Panel heading */}
-            <rect x="370" y="181" width="63" height="7" rx="2" fill="#7C818A" />
-            <rect x="370" y="195" width="96" height="5" rx="2" fill="#444850" />
+            {/* Panel Header */}
+            <text x="360" y="178" fontFamily="monospace" fontSize="7.5" fontWeight="700" fill="#E2E5EB">
+              REAL-TIME TELEMETRY
+            </text>
+            <text x="514" y="178" fontFamily="monospace" fontSize="7" fontWeight="700" fill="#34D67F">
+              99.9%
+            </text>
 
-            {/* Chart line (Draws/reveals on entrance) */}
+            {/* Sparkline Multi-Point Line Chart with Gradient Fill */}
+            <defs>
+              <linearGradient id="lpChartFill" x1="0" y1="0" x2="0" y2="1">
+                <stop stopColor="#F27040" stopOpacity="0.25" />
+                <stop offset="1" stopColor="#F27040" stopOpacity="0.0" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M360 252 L388 234 L416 242 L444 214 L472 226 L500 198 L534 212 L554 204 V256 H360 Z"
+              fill="url(#lpChartFill)"
+            />
             <motion.path
-              d="M371 258 L398 239 L425 249 L454 218 L482 232 L511 204 L543 220"
-              stroke="#F06A3B"
-              strokeWidth="4"
+              d="M360 252 L388 234 L416 242 L444 214 L472 226 L500 198 L534 212 L554 204"
+              stroke="#F27040"
+              strokeWidth="3"
               strokeLinecap="round"
               strokeLinejoin="round"
-              initial={{ pathLength: 0, opacity: 0.7 }}
-              whileInView={{ pathLength: 1, opacity: 1 }}
+              initial={{ pathLength: 0 }}
+              whileInView={{ pathLength: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
             />
 
-            {/* Chart baseline */}
-            <path
-              d="M370 267H548"
-              stroke="#3B3F46"
-              strokeWidth="2"
-            />
+            {/* Chart Grid Lines */}
+            <path d="M360 256 H554" stroke="#333842" strokeWidth="1.5" />
+            <path d="M360 226 H554" stroke="#252A32" strokeWidth="1" strokeDasharray="3 3" />
 
-            {/* Metric blocks (Staggered entrance) */}
-            <motion.g
-              initial={{ opacity: 0, y: 3 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: 0.1, ease: "easeOut" }}
-            >
-              <rect x="370" y="211" width="37" height="18" rx="3" fill="#292D34" />
-              <rect x="378" y="218" width="17" height="4" rx="2" fill="#F06A3B" />
-            </motion.g>
+            {/* 4 Mini KPI Metric Pills */}
+            <rect x="360" y="190" width="44" height="17" rx="3" fill="#242830" />
+            <text x="366" y="202" fontFamily="monospace" fontSize="7" fontWeight="700" fill="#F27040">99+</text>
 
-            <motion.g
-              initial={{ opacity: 0, y: 3 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: 0.2, ease: "easeOut" }}
-            >
-              <rect x="414" y="211" width="37" height="18" rx="3" fill="#292D34" />
-              <rect x="422" y="218" width="17" height="4" rx="2" fill="#7C818A" />
-            </motion.g>
+            <rect x="410" y="190" width="44" height="17" rx="3" fill="#242830" />
+            <text x="416" y="202" fontFamily="monospace" fontSize="7" fontWeight="700" fill="#A8AEB8">&lt;0.8s</text>
 
-            <motion.g
-              initial={{ opacity: 0, y: 3 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: 0.3, ease: "easeOut" }}
-            >
-              <rect x="458" y="211" width="37" height="18" rx="3" fill="#292D34" />
-              <rect x="466" y="218" width="17" height="4" rx="2" fill="#7C818A" />
-            </motion.g>
+            <rect x="460" y="190" width="44" height="17" rx="3" fill="#242830" />
+            <text x="466" y="202" fontFamily="monospace" fontSize="7" fontWeight="700" fill="#A8AEB8">100%</text>
 
-            <motion.g
-              initial={{ opacity: 0, y: 3 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: 0.4, ease: "easeOut" }}
-            >
-              <rect x="502" y="211" width="46" height="18" rx="3" fill="#143724" />
-              <circle cx="512" cy="220" r="3" fill="#38D07B" />
-            </motion.g>
+            <rect x="510" y="190" width="44" height="17" rx="3" fill="#133824" />
+            <text x="516" y="202" fontFamily="monospace" fontSize="7" fontWeight="700" fill="#44E88E">0 ERR</text>
 
-            {/* Bottom performance row */}
-            <circle cx="191" cy="309" r="5" fill="#35C878" />
-            <text
-              x="203"
-              y="312"
-              fontFamily="monospace"
-              fontSize="7"
-              fill="#C8CBD0"
-            >
+            {/* Bottom Screen Feature Readout Bar */}
+            <rect x="174" y="302" width="412" height="38" fill="#0A0C10" />
+            <circle cx="190" cy="318" r="4" fill="#35D57E" />
+            <text x="200" y="321" fontFamily="monospace" fontSize="7.5" fontWeight="700" fill="#DCE0E7">
               CORE WEB VITALS: 99+
             </text>
-
-            <text
-              x="330"
-              y="312"
-              fontFamily="monospace"
-              fontSize="7"
-              fill="#676C75"
-            >
+            <text x="330" y="321" fontFamily="monospace" fontSize="7" fill="#6A707B">
               ZERO LAYOUT SHIFT
             </text>
-
-            <text
-              x="443"
-              y="312"
-              fontFamily="monospace"
-              fontSize="7"
-              fill="#676C75"
-            >
-              HIGH CONVERSION
+            <text x="455" y="321" fontFamily="monospace" fontSize="7" fill="#6A707B">
+              HTTP/3 EDGE SSR
             </text>
           </g>
 
-          {/* Screen bottom bevel */}
-          <path
-            d="M142 343H618L631 360H129L142 343Z"
-            fill="#15171B"
-          />
+          {/* Screen bottom hinge & bevel */}
+          <path d="M140 344H620L634 362H126L140 344Z" fill="#14161A" />
 
-          {/* ========================= */}
-          {/* LAPTOP BASE               */}
-          {/* ========================= */}
+          {/* ======================================================== */}
+          {/* LAPTOP CHASSIS BASE & KEYBOARD DECK                     */}
+          {/* ======================================================== */}
 
+          {/* Main unibody bottom deck */}
           <path
-            d="M129 360 H631 L684 407 C690 412 686 421 678 422 H82 C74 422 70 412 76 407 L129 360Z"
-            fill="url(#body)"
-            stroke="#A9ABB0"
+            d="M126 362 H634 L688 409 C694 414 690 423 682 424 H78 C70 424 66 414 72 409 L126 362Z"
+            fill="url(#lpBody)"
+            stroke="#A2A5AC"
             strokeWidth="2"
           />
 
-          {/* Base top */}
+          {/* Keyboard Recessed Tray */}
           <path
-            d="M139 365H621L664 404H96L139 365Z"
-            fill="#BFC1C6"
+            d="M166 374 H594 L626 404 H134 L166 374Z"
+            fill="url(#lpKeyboardWell)"
+            stroke="#282C32"
           />
 
-          {/* Keyboard */}
-          <path
-            d="M168 373 H592 L624 403 H136 L168 373Z"
-            fill="url(#keyboard)"
-            stroke="#292D32"
-          />
-
-          {/* Keyboard rows */}
-          <g opacity="0.82">
-            {/* Row 1 */}
-            <g fill="#34383F">
-              <rect x="180" y="378" width="27" height="5" rx="1" />
-              <rect x="211" y="378" width="27" height="5" rx="1" />
-              <rect x="242" y="378" width="27" height="5" rx="1" />
-              <rect x="273" y="378" width="27" height="5" rx="1" />
-              <rect x="304" y="378" width="27" height="5" rx="1" />
-              <rect x="335" y="378" width="27" height="5" rx="1" />
-              <rect x="366" y="378" width="27" height="5" rx="1" />
-              <rect x="397" y="378" width="27" height="5" rx="1" />
-              <rect x="428" y="378" width="27" height="5" rx="1" />
-              <rect x="459" y="378" width="27" height="5" rx="1" />
-              <rect x="490" y="378" width="27" height="5" rx="1" />
-              <rect x="521" y="378" width="27" height="5" rx="1" />
-              <rect x="552" y="378" width="27" height="5" rx="1" />
+          {/* Realistic Chiclet Keys Rows */}
+          <g opacity="0.88">
+            {/* Top function row */}
+            <g fill="url(#lpKey)">
+              <rect x="178" y="378" width="28" height="5" rx="1" />
+              <rect x="210" y="378" width="28" height="5" rx="1" />
+              <rect x="242" y="378" width="28" height="5" rx="1" />
+              <rect x="274" y="378" width="28" height="5" rx="1" />
+              <rect x="306" y="378" width="28" height="5" rx="1" />
+              <rect x="338" y="378" width="28" height="5" rx="1" />
+              <rect x="370" y="378" width="28" height="5" rx="1" />
+              <rect x="402" y="378" width="28" height="5" rx="1" />
+              <rect x="434" y="378" width="28" height="5" rx="1" />
+              <rect x="466" y="378" width="28" height="5" rx="1" />
+              <rect x="498" y="378" width="28" height="5" rx="1" />
+              <rect x="530" y="378" width="28" height="5" rx="1" />
+              <rect x="562" y="378" width="28" height="5" rx="1" />
             </g>
 
-            {/* Row 2 */}
-            <g fill="#30343A">
-              <rect x="171" y="387" width="36" height="5" rx="1" />
-              <rect x="211" y="387" width="27" height="5" rx="1" />
-              <rect x="242" y="387" width="27" height="5" rx="1" />
-              <rect x="273" y="387" width="27" height="5" rx="1" />
-              <rect x="304" y="387" width="27" height="5" rx="1" />
-              <rect x="335" y="387" width="27" height="5" rx="1" />
-              <rect x="366" y="387" width="27" height="5" rx="1" />
-              <rect x="397" y="387" width="27" height="5" rx="1" />
-              <rect x="428" y="387" width="27" height="5" rx="1" />
-              <rect x="459" y="387" width="27" height="5" rx="1" />
-              <rect x="490" y="387" width="27" height="5" rx="1" />
-              <rect x="521" y="387" width="27" height="5" rx="1" />
-              <rect x="552" y="387" width="42" height="5" rx="1" />
+            {/* Middle row */}
+            <g fill="url(#lpKey)">
+              <rect x="169" y="387" width="37" height="5" rx="1" />
+              <rect x="210" y="387" width="28" height="5" rx="1" />
+              <rect x="242" y="387" width="28" height="5" rx="1" />
+              <rect x="274" y="387" width="28" height="5" rx="1" />
+              <rect x="306" y="387" width="28" height="5" rx="1" />
+              <rect x="338" y="387" width="28" height="5" rx="1" />
+              <rect x="370" y="387" width="28" height="5" rx="1" />
+              <rect x="402" y="387" width="28" height="5" rx="1" />
+              <rect x="434" y="387" width="28" height="5" rx="1" />
+              <rect x="466" y="387" width="28" height="5" rx="1" />
+              <rect x="498" y="387" width="28" height="5" rx="1" />
+              <rect x="530" y="387" width="28" height="5" rx="1" />
+              <rect x="562" y="387" width="44" height="5" rx="1" />
             </g>
 
-            {/* Row 3 */}
-            <g fill="#30343A">
-              <rect x="166" y="396" width="43" height="5" rx="1" />
-              <rect x="214" y="396" width="27" height="5" rx="1" />
-              <rect x="245" y="396" width="27" height="5" rx="1" />
-              <rect x="276" y="396" width="27" height="5" rx="1" />
-              <rect x="307" y="396" width="27" height="5" rx="1" />
-              <rect x="338" y="396" width="120" height="5" rx="2" />
-              <rect x="462" y="396" width="27" height="5" rx="1" />
-              <rect x="493" y="396" width="27" height="5" rx="1" />
-              <rect x="524" y="396" width="27" height="5" rx="1" />
-              <rect x="555" y="396" width="40" height="5" rx="1" />
+            {/* Bottom spacebar row */}
+            <g fill="url(#lpKey)">
+              <rect x="164" y="396" width="44" height="5" rx="1" />
+              <rect x="212" y="396" width="28" height="5" rx="1" />
+              <rect x="244" y="396" width="28" height="5" rx="1" />
+              <rect x="276" y="396" width="28" height="5" rx="1" />
+              <rect x="308" y="396" width="28" height="5" rx="1" />
+              <rect x="340" y="396" width="124" height="5" rx="2" fill="#3D424C" />
+              <rect x="468" y="396" width="28" height="5" rx="1" />
+              <rect x="500" y="396" width="28" height="5" rx="1" />
+              <rect x="532" y="396" width="28" height="5" rx="1" />
+              <rect x="564" y="396" width="42" height="5" rx="1" />
             </g>
           </g>
 
-          {/* Trackpad */}
+          {/* Glass Trackpad */}
           <path
-            d="M319 382H441L454 405H306L319 382Z"
-            fill="#17191D"
-            stroke="#45484E"
+            d="M316 383H444L458 406H302L316 383Z"
+            fill="#15171C"
+            stroke="#42464E"
             strokeWidth="1.5"
           />
-          <path
-            d="M323 384H437"
-            stroke="#FFFFFF"
-            strokeOpacity="0.08"
-          />
+          <path d="M320 385H440" stroke="#FFFFFF" strokeOpacity="0.10" />
 
-          {/* Front edge */}
-          <path
-            d="M76 407H684L678 422H82L76 407Z"
-            fill="#D7D8DB"
-          />
-
-          {/* Center notch */}
-          <path
-            d="M349 412H411L405 418H355L349 412Z"
-            fill="#A9ABB0"
-          />
-
-          {/* Bottom front highlight */}
-          <path
-            d="M92 420H668"
-            stroke="#FFFFFF"
-            strokeOpacity="0.65"
-            strokeWidth="2"
-          />
+          {/* Front deck edge & thumb opening notch */}
+          <path d="M72 409H688L682 424H78L72 409Z" fill="#D6D8DC" />
+          <path d="M346 414H414L408 420H352L346 414Z" fill="#A6A8AF" />
+          <path d="M88 422H672" stroke="#FFFFFF" strokeOpacity="0.7" strokeWidth="2" />
         </motion.g>
 
-        {/* Floating status indicators (Parallax depth motion) */}
+        {/* Floating status badges with Clerk-inspired smooth micro-motion */}
         <g>
-          {/* Left: LIVE STATUS badge */}
+          {/* Left badge: LIVE STATUS */}
           <motion.g
             animate={shouldReduceMotion ? {} : {
-              y: effectiveHovered ? -8 : [0, -6, 0],
-              x: effectiveHovered ? -4 : 0,
+              y: effectiveHovered ? -7 : [0, -5, 0],
+              x: effectiveHovered ? -3 : 0,
             }}
             transition={effectiveHovered ? { duration: 0.45, ease: "easeOut" } : { duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
           >
             <rect
-              x="115"
-              y="111"
-              width="72"
-              height="18"
-              rx="4"
-              fill="#F5F4F0"
-              stroke="#D9D6CF"
+              x="110"
+              y="110"
+              width="76"
+              height="20"
+              rx="5"
+              fill="#F7F6F3"
+              stroke="#D8D5CD"
+              className="drop-shadow-[0_4px_12px_rgba(0,0,0,0.08)]"
             />
-            <circle cx="125" cy="120" r="3" fill="#34C878" />
+            <circle cx="122" cy="120" r="3.5" fill="#35D57E" />
             <text
-              x="134"
-              y="123"
+              x="132"
+              y="123.5"
               fontFamily="monospace"
-              fontSize="7"
-              fill="#363A40"
+              fontSize="7.5"
+              fontWeight="700"
+              fill="#2E3238"
             >
               LIVE STATUS
             </text>
           </motion.g>
 
-          {/* Right: 99+ SCORE badge */}
+          {/* Right badge: 99+ SCORE */}
           <motion.g
             animate={shouldReduceMotion ? {} : {
-              y: effectiveHovered ? -8 : [0, -6, 0],
-              x: effectiveHovered ? 4 : 0,
+              y: effectiveHovered ? -7 : [0, -5, 0],
+              x: effectiveHovered ? 3 : 0,
             }}
-            transition={effectiveHovered ? { duration: 0.45, ease: "easeOut" } : { duration: 6.2, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+            transition={effectiveHovered ? { duration: 0.45, ease: "easeOut" } : { duration: 6.2, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
           >
             <rect
-              x="573"
-              y="143"
-              width="68"
-              height="18"
-              rx="4"
-              fill="#F5F4F0"
-              stroke="#D9D6CF"
+              x="570"
+              y="140"
+              width="74"
+              height="20"
+              rx="5"
+              fill="#F7F6F3"
+              stroke="#D8D5CD"
+              className="drop-shadow-[0_4px_12px_rgba(0,0,0,0.08)]"
             />
-            <circle cx="583" cy="152" r="3" fill="#F06A3B" />
+            <circle cx="582" cy="150" r="3.5" fill="#F27040" />
             <text
               x="592"
-              y="155"
+              y="153.5"
               fontFamily="monospace"
-              fontSize="7"
-              fill="#363A40"
+              fontSize="7.5"
+              fontWeight="700"
+              fill="#2E3238"
             >
               99+ SCORE
             </text>
@@ -723,6 +666,7 @@ export function CommerceCheckoutVisual({ className = "", isHovered = false }: Vi
             r="7"
             stroke="#38C878"
             strokeWidth="1"
+            initial={{ scale: 1, strokeOpacity: 0.25 }}
             animate={shouldReduceMotion ? {} : {
               scale: [1, 1.35, 1],
               strokeOpacity: [0.25, 0.05, 0.25],
@@ -949,6 +893,7 @@ export function DashboardAnalyticsVisual({ className = "", isHovered = false }: 
           r="9"
           stroke="#3BC878"
           strokeWidth="1"
+          initial={{ scale: 1, strokeOpacity: 0.25 }}
           animate={shouldReduceMotion ? {} : {
             scale: [1, 1.35, 1],
             strokeOpacity: [0.25, 0.05, 0.25],
@@ -1169,6 +1114,7 @@ export function CampaignConversionVisual({ className = "", isHovered = false }: 
             r="9"
             stroke="#D75B35"
             strokeWidth="1"
+            initial={{ scale: 1, strokeOpacity: 0.25 }}
             animate={shouldReduceMotion ? {} : {
               scale: [1, 1.4, 1],
               strokeOpacity: [0.25, 0.05, 0.25],
@@ -1581,10 +1527,10 @@ export function SupportShieldVisual({ className = "", isHovered = false }: Visua
             strokeWidth="3"
             strokeLinecap="round"
             strokeLinejoin="round"
-            initial={{ pathLength: 0.8 }}
+            initial={{ pathLength: 0.8, opacity: 0.9 }}
             animate={shouldReduceMotion ? {} : {
               pathLength: effectiveHovered ? [0.6, 1, 0.6] : 1,
-              strokeOpacity: effectiveHovered ? 1 : 0.9,
+              opacity: effectiveHovered ? 1 : 0.9,
             }}
             transition={{ duration: 1.8, repeat: effectiveHovered ? Infinity : 0, ease: "easeInOut" }}
           />

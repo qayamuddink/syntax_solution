@@ -21,10 +21,10 @@ export function ProjectsSection({ projects }: { projects: Project[] }) {
           {/* Header */}
           <div className="flex flex-col justify-between gap-3 border-b border-border pb-6 md:flex-row md:items-end">
             <div>
-              <TechnicalLabel className="text-accent font-mono text-[11px] tracking-[0.14em]">PORTFOLIO INDEX</TechnicalLabel>
+              <TechnicalLabel className="text-accent font-mono text-[11px] tracking-[0.14em]">PORTFOLIO SHOWCASE</TechnicalLabel>
               <h2 className="mt-3 text-3xl font-bold leading-[1.08] tracking-tight text-foreground md:text-4xl lg:text-[2.65rem]">Projects Index</h2>
               <p className="mt-2.5 max-w-xl text-[15px] leading-relaxed text-muted-foreground font-normal">
-                Technical overviews and operational metrics of custom production systems engineered by SyntaxLab.
+                Technical overviews, interactive system architectures, and operational telemetry of custom production systems.
               </p>
             </div>
             <TechnicalLabel className="text-muted-foreground font-mono text-[10px]">
@@ -32,16 +32,8 @@ export function ProjectsSection({ projects }: { projects: Project[] }) {
             </TechnicalLabel>
           </div>
 
-          {/* Table Column Headers */}
-          <div className="hidden grid-cols-12 border-b border-border py-3 font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground lg:grid">
-            <div className="col-span-4">BUSINESS / SYSTEM</div>
-            <div className="col-span-4">ENGINEERING SOLUTION</div>
-            <div className="col-span-2">CORE STACK</div>
-            <div className="col-span-2 text-right">METRIC / RESULT</div>
-          </div>
-
-          {/* Table Rows */}
-          <div className="divide-y divide-border">
+          {/* Interactive Project Showcase Grid: 2-column on desktop (>=1280px), 1-column on tablet and mobile */}
+          <div className="mt-8 grid grid-cols-1 xl:grid-cols-2 gap-6 lg:gap-7 xl:gap-8">
             {projects.map((project) => (
               <ProjectItem key={project.id} {...project} />
             ))}
@@ -84,7 +76,7 @@ export function FeaturedWorkSection({ projects }: { projects: FeaturedProject[] 
       <Container className="px-6 py-14 md:py-16 md:px-16">
         <SectionReveal>
           {/* Header */}
-          <div className="flex flex-col justify-between gap-3 border-b border-border pb-6 md:flex-row md:items-end">
+          <div className="flex flex-col justify-between gap-3 border-b border-border pb-6 lg:flex-row lg:items-end">
             <div>
               <TechnicalLabel className="text-accent font-mono text-[11px] tracking-[0.14em]">SELECTED WORK</TechnicalLabel>
               <h2 className="mt-3 text-3xl font-bold leading-[1.08] tracking-tight text-foreground md:text-4xl lg:text-[2.65rem]">Featured Work</h2>
@@ -92,14 +84,14 @@ export function FeaturedWorkSection({ projects }: { projects: FeaturedProject[] 
                 Visual walkthroughs, interaction models, and architectural narratives of selected web platforms.
               </p>
             </div>
-            <TechnicalLabel className="text-muted-foreground font-mono text-[10px]">STUDIO SHOWCASE • PRODUCTION BUILDS</TechnicalLabel>
+            <TechnicalLabel className="text-muted-foreground font-mono text-[10px] shrink-0">STUDIO SHOWCASE • PRODUCTION BUILDS</TechnicalLabel>
           </div>
         </SectionReveal>
 
-        <motion.div style={{ x: horizontalX }} className="mt-10 grid gap-6 md:grid-cols-12 lg:gap-8">
-          {/* Primary Feature (7 cols) */}
+        <motion.div style={{ x: horizontalX }} className="mt-10 grid gap-6 lg:grid-cols-12 lg:gap-8">
+          {/* Primary Feature (7 cols on lg+) */}
           {primary ? (
-            <ImageReveal className="md:col-span-7">
+            <ImageReveal className="lg:col-span-7">
               <Card as="article" variant="interactive" padding="none" className="overflow-hidden p-4 md:p-5">
                 <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl">
                   <ProjectVisual alt={primary.alt ?? primary.title} className="h-full w-full" image={primary.image ?? ""} priority />
@@ -126,9 +118,9 @@ export function FeaturedWorkSection({ projects }: { projects: FeaturedProject[] 
             </ImageReveal>
           ) : null}
 
-          {/* Secondary Feature (5 cols) */}
+          {/* Secondary Feature (5 cols on lg+) */}
           {secondary ? (
-            <ImageReveal className="md:col-span-5">
+            <ImageReveal className="lg:col-span-5">
               <Card as="article" variant="interactive" padding="none" className="overflow-hidden p-4 md:p-5">
                 <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl">
                   <ProjectVisual alt={secondary.alt ?? secondary.title} className="h-full w-full" image={secondary.image ?? ""} />
@@ -155,9 +147,9 @@ export function FeaturedWorkSection({ projects }: { projects: FeaturedProject[] 
             </ImageReveal>
           ) : null}
 
-          {/* Lower Features (6 cols each) */}
+          {/* Lower Features (6 cols each on lg+) */}
           {lower.map((project) => (
-            <ImageReveal className="md:col-span-6" key={project.id}>
+            <ImageReveal className="lg:col-span-6" key={project.id}>
               <Card as="article" variant="interactive" padding="none" className="overflow-hidden p-4 md:p-5">
                 <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl">
                   <ProjectVisual alt={project.alt ?? project.title} className="h-full w-full" image={project.image ?? ""} />

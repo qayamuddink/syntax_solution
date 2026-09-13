@@ -23,6 +23,7 @@ import {
   ModernizationLayersVisual,
   SupportShieldVisual,
 } from "@/components/ui/perspective-visuals";
+import { SolutionCard } from "@/components/ui/solution-card";
 import { SectionReveal } from "@/components/animation/motion-primitives";
 import type { CapabilityGroup, Solution } from "@/lib/types";
 
@@ -234,27 +235,15 @@ export function SolutionsSection({
               <div className="flex-1 min-w-0 flex flex-col gap-3">
                 {/* ROW 1: Primary Featured Card (Card 01 - Business Websites) */}
                 {card1 && (
-                  <article
-                    tabIndex={0}
-                    role="button"
-                    aria-pressed={activeIndex === 0}
-                    onMouseEnter={() => {
-                      setActiveIndex(0);
-                      setHoveredIndex(0);
-                    }}
-                    onMouseLeave={() => setHoveredIndex(null)}
-                    onClick={() => setActiveIndex(0)}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        setActiveIndex(0);
-                      }
-                    }}
-                    className={`group relative rounded-xl border p-4 sm:p-5 transition-all duration-200 ease-out cursor-pointer flex flex-col justify-between min-h-[205px] sm:min-h-[220px] ${
-                      activeIndex === 0
-                        ? "border-accent bg-surface-elevated/95 shadow-[0_4px_24px_rgba(196,114,68,0.12)]"
-                        : "border-border/80 bg-surface/80 hover:border-accent/50 hover:bg-surface"
-                    }`}
+                  <SolutionCard
+                    index={0}
+                    activeIndex={activeIndex}
+                    hoveredIndex={hoveredIndex}
+                    onSelect={setActiveIndex}
+                    onHover={setHoveredIndex}
+                    ariaLabel="01 — Business Websites"
+                    className="min-h-[205px] sm:min-h-[220px]"
+                    paddingClassName="p-4 sm:p-5"
                   >
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-5">
                       <div className="flex-1 min-w-0 pr-1">
@@ -293,7 +282,7 @@ export function SolutionsSection({
                       {/* Dedicated Showcase Stage for Hero Laptop */}
                       <div className="w-full sm:w-[220px] md:w-[260px] lg:w-[240px] xl:w-[310px] 2xl:w-[340px] shrink-0 flex items-center justify-center pt-2 sm:pt-0">
                         <LaptopBrowserVisual
-                          isHovered={hoveredIndex === 0}
+                          isHovered={hoveredIndex === 0 || activeIndex === 0}
                           className="w-full max-w-[270px] sm:max-w-[290px] xl:max-w-[340px] h-auto"
                         />
                       </div>
@@ -308,34 +297,22 @@ export function SolutionsSection({
                         DESIGN • DEVELOP • GROW
                       </span>
                     </div>
-                  </article>
+                  </SolutionCard>
                 )}
 
               {/* ROW 2: Two Secondary Bento Cells (Cards 02 & 03) */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {/* CARD 02: E-Commerce */}
                 {card2 && (
-                  <article
-                    tabIndex={0}
-                    role="button"
-                    aria-pressed={activeIndex === 1}
-                    onMouseEnter={() => {
-                      setActiveIndex(1);
-                      setHoveredIndex(1);
-                    }}
-                    onMouseLeave={() => setHoveredIndex(null)}
-                    onClick={() => setActiveIndex(1)}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        setActiveIndex(1);
-                      }
-                    }}
-                    className={`group relative rounded-xl border p-4 transition-all duration-200 ease-out cursor-pointer flex flex-col justify-between min-h-[160px] overflow-hidden ${
-                      activeIndex === 1
-                        ? "border-accent bg-surface-elevated/95 shadow-[0_4px_24px_rgba(196,114,68,0.12)]"
-                        : "border-border/80 bg-surface/80 hover:border-accent/50 hover:bg-surface"
-                    }`}
+                  <SolutionCard
+                    index={1}
+                    activeIndex={activeIndex}
+                    hoveredIndex={hoveredIndex}
+                    onSelect={setActiveIndex}
+                    onHover={setHoveredIndex}
+                    ariaLabel="02 — E-Commerce"
+                    className="min-h-[160px]"
+                    paddingClassName="p-4"
                   >
                     <div className="relative z-10 max-w-[65%] sm:max-w-[60%] pointer-events-none">
                       <div className="flex items-center justify-between">
@@ -370,35 +347,23 @@ export function SolutionsSection({
 
                     {/* Decorative absolute SVG in lower right */}
                     <CommerceCheckoutVisual
-                      isHovered={hoveredIndex === 1}
+                      isHovered={hoveredIndex === 1 || activeIndex === 1}
                       className="absolute -right-2 -bottom-2 w-[118px] sm:w-[130px] h-auto pointer-events-none select-none z-0"
                     />
-                  </article>
+                  </SolutionCard>
                 )}
 
                 {/* CARD 03: Business Tools */}
                 {card3 && (
-                  <article
-                    tabIndex={0}
-                    role="button"
-                    aria-pressed={activeIndex === 2}
-                    onMouseEnter={() => {
-                      setActiveIndex(2);
-                      setHoveredIndex(2);
-                    }}
-                    onMouseLeave={() => setHoveredIndex(null)}
-                    onClick={() => setActiveIndex(2)}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        setActiveIndex(2);
-                      }
-                    }}
-                    className={`group relative rounded-xl border p-4 transition-all duration-200 ease-out cursor-pointer flex flex-col justify-between min-h-[160px] overflow-hidden ${
-                      activeIndex === 2
-                        ? "border-accent bg-surface-elevated/95 shadow-[0_4px_24px_rgba(196,114,68,0.12)]"
-                        : "border-border/80 bg-surface/80 hover:border-accent/50 hover:bg-surface"
-                    }`}
+                  <SolutionCard
+                    index={2}
+                    activeIndex={activeIndex}
+                    hoveredIndex={hoveredIndex}
+                    onSelect={setActiveIndex}
+                    onHover={setHoveredIndex}
+                    ariaLabel="03 — Business Tools"
+                    className="min-h-[160px]"
+                    paddingClassName="p-4"
                   >
                     <div className="relative z-10 max-w-[65%] sm:max-w-[60%] pointer-events-none">
                       <div className="flex items-center justify-between">
@@ -433,10 +398,10 @@ export function SolutionsSection({
 
                     {/* Decorative absolute SVG in lower right */}
                     <DashboardAnalyticsVisual
-                      isHovered={hoveredIndex === 2}
+                      isHovered={hoveredIndex === 2 || activeIndex === 2}
                       className="absolute -right-2 -bottom-2 w-[118px] sm:w-[130px] h-auto pointer-events-none select-none z-0"
                     />
-                  </article>
+                  </SolutionCard>
                 )}
               </div>
 
@@ -444,27 +409,15 @@ export function SolutionsSection({
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {/* CARD 04: Landing Pages */}
                 {card4 && (
-                  <article
-                    tabIndex={0}
-                    role="button"
-                    aria-pressed={activeIndex === 3}
-                    onMouseEnter={() => {
-                      setActiveIndex(3);
-                      setHoveredIndex(3);
-                    }}
-                    onMouseLeave={() => setHoveredIndex(null)}
-                    onClick={() => setActiveIndex(3)}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        setActiveIndex(3);
-                      }
-                    }}
-                    className={`group relative rounded-xl border p-3.5 transition-all duration-200 ease-out cursor-pointer flex flex-col justify-between min-h-[145px] overflow-hidden ${
-                      activeIndex === 3
-                        ? "border-accent bg-surface-elevated/95 shadow-[0_4px_24px_rgba(196,114,68,0.12)]"
-                        : "border-border/80 bg-surface/80 hover:border-accent/50 hover:bg-surface"
-                    }`}
+                  <SolutionCard
+                    index={3}
+                    activeIndex={activeIndex}
+                    hoveredIndex={hoveredIndex}
+                    onSelect={setActiveIndex}
+                    onHover={setHoveredIndex}
+                    ariaLabel="04 — Campaigns"
+                    className="min-h-[145px]"
+                    paddingClassName="p-3.5"
                   >
                     <div className="relative z-10 max-w-[75%] pointer-events-none">
                       <div className="flex items-center gap-1.5">
@@ -495,35 +448,23 @@ export function SolutionsSection({
 
                     {/* Decorative absolute SVG in lower right */}
                     <CampaignConversionVisual
-                      isHovered={hoveredIndex === 3}
+                      isHovered={hoveredIndex === 3 || activeIndex === 3}
                       className="absolute -right-2 -bottom-1.5 w-[88px] sm:w-[98px] h-auto pointer-events-none select-none z-0"
                     />
-                  </article>
+                  </SolutionCard>
                 )}
 
                 {/* CARD 05: Modernization */}
                 {card5 && (
-                  <article
-                    tabIndex={0}
-                    role="button"
-                    aria-pressed={activeIndex === 4}
-                    onMouseEnter={() => {
-                      setActiveIndex(4);
-                      setHoveredIndex(4);
-                    }}
-                    onMouseLeave={() => setHoveredIndex(null)}
-                    onClick={() => setActiveIndex(4)}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        setActiveIndex(4);
-                      }
-                    }}
-                    className={`group relative rounded-xl border p-3.5 transition-all duration-200 ease-out cursor-pointer flex flex-col justify-between min-h-[145px] overflow-hidden ${
-                      activeIndex === 4
-                        ? "border-accent bg-surface-elevated/95 shadow-[0_4px_24px_rgba(196,114,68,0.12)]"
-                        : "border-border/80 bg-surface/80 hover:border-accent/50 hover:bg-surface"
-                    }`}
+                  <SolutionCard
+                    index={4}
+                    activeIndex={activeIndex}
+                    hoveredIndex={hoveredIndex}
+                    onSelect={setActiveIndex}
+                    onHover={setHoveredIndex}
+                    ariaLabel="05 — Modernization"
+                    className="min-h-[145px]"
+                    paddingClassName="p-3.5"
                   >
                     <div className="relative z-10 max-w-[75%] pointer-events-none">
                       <div className="flex items-center gap-1.5">
@@ -554,35 +495,23 @@ export function SolutionsSection({
 
                     {/* Decorative absolute SVG in lower right */}
                     <ModernizationLayersVisual
-                      isHovered={hoveredIndex === 4}
+                      isHovered={hoveredIndex === 4 || activeIndex === 4}
                       className="absolute -right-2 -bottom-1.5 w-[88px] sm:w-[98px] h-auto pointer-events-none select-none z-0"
                     />
-                  </article>
+                  </SolutionCard>
                 )}
 
                 {/* CARD 06: Support & Reliability */}
                 {card6 && (
-                  <article
-                    tabIndex={0}
-                    role="button"
-                    aria-pressed={activeIndex === 5}
-                    onMouseEnter={() => {
-                      setActiveIndex(5);
-                      setHoveredIndex(5);
-                    }}
-                    onMouseLeave={() => setHoveredIndex(null)}
-                    onClick={() => setActiveIndex(5)}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        setActiveIndex(5);
-                      }
-                    }}
-                    className={`group relative rounded-xl border p-3.5 transition-all duration-200 ease-out cursor-pointer flex flex-col justify-between min-h-[145px] overflow-hidden ${
-                      activeIndex === 5
-                        ? "border-accent bg-surface-elevated/95 shadow-[0_4px_24px_rgba(196,114,68,0.12)]"
-                        : "border-border/80 bg-surface/80 hover:border-accent/50 hover:bg-surface"
-                    }`}
+                  <SolutionCard
+                    index={5}
+                    activeIndex={activeIndex}
+                    hoveredIndex={hoveredIndex}
+                    onSelect={setActiveIndex}
+                    onHover={setHoveredIndex}
+                    ariaLabel="06 — Support & SLA"
+                    className="min-h-[145px]"
+                    paddingClassName="p-3.5"
                   >
                     <div className="relative z-10 max-w-[75%] pointer-events-none">
                       <div className="flex items-center gap-1.5">
@@ -613,10 +542,10 @@ export function SolutionsSection({
 
                     {/* Decorative absolute SVG in lower right */}
                     <SupportShieldVisual
-                      isHovered={hoveredIndex === 5}
+                      isHovered={hoveredIndex === 5 || activeIndex === 5}
                       className="absolute -right-2 -bottom-1.5 w-[88px] sm:w-[98px] h-auto pointer-events-none select-none z-0"
                     />
-                  </article>
+                  </SolutionCard>
                 )}
               </div>
             </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Divider } from "@/components/ui/divider";
@@ -18,6 +18,24 @@ export function ProjectIntakeSection({
   telemetry?: unknown;
 }) {
   const [submitted, setSubmitted] = useState(false);
+  const [selectedService, setSelectedService] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const tier = params.get("tier") || params.get("interest");
+      if (tier) {
+        const lower = tier.toLowerCase();
+        if (lower.includes("starter")) {
+          setSelectedService("Starter Tier (Essential Digital Presence)");
+        } else if (lower.includes("growth")) {
+          setSelectedService("Growth Tier (Conversion & Growth System)");
+        } else if (lower.includes("custom")) {
+          setSelectedService("Custom Tier (Custom Digital System)");
+        }
+      }
+    }
+  }, []);
 
   const nameField = fields.find((f) => f.id === "name");
   const bizNameField = fields.find((f) => f.id === "businessName" || f.id === "organization");
@@ -25,6 +43,13 @@ export function ProjectIntakeSection({
   const phoneField = fields.find((f) => f.id === "phone");
   const serviceField = fields.find((f) => f.id === "service" || f.id === "budget");
   const reqField = fields.find((f) => f.id === "requirements");
+
+  const configuredServiceField = serviceField
+    ? {
+        ...serviceField,
+        defaultValue: selectedService || serviceField.defaultValue,
+      }
+    : undefined;
 
   return (
     <>
@@ -111,7 +136,7 @@ export function ProjectIntakeSection({
                       </div>
 
                       {/* Row 3: What do you need? */}
-                      {serviceField ? <FormField {...serviceField} /> : null}
+                      {configuredServiceField ? <FormField {...configuredServiceField} /> : null}
 
                       {/* Row 4: Requirements Textarea */}
                       {reqField ? <FormField {...reqField} /> : null}

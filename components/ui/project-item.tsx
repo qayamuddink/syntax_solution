@@ -1,8 +1,19 @@
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import { motion } from "motion/react";
 import type { Project } from "@/lib/types";
-import { TechnicalLabel } from "@/components/ui/technical-label";
 import { IconArrowRight } from "@/components/ui/icons";
+import {
+  OsteriaBookingMockup,
+  KomorebiCommerceMockup,
+  NordicEditorialMockup,
+  NexusClinicalMockup,
+} from "@/components/ui/project-mockups";
 
 export function ProjectItem({
+  id,
   number,
   category,
   title,
@@ -15,52 +26,113 @@ export function ProjectItem({
   telemetryValue,
   telemetryLabel,
 }: Project) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Render dedicated interactive UI mockup based on project ID
+  const renderMockup = () => {
+    switch (id) {
+      case "osteria":
+        return <OsteriaBookingMockup isHovered={isHovered} />;
+      case "komorebi":
+        return <KomorebiCommerceMockup isHovered={isHovered} />;
+      case "nordic":
+        return <NordicEditorialMockup isHovered={isHovered} />;
+      case "nexus":
+        return <NexusClinicalMockup isHovered={isHovered} />;
+      default:
+        return <OsteriaBookingMockup isHovered={isHovered} />;
+    }
+  };
+
   return (
-    <article className="group grid grid-cols-1 gap-5 border-b border-border py-4.5 md:py-5 transition-colors duration-300 hover:bg-white/[0.015] hover:px-2 last:border-b-0 rounded-sm lg:grid-cols-12 lg:items-start lg:gap-4">
-      {/* Col 1: System / Client (4 cols) */}
-      <div className="lg:col-span-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="font-mono text-xs font-semibold text-accent">{number}</span>
-            <TechnicalLabel className="text-muted-foreground">{category}</TechnicalLabel>
-          </div>
-          <IconArrowRight className="size-3.5 text-accent opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100 lg:hidden" />
-        </div>
-        <h3 className="mt-2 text-lg md:text-xl font-semibold leading-snug text-foreground transition-colors duration-200 group-hover:text-accent">{title}</h3>
-        {location || refId ? (
-          <p className="mt-1 font-mono text-[11px] text-muted-foreground">
-            {location} {refId ? `• REF: ${refId}` : ""}
-          </p>
-        ) : null}
-        {badge ? (
-          <div className="mt-3">
-            <span className="inline-block border border-success/40 bg-success/10 px-2 py-0.5 font-mono text-[9px] font-semibold tracking-wider text-success">
-              {badge}
-            </span>
-          </div>
-        ) : null}
-      </div>
-
-      {/* Col 2: Digital Architecture & Core Problem (4 cols) */}
-      <div className="lg:col-span-4">
-        <p className="text-sm md:text-[15px] leading-relaxed text-muted-foreground font-normal">{description}</p>
-      </div>
-
-      {/* Col 3: Stack Topology (2 cols) */}
-      <div className="lg:col-span-2">
-        {stackPrimary ? <p className="font-mono text-[11px] font-semibold text-foreground">{stackPrimary}</p> : null}
-        {stackSecondary ? <p className="mt-1 font-mono text-[10px] text-muted-foreground">{stackSecondary}</p> : null}
-      </div>
-
-      {/* Col 4: Operational Telemetry (2 cols) */}
-      <div className="flex items-center justify-between lg:col-span-2 lg:flex-col lg:items-end lg:justify-start lg:text-right">
+    <motion.article
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="group relative flex flex-col justify-between rounded-xl border border-border/80 bg-surface/85 p-4 sm:p-5 lg:p-6 transition-all duration-300 hover:border-accent/60 hover:bg-surface-elevated/95 hover:shadow-[0_8px_30px_rgba(196,114,68,0.12)] min-w-0 h-full"
+    >
+      <div className="flex flex-col flex-1 justify-between min-w-0">
         <div>
-          {telemetryValue ? <p className="font-mono text-base font-bold text-success">{telemetryValue}</p> : null}
-          {telemetryLabel ? <p className="mt-1 font-mono text-[10px] text-muted-foreground">{telemetryLabel}</p> : null}
+          {/* Top Meta Row: Number, Category, Ref ID, Live Badge */}
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border/60 pb-3 font-mono text-[10px]">
+            <div className="flex items-center gap-2 min-w-0">
+              <span className="font-bold text-accent">{number}</span>
+              <span className="text-border">•</span>
+              <span className="font-semibold uppercase tracking-wider text-muted-foreground truncate">{category}</span>
+            </div>
+            <div className="flex items-center gap-2 shrink-0">
+              {refId && <span className="text-muted-foreground/60 hidden sm:inline">REF: {refId}</span>}
+              {badge && (
+                <span className="inline-flex items-center gap-1 rounded bg-success/15 px-2 py-0.5 text-[9px] font-semibold text-success border border-success/30">
+                  <span className="size-1 rounded-full bg-success animate-pulse inline-block" />
+                  {badge}
+                </span>
+              )}
+            </div>
+          </div>
+
+          {/* Title & Industry / Location */}
+          <div className="mt-3.5">
+            <h3 className="text-lg sm:text-xl font-bold tracking-tight text-foreground transition-colors duration-200 group-hover:text-accent break-words">
+              {title}
+            </h3>
+            {location && (
+              <p className="mt-0.5 font-mono text-[11px] text-muted-foreground">
+                {location}
+              </p>
+            )}
+          </div>
+
+          {/* Dedicated Miniature Interactive UI Canvas Preview */}
+          <div className="my-4 w-full min-w-0">
+            {renderMockup()}
+          </div>
+
+          {/* Engineering Narrative Description */}
+          <p className="text-xs sm:text-[13px] leading-relaxed text-muted-foreground font-normal break-words">
+            {description}
+          </p>
+
+          {/* Tech Stack Chips */}
+          <div className="mt-4 flex flex-wrap items-center gap-1.5 font-mono text-[9px] text-muted-foreground">
+            {stackPrimary && (
+              <span className="rounded border border-border/70 bg-surface-elevated/80 px-2 py-0.5 font-medium text-foreground/90">
+                {stackPrimary}
+              </span>
+            )}
+            {stackSecondary && (
+              <span className="rounded border border-border/70 bg-surface-elevated/80 px-2 py-0.5">
+                {stackSecondary}
+              </span>
+            )}
+          </div>
         </div>
-        <IconArrowRight className="hidden size-4 text-accent opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100 lg:block lg:mt-2" />
+
+        {/* Bottom Telemetry & Case Action Row */}
+        <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-border/60 pt-3.5 font-mono">
+          <div className="min-w-0">
+            {telemetryValue && (
+              <div className="text-[12px] font-bold text-success flex items-center gap-1.5 truncate">
+                <span className="size-1.5 rounded-full bg-success inline-block shrink-0" />
+                <span>{telemetryValue}</span>
+              </div>
+            )}
+            {telemetryLabel && (
+              <div className="text-[10px] text-muted-foreground font-medium truncate">
+                {telemetryLabel}
+              </div>
+            )}
+          </div>
+
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-accent transition-transform duration-200 group-hover:translate-x-1 shrink-0"
+          >
+            <span>VIEW CASE STUDY</span>
+            <IconArrowRight className="size-3" />
+          </Link>
+        </div>
       </div>
-    </article>
+    </motion.article>
   );
 }
 

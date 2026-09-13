@@ -159,7 +159,7 @@ export interface PricingPlan {
   tierTag: string;
   name: string;
   subtitle: string;
-  price: string;
+  price?: string;
   pricePeriod?: string;
   recommendedTag?: string;
   features: PricingFeature[];
@@ -174,6 +174,7 @@ export interface FormFieldConfig {
   required?: boolean;
   options?: string[];
   placeholder?: string;
+  defaultValue?: string;
 }
 
 export interface IntakeTelemetry {
