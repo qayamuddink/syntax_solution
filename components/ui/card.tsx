@@ -2,9 +2,7 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 import { IconArrowRight, IconCheck } from "@/components/ui/icons";
 
-/* -------------------------------------------------------------------------- */
-/*                                CARD BASE                                   */
-/* -------------------------------------------------------------------------- */
+
 
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   variant?: "default" | "elevated" | "interactive" | "active" | "featured" | "ghost";
@@ -31,15 +29,15 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>(
           "group relative rounded-2xl border transition-all duration-200 ease-out",
           // Surface & border treatments for Light & Dark mode
           variant === "default" &&
-            "border-border/80 bg-surface/80 shadow-[0_2px_8px_rgba(0,0,0,0.03)] dark:bg-surface/90 dark:border-border/70 dark:shadow-[0_4px_20px_rgba(0,0,0,0.3)]",
+          "border-border/80 bg-surface/80 shadow-[0_2px_8px_rgba(0,0,0,0.03)] dark:bg-surface/90 dark:border-border/70 dark:shadow-[0_4px_20px_rgba(0,0,0,0.3)]",
           variant === "elevated" &&
-            "border-border/90 bg-surface-elevated/95 shadow-[0_8px_30px_rgba(0,0,0,0.06)] dark:shadow-[0_12px_40px_rgba(0,0,0,0.4)]",
+          "border-border/90 bg-surface-elevated/95 shadow-[0_8px_30px_rgba(0,0,0,0.06)] dark:shadow-[0_12px_40px_rgba(0,0,0,0.4)]",
           variant === "interactive" &&
-            "border-border/80 bg-surface/80 cursor-pointer shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:-translate-y-1 hover:border-accent/60 hover:bg-surface-elevated/95 hover:shadow-[0_12px_32px_rgba(196,114,68,0.12)] dark:bg-surface/80 dark:border-border/70 dark:shadow-[0_4px_20px_rgba(0,0,0,0.3)] dark:hover:border-accent/60 dark:hover:bg-surface-elevated/95 dark:hover:shadow-[0_12px_36px_rgba(196,114,68,0.18)] focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2",
+          "border-border/80 bg-surface/80 cursor-pointer shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:-translate-y-1 hover:border-accent/60 hover:bg-surface-elevated/95 hover:shadow-[0_12px_32px_rgba(196,114,68,0.12)] dark:bg-surface/80 dark:border-border/70 dark:shadow-[0_4px_20px_rgba(0,0,0,0.3)] dark:hover:border-accent/60 dark:hover:bg-surface-elevated/95 dark:hover:shadow-[0_12px_36px_rgba(196,114,68,0.18)] focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2",
           variant === "active" &&
-            "border-accent bg-surface-elevated/95 shadow-[0_8px_24px_rgba(196,114,68,0.14)] -translate-y-0.5",
+          "border-accent bg-surface-elevated/95 shadow-[0_8px_24px_rgba(196,114,68,0.14)] -translate-y-0.5",
           variant === "featured" &&
-            "border-accent bg-surface-elevated/95 shadow-[0_12px_36px_rgba(196,114,68,0.16)] dark:border-accent dark:shadow-[0_14px_40px_rgba(196,114,68,0.22)] hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(196,114,68,0.24)]",
+          "border-accent bg-surface-elevated/95 shadow-[0_12px_36px_rgba(196,114,68,0.16)] dark:border-accent dark:shadow-[0_14px_40px_rgba(196,114,68,0.22)] hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(196,114,68,0.24)]",
           variant === "ghost" && "border-transparent bg-transparent shadow-none",
           // Padding options
           padding === "none" && "p-0",
@@ -57,9 +55,7 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>(
 );
 Card.displayName = "Card";
 
-/* -------------------------------------------------------------------------- */
-/*                                CARD ATOMS                                  */
-/* -------------------------------------------------------------------------- */
+
 
 export function CardHeader({
   className,
@@ -182,9 +178,7 @@ export function CardChecklist({
   );
 }
 
-/* -------------------------------------------------------------------------- */
-/*                            SPECIALIZED CARDS                               */
-/* -------------------------------------------------------------------------- */
+
 
 // ServiceCard: icon box, number, title, description, and link
 export interface ServiceCardProps {

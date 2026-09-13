@@ -130,11 +130,7 @@ export function LaptopBrowserVisual({ className = "", isHovered = false }: Visua
           transition={effectiveHovered ? { duration: 0.45, ease: [0.22, 1, 0.36, 1] } : { duration: 6, repeat: Infinity, ease: "easeInOut" }}
           style={{ transformOrigin: "380px 250px" }}
         >
-          {/* ======================================================== */}
-          {/* DISPLAY LID                                              */}
-          {/* ======================================================== */}
-
-          {/* Outer aluminum display casing with top rounded corners */}
+          
           <path
             d="M168 70 C170 59 179 52 191 52 H569 C581 52 590 59 592 70 L620 344 H140 L168 70Z"
             fill="url(#lpBezel)"
@@ -142,7 +138,6 @@ export function LaptopBrowserVisual({ className = "", isHovered = false }: Visua
             strokeWidth="2.5"
           />
 
-          {/* Display glass reflection highlight along top edge */}
           <path
             d="M191 58H569C576 58 582 63 583 70L611 336H149L177 70C178 63 184 58 191 58Z"
             stroke="#FFFFFF"
@@ -164,9 +159,6 @@ export function LaptopBrowserVisual({ className = "", isHovered = false }: Visua
             fill="url(#lpScreenSurface)"
           />
 
-          {/* ======================================================== */}
-          {/* SCREEN UI — SYNTAXLAB DIGITAL PLATFORM                  */}
-          {/* ======================================================== */}
           <g clipPath="url(#lpScreenClip)">
             {/* Top Browser Bar */}
             <rect x="174" y="92" width="412" height="32" fill="#0E1015" />
@@ -350,9 +342,7 @@ export function LaptopBrowserVisual({ className = "", isHovered = false }: Visua
           {/* Screen bottom hinge & bevel */}
           <path d="M140 344H620L634 362H126L140 344Z" fill="#14161A" />
 
-          {/* ======================================================== */}
-          {/* LAPTOP CHASSIS BASE & KEYBOARD DECK                     */}
-          {/* ======================================================== */}
+        
 
           {/* Main unibody bottom deck */}
           <path

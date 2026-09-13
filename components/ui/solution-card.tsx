@@ -97,7 +97,7 @@ export function SolutionCard({
             : "border-border/80 bg-surface/85 hover:border-accent/60 hover:bg-surface-elevated/95 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(196,114,68,0.12)] shadow-[0_2px_10px_rgba(0,0,0,0.03)]"
         )}
       >
-        {/* 3. Pointer-Tracking Radial Spotlight (Follows mouse smoothly) */}
+      
         <motion.div
           className="pointer-events-none absolute -inset-px z-0 rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
           style={{
@@ -132,7 +132,7 @@ export function SolutionCard({
           }}
         />
 
-        {/* 5. Card Content Wrapper */}
+        
         <div className="relative z-10 flex h-full flex-col justify-between pointer-events-none">
           {children}
         </div>
