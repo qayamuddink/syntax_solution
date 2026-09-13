@@ -16,15 +16,7 @@ export interface SolutionCardProps {
   ariaLabel?: string;
 }
 
-/**
- * SolutionCard
- * Implements a refined Aceternity-inspired card hover interaction tailored for SyntaxLab:
- * - Pointer-following radial spotlight illumination
- * - Pointer-following border highlight
- * - Shared spring backdrop when moving across cards (layoutId="solutionCardHover")
- * - Subtle content elevation with zero layout shift
- * - Touch-safe execution (no stuck hover on mobile/tablet)
- */
+// SolutionCard with pointer-tracking spotlight and hover backdrop
 export function SolutionCard({
   index,
   activeIndex,

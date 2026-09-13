@@ -8,12 +8,7 @@ interface VisualProps {
   isHovered?: boolean;
 }
 
-/**
- * 01: Masterfully Engineered Laptop & Browser Interface Visual (Business Websites)
- * Features a high-resolution isometric laptop chassis, dark web application canvas,
- * realistic keyboard recess, live SSL & telemetry beacons,
- * specular reflection beam, and dynamic ambient depth glow.
- */
+// 01: Laptop & Browser Interface Visual
 export function LaptopBrowserVisual({ className = "", isHovered = false }: VisualProps) {
   const shouldReduceMotion = useReducedMotion();
   const effectiveHovered = shouldReduceMotion ? false : isHovered;
@@ -511,11 +506,7 @@ export function LaptopBrowserVisual({ className = "", isHovered = false }: Visua
 
 export const LaptopPerspectiveVisual = LaptopBrowserVisual;
 
-/**
- * 02: E-Commerce Product Cube Visual (High-Conversion Stores)
- * Features an isometric multi-facet product cube, floating commerce cart badge,
- * ground shadow micro-breathing, live pulsing data beacon, and connection guide.
- */
+// 02: E-Commerce Product Cube Visual
 export function CommerceCheckoutVisual({ className = "", isHovered = false }: VisualProps) {
   const shouldReduceMotion = useReducedMotion();
   const effectiveHovered = shouldReduceMotion ? false : isHovered;
@@ -723,11 +714,7 @@ export function CommerceCheckoutVisual({ className = "", isHovered = false }: Vi
 
 export const CommercePerspectiveVisual = CommerceCheckoutVisual;
 
-/**
- * 03: Business Tools Dashboard Visual (Internal Portals & Tools)
- * Features an engineered monitor workstation, browser chrome, animated ascending chart bars,
- * self-drawing trendline, pulsing sync node, and floating metric badge.
- */
+// 03: Business Tools Dashboard Visual
 export function DashboardAnalyticsVisual({ className = "", isHovered = false }: VisualProps) {
   const shouldReduceMotion = useReducedMotion();
   const effectiveHovered = shouldReduceMotion ? false : isHovered;
@@ -931,11 +918,7 @@ export function DashboardAnalyticsVisual({ className = "", isHovered = false }: 
 
 export const DashboardPerspectiveVisual = DashboardAnalyticsVisual;
 
-/**
- * 04: High-Conversion Campaign Pages Visual (Campaigns)
- * Features an engineered conversion area chart, sequential entrance data points,
- * self-drawing conversion apex, pulsing end beacon, and floating +42.8% metric badge.
- */
+// 04: Campaign Conversion Visual
 export function CampaignConversionVisual({ className = "", isHovered = false }: VisualProps) {
   const shouldReduceMotion = useReducedMotion();
   const effectiveHovered = shouldReduceMotion ? false : isHovered;
@@ -1171,11 +1154,7 @@ export function CampaignConversionVisual({ className = "", isHovered = false }: 
   );
 }
 
-/**
- * 05: Modern Stack Tiered Architecture Visual (Modernization & Clean Refactor)
- * Features 3 stacked architecture layers (Legacy -> Refactor -> Modern) that separate 2-4px independently on hover,
- * migration arrow indicator, and pulsing green/orange system nodes.
- */
+// 05: Modern Stack Tiered Architecture Visual
 export function ModernizationLayersVisual({ className = "", isHovered = false }: VisualProps) {
   const shouldReduceMotion = useReducedMotion();
   const effectiveHovered = shouldReduceMotion ? false : isHovered;
@@ -1379,11 +1358,7 @@ export function ModernizationLayersVisual({ className = "", isHovered = false }:
   );
 }
 
-/**
- * 06: Continuous Support & 99.9% Uptime SLA Visual (Support & Reliability)
- * Features an engineered dark shield chassis, inner border, circuit nodes,
- * animated reliability heartbeat waveform, center status beacon, and floating SLA badge.
- */
+// 06: Support & Uptime SLA Visual
 export function SupportShieldVisual({ className = "", isHovered = false }: VisualProps) {
   const shouldReduceMotion = useReducedMotion();
   const effectiveHovered = shouldReduceMotion ? false : isHovered;

@@ -186,10 +186,7 @@ export function CardChecklist({
 /*                            SPECIALIZED CARDS                               */
 /* -------------------------------------------------------------------------- */
 
-/**
- * ServiceCard: Matches the "Service Card (Light & Dark)" from the Pass 11 specification.
- * Features icon box, number, title, description, and "Learn More →" link.
- */
+// ServiceCard: icon box, number, title, description, and link
 export interface ServiceCardProps {
   number: string;
   category?: string;
@@ -273,10 +270,7 @@ export function ServiceCard({
   );
 }
 
-/**
- * FeatureCard: Matches the "Feature Card (Light & Dark)" from Pass 11 specification.
- * Features top illustrative/icon element, title, description, and copper checkmark list.
- */
+// FeatureCard: icon, title, description, and checkmark list
 export interface FeatureCardProps {
   icon?: React.ReactNode;
   title: string;
@@ -309,10 +303,7 @@ export function FeatureCard({
   );
 }
 
-/**
- * TestimonialCard: Matches the "Testimonial Card (Light & Dark)" from Pass 11 specification.
- * Features copper quote mark, quote text, author initials avatar, name, and role.
- */
+// TestimonialCard: quote, author avatar, name, and role
 export interface TestimonialCardProps {
   quote: string;
   author: string;

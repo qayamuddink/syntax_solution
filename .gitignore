@@ -38,4 +38,11 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
+*.d.ts
+**/*.d.ts
+*.d
+
+# markdown files
+*.md
+!README.md
+

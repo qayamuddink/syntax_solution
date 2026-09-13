@@ -15,12 +15,7 @@ export function AuroraAtmosphere({ className }: AuroraAtmosphereProps) {
         className
       )}
     >
-      {/* 
-        Aurora 2.0: Multi-Layered Cinematic Atmospheric Glow
-        3 asynchronous, ultra-slow floating gradient fields.
-        Light Theme: Warm ivory, delicate sand, and soft copper radiant wash.
-        Dark Theme: Deep near-black with rich copper and warm amber illumination.
-      */}
+      {/* Atmospheric ambient glow layers */}
       {/* Layer 1: Primary diagonal sweep */}
       <div className="aurora-layer-primary absolute -inset-[20%] h-[140%] w-[140%] opacity-60 dark:opacity-75 sm:opacity-75 dark:sm:opacity-85 blur-[70px] sm:blur-[100px] lg:blur-[130px]" />
 
